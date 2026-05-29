@@ -112,10 +112,15 @@ h3 {
 }
 
 .site-nav a.active,
-.nav-dropdown button.active,
-.site-nav a:hover,
-.nav-dropdown button:hover {
+.nav-dropdown button.active {
   color: $gold-m;
+}
+
+.site-nav a:hover,
+.site-nav a:focus-visible,
+.nav-dropdown button:hover,
+.nav-dropdown button:focus-visible {
+  color: $blue-hover;
 }
 
 .nav-donate {
@@ -464,21 +469,6 @@ h3 {
 
 .page-hero img[src$="hands-together.webp"] {
   object-position: center 24%;
-}
-
-.page-hero-card {
-  max-width: 54rem;
-  margin: -3rem auto 0;
-  position: relative;
-  padding: 2rem;
-  background: $white;
-  border-radius: 8px;
-  box-shadow: 0 20px 50px rgba($navy-d, 0.08);
-}
-
-.page-hero-card h1 {
-  color: $gold-m;
-  font-size: 3.5rem;
 }
 
 .page-body {
