@@ -1,11 +1,7 @@
 ---
-const { title, intro = "", image = "/images/hands-together.webp" } = Astro.props;
+const { image = "/images/hands-together.webp" } = Astro.props;
 ---
 
 <section class="page-hero">
   <img src={image} alt="" />
-  <div class="page-hero-card">
-    <h1>{title}</h1>
-    {intro && <p>{intro}</p>}
-  </div>
 </section>
