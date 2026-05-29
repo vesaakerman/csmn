@@ -19,7 +19,12 @@ const t = getUi(lang);
 const Content = await loadMarkdown(lang, page);
 const catalogItems = page === "resources" ? await getCatalogItems(lang) : [];
 const pageTitle = t.pages[page] || t.siteName;
-const heroImage = page === "about" || page === "events" || page === "fellowship" ? "/images/hero-group.jpg" : "/images/study.jpg";
+const pageHeroImages = {
+  events: "/images/group.webp",
+  fellowship: "/images/group-of-three.webp",
+  resources: "/images/team.webp",
+};
+const heroImage = pageHeroImages[page] || "/images/hands-together.webp";
 ---
 
 <BaseLayout lang={lang} pageTitle={pageTitle} page={page}>

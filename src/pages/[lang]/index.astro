@@ -15,6 +15,7 @@ export async function getStaticPaths() {
 const lang = Astro.params.lang;
 const t = getUi(lang);
 const featuredItems = (await getCatalogItems(lang)).filter((item) => item.featured).slice(0, 3);
+const supportingImage = "/images/hands-together.webp";
 ---
 
 <BaseLayout lang={lang} pageTitle={t.pages.home} page="home">
@@ -26,21 +27,21 @@ const featuredItems = (await getCatalogItems(lang)).filter((item) => item.featur
       <p>{t.home.introText}</p>
       <div class="event-list compact-list">
         <a href={`/${lang}/discover-life`}>
-          <img src="/images/study.jpg" alt="" />
+          <img src={supportingImage} alt="" />
           <span>
             <strong>Discover Life</strong>
             <small>29 May 2026 18:00</small>
           </span>
         </a>
         <a href={`/${lang}/discover-life`}>
-          <img src="/images/study.jpg" alt="" />
+          <img src={supportingImage} alt="" />
           <span>
             <strong>Discover Life</strong>
             <small>05 June 2026 18:00</small>
           </span>
         </a>
         <a href={`/${lang}/discover-life`}>
-          <img src="/images/study.jpg" alt="" />
+          <img src={supportingImage} alt="" />
           <span>
             <strong>Discover Life</strong>
             <small>12 June 2026 18:00</small>
@@ -61,7 +62,7 @@ const featuredItems = (await getCatalogItems(lang)).filter((item) => item.featur
       <p>{t.home.discoverText}</p>
       <a class="btn-main btn-gold" href={`/${lang}/discover-life`}>{t.home.readMore}</a>
     </div>
-    <img src="/images/fellowship.jpg" alt="" />
+    <img src={supportingImage} alt="" />
   </section>
 
   {featuredItems.length > 0 && (

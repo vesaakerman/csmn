@@ -20,7 +20,7 @@ const t = getUi(lang);
   <article class="detail-page container">
     <a class="back-link" href={`/${lang}/songs`}>{t.media.backToSongs}</a>
     <h1>{item.title}</h1>
-    {item.videoUrl ? <VideoEmbed url={item.videoUrl} title={item.title} /> : <img class="detail-image" src="/images/study.jpg" alt="" />}
+    {item.videoUrl ? <VideoEmbed url={item.videoUrl} title={item.title} /> : <img class="detail-image" src="/images/hands-together.webp" alt="" />}
     <div class="detail-grid">
       <div>
         {item.description && <p class="detail-lead">{item.description}</p>}

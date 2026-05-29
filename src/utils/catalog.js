@@ -43,7 +43,7 @@ export function normalizeCatalogItem(item, lang) {
     href: `/${lang}/${kind === "song" ? "songs" : "videos"}/${slug}`,
     externalUrl: kind === "song" ? item.streamingUrl || item.videoUrl : item.videoUrl,
     videoUrl: item.videoUrl || "",
-    thumbnailUrl: item.thumbnailUrl || getVideoThumbnail(item.videoUrl) || "/images/study.jpg",
+    thumbnailUrl: item.thumbnailUrl || getVideoThumbnail(item.videoUrl) || "/images/hands-together.webp",
     provider: item.provider || inferProvider(item.videoUrl || item.streamingUrl || ""),
     artist: item.artist || item.speaker || "",
     category: item.category || "",

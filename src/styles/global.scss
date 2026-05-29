@@ -236,7 +236,7 @@ h3 {
 .hero-image {
   background:
     linear-gradient(90deg, rgba($white, 0.08), rgba($white, 0)),
-    url("/images/study.jpg") center / cover no-repeat;
+    url("/images/jogger.webp") center / cover no-repeat;
   clip-path: ellipse(85% 70% at 82% 50%);
 }
 
@@ -309,6 +309,13 @@ h3 {
   height: 3rem;
   object-fit: cover;
   border-radius: 6px;
+}
+
+.compact-list img[src$="hands-together.webp"],
+.home-discover img[src$="hands-together.webp"],
+.media-thumb img[src$="hands-together.webp"],
+.detail-image[src$="hands-together.webp"] {
+  object-position: center 24%;
 }
 
 .compact-list strong {
@@ -449,6 +456,14 @@ h3 {
   width: 100%;
   height: 18rem;
   object-fit: cover;
+}
+
+.page-hero img[src$="group-of-three.webp"] {
+  object-position: center 28%;
+}
+
+.page-hero img[src$="hands-together.webp"] {
+  object-position: center 24%;
 }
 
 .page-hero-card {
