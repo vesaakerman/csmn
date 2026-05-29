@@ -25,7 +25,7 @@ const items = await getCatalogItems(lang, "video");
   </section>
   <section class="catalog-section">
     <div class="container">
-      <CatalogBrowser items={items} labels={t.media} initialKind="video" client:load />
+      <CatalogBrowser items={items} labels={t.media} client:load />
     </div>
   </section>
 </BaseLayout>

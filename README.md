@@ -10,7 +10,7 @@ Astro + Sanity website for Chinese Student Ministry Netherlands.
 - No Tailwind
 - Static page copy in `src/text-long/{en,zh,nl}`
 - Short UI labels in `src/text/ui.js`
-- Sanity content types only for videos and songs
+- Sanity content type only for videos
 
 ## Setup
 
@@ -55,10 +55,10 @@ That starts Sanity Studio at `http://127.0.0.1:3333/`. Add `http://127.0.0.1:333
 
 ## Editor workflow
 
-Trusted editors log in to Sanity Studio, then add videos or songs. The Studio includes "My videos" and "My songs" views based on the `submittedBy` metadata that is set when a document is created.
+Trusted editors log in to Sanity Studio, then add videos. Music videos and song links are handled as videos. The Studio includes a "My videos" view based on the `submittedBy` metadata that is set when a document is created.
 
 This is an editor-friendly view, not a substitute for enterprise document-level security. For trusted editors it keeps the workflow simple. If many less-trusted members later need uploads, add a separate submission flow with moderation.
 
 ## Search
 
-`npm run index` builds `public/search-index.json` from Markdown pages and Sanity video/song metadata. The build script uses Sanity when environment variables are present and falls back to sample content otherwise.
+`npm run index` builds `public/search-index.json` from Markdown pages and Sanity video metadata. The build script uses Sanity when environment variables are present and falls back to sample content otherwise.

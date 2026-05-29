@@ -62,6 +62,5 @@ export default function SearchResults({ labels }) {
 
 function kindLabel(kind, labels) {
   if (kind === "video") return labels.videoType;
-  if (kind === "song") return labels.songType;
   return labels.pageType;
 }

@@ -58,7 +58,7 @@ export const video = defineType({
     }),
     defineField({
       name: "speaker",
-      title: "Speaker / contributor",
+      title: "Contributor / artist / speaker",
       type: "string",
     }),
     defineField({

@@ -92,27 +92,24 @@ function buildCatalogEntries(rawItems) {
 
   for (const lang of languages) {
     for (const item of rawItems) {
-      if (!["video", "song"].includes(item._type)) continue;
+      if (item._type !== "video") continue;
 
       const slug = normalizeSlug(item.slug);
       if (!slug) continue;
 
       const title = localized(item.title, lang);
       const description = localized(item.description, lang);
-      const href = `/${lang}/${item._type === "song" ? "songs" : "videos"}/${slug}`;
+      const href = `/${lang}/videos/${slug}`;
       const tags = [
         item.category,
-        item.artist,
         item.speaker,
         ...(item.tags || []),
         ...(item.themes || []),
         ...(item.languages || []),
-        ...(item.audioLanguages || []),
-        ...(item.lyricsLanguages || []),
       ].filter(Boolean);
 
       entries.push({
-        kind: item._type,
+        kind: "video",
         lang,
         href,
         title,
@@ -120,10 +117,8 @@ function buildCatalogEntries(rawItems) {
         content: [
           title,
           description,
-          item.artist,
           item.speaker,
           item.category,
-          item.lyricsText,
           item.searchTerms,
           tags.join(" "),
         ]

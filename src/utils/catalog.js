@@ -2,7 +2,7 @@ import { sampleCatalog } from "../data/sampleCatalog";
 import { catalogQuery } from "../sanity/queries";
 import { hasSanityConfig, sanityClient } from "./sanity";
 
-export const catalogKinds = ["video", "song"];
+export const catalogKinds = ["video"];
 
 export function localized(value, lang) {
   if (!value) return "";
@@ -28,11 +28,10 @@ export function labelForLanguage(code) {
 }
 
 export function normalizeCatalogItem(item, lang) {
-  const kind = item._type === "song" ? "song" : "video";
+  const kind = "video";
   const title = localized(item.title, lang);
   const description = localized(item.description, lang);
   const slug = normalizeSlug(item.slug);
-  const languageList = kind === "song" ? item.audioLanguages || [] : item.languages || [];
 
   return {
     id: item._id,
@@ -40,21 +39,16 @@ export function normalizeCatalogItem(item, lang) {
     title,
     description,
     slug,
-    href: `/${lang}/${kind === "song" ? "songs" : "videos"}/${slug}`,
-    externalUrl: kind === "song" ? item.streamingUrl || item.videoUrl : item.videoUrl,
+    href: `/${lang}/videos/${slug}`,
+    externalUrl: item.videoUrl,
     videoUrl: item.videoUrl || "",
     thumbnailUrl: item.thumbnailUrl || getVideoThumbnail(item.videoUrl) || "/images/hands-together.webp",
-    provider: item.provider || inferProvider(item.videoUrl || item.streamingUrl || ""),
+    provider: item.provider || inferProvider(item.videoUrl || ""),
     artist: item.artist || item.speaker || "",
     category: item.category || "",
     tags: item.tags || [],
     themes: item.themes || [],
-    languages: languageList,
-    lyricsInVideo: Boolean(item.lyricsInVideo),
-    lyricsLanguages: item.lyricsLanguages || [],
-    audioLanguages: item.audioLanguages || [],
-    lyricsText: item.lyricsText || "",
-    lyricsUrl: item.lyricsUrl || "",
+    languages: item.languages || [],
     publishedAt: item.publishedAt || item._createdAt || "",
     featured: Boolean(item.featured),
     submittedBy: item.submittedBy?.name || "",
@@ -67,9 +61,6 @@ export function normalizeCatalogItem(item, lang) {
       ...(item.tags || []),
       ...(item.themes || []),
       ...(item.languages || []),
-      ...(item.audioLanguages || []),
-      ...(item.lyricsLanguages || []),
-      item.lyricsText,
       item.searchTerms,
     ]
       .filter(Boolean)

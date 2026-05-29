@@ -36,7 +36,7 @@ const heroImage = pageHeroImages[page] || "/images/hands-together.webp";
   {page === "resources" && (
     <section class="catalog-section">
       <div class="container">
-        <CatalogBrowser items={catalogItems} labels={t.media} initialKind="all" client:load />
+        <CatalogBrowser items={catalogItems} labels={t.media} client:load />
       </div>
     </section>
   )}

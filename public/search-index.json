@@ -58,9 +58,9 @@
     "kind": "page",
     "lang": "en",
     "href": "/en/resources",
-    "title": "Resources, songs and videos",
-    "description": "Resources, songs and videos Use this page to find CSMN media. Songs and videos are added through Sanity by trusted editors, so the catalog can grow without changing the Astro pages. Search by title, artist, language, top",
-    "content": "Resources, songs and videos Use this page to find CSMN media. Songs and videos are added through Sanity by trusted editors, so the catalog can grow without changing the Astro pages. Search by title, artist, language, topic, tag, lyrics, or extra metadata. The same metadata makes it easier to build more advanced filtering later.",
+    "title": "Resources and videos",
+    "description": "Resources and videos Use this page to find CSMN media. Videos, including music videos and songs, are added through Sanity by trusted editors, so the catalog can grow without changing the Astro pages. Search by title, con",
+    "content": "Resources and videos Use this page to find CSMN media. Videos, including music videos and songs, are added through Sanity by trusted editors, so the catalog can grow without changing the Astro pages. Search by title, contributor, language, topic, tag, or extra metadata. The same metadata makes it easier to build more advanced filtering later.",
     "tags": [
       "resources"
     ]
@@ -124,9 +124,9 @@
     "kind": "page",
     "lang": "zh",
     "href": "/zh/resources",
-    "title": "资源、诗歌与视频",
-    "description": "资源、诗歌与视频 这个页面用于查找 CSMN 媒体内容。诗歌和视频由可信任的编辑通过 Sanity 添加，所以目录可以持续增长，而不需要改动 Astro 页面。 你可以按标题、作者、语言、主题、标签、歌词或额外关键词来搜索。良好的元数据也让以后添加更复杂的筛选更容易。",
-    "content": "资源、诗歌与视频 这个页面用于查找 CSMN 媒体内容。诗歌和视频由可信任的编辑通过 Sanity 添加，所以目录可以持续增长，而不需要改动 Astro 页面。 你可以按标题、作者、语言、主题、标签、歌词或额外关键词来搜索。良好的元数据也让以后添加更复杂的筛选更容易。",
+    "title": "资源与视频",
+    "description": "资源与视频 这个页面用于查找 CSMN 媒体内容。视频，包括音乐视频和诗歌视频，由可信任的编辑通过 Sanity 添加，所以目录可以持续增长，而不需要改动 Astro 页面。 你可以按标题、贡献者、语言、主题、标签或额外关键词来搜索。良好的元数据也让以后添加更复杂的筛选更容易。",
+    "content": "资源与视频 这个页面用于查找 CSMN 媒体内容。视频，包括音乐视频和诗歌视频，由可信任的编辑通过 Sanity 添加，所以目录可以持续增长，而不需要改动 Astro 页面。 你可以按标题、贡献者、语言、主题、标签或额外关键词来搜索。良好的元数据也让以后添加更复杂的筛选更容易。",
     "tags": [
       "resources"
     ]
@@ -190,9 +190,9 @@
     "kind": "page",
     "lang": "nl",
     "href": "/nl/resources",
-    "title": "Resources, liederen en video's",
-    "description": "Resources, liederen en video's Gebruik deze pagina om CSMN media te vinden. Liederen en video's worden via Sanity toegevoegd door vertrouwde editors, zodat de catalogus kan groeien zonder de Astro pagina's aan te passen.",
-    "content": "Resources, liederen en video's Gebruik deze pagina om CSMN media te vinden. Liederen en video's worden via Sanity toegevoegd door vertrouwde editors, zodat de catalogus kan groeien zonder de Astro pagina's aan te passen. Je kunt zoeken op titel, artiest, taal, onderwerp, tag, lyrics of extra metadata. Diezelfde metadata maakt later uitgebreidere filters mogelijk.",
+    "title": "Resources en video's",
+    "description": "Resources en video's Gebruik deze pagina om CSMN media te vinden. Video's, inclusief muziekvideo's en liederen, worden via Sanity toegevoegd door vertrouwde editors, zodat de catalogus kan groeien zonder de Astro pagina'",
+    "content": "Resources en video's Gebruik deze pagina om CSMN media te vinden. Video's, inclusief muziekvideo's en liederen, worden via Sanity toegevoegd door vertrouwde editors, zodat de catalogus kan groeien zonder de Astro pagina's aan te passen. Je kunt zoeken op titel, bijdrager, taal, onderwerp, tag of extra metadata. Diezelfde metadata maakt later uitgebreidere filters mogelijk.",
     "tags": [
       "resources"
     ]
@@ -231,37 +231,34 @@
     ]
   },
   {
-    "kind": "song",
+    "kind": "video",
     "lang": "en",
-    "href": "/en/songs/amazing-grace",
+    "href": "/en/videos/amazing-grace",
     "title": "Amazing Grace",
     "description": "A familiar worship song with English audio and lyrics in the video.",
-    "content": "Amazing Grace A familiar worship song with English audio and lyrics in the video. CSMN Worship Worship grace worship hymn English audio lyrics Worship CSMN Worship grace worship classic en en",
+    "content": "Amazing Grace A familiar worship song with English audio and lyrics in the video. CSMN Worship Music grace worship hymn English audio lyrics Music CSMN Worship grace worship classic en",
     "tags": [
-      "Worship",
+      "Music",
       "CSMN Worship",
       "grace",
       "worship",
       "classic",
-      "en",
       "en"
     ]
   },
   {
-    "kind": "song",
+    "kind": "video",
     "lang": "en",
-    "href": "/en/songs/peace-song",
+    "href": "/en/videos/peace-song",
     "title": "Peace Song",
     "description": "A reflective song with Chinese and English audio options.",
-    "content": "Peace Song A reflective song with Chinese and English audio options. Light Worship Band Worship peace worship Chinese English audio lyrics Worship Light Worship Band peace worship Chinese zh en zh en",
+    "content": "Peace Song A reflective song with Chinese and English audio options. Light Worship Band Music peace worship Chinese English audio lyrics Music Light Worship Band peace worship Chinese zh en",
     "tags": [
-      "Worship",
+      "Music",
       "Light Worship Band",
       "peace",
       "worship",
       "Chinese",
-      "zh",
-      "en",
       "zh",
       "en"
     ]
@@ -300,37 +297,34 @@
     ]
   },
   {
-    "kind": "song",
+    "kind": "video",
     "lang": "zh",
-    "href": "/zh/songs/amazing-grace",
+    "href": "/zh/videos/amazing-grace",
     "title": "奇异恩典",
     "description": "一首熟悉的敬拜诗歌，视频中包含歌词。",
-    "content": "奇异恩典 一首熟悉的敬拜诗歌，视频中包含歌词。 CSMN Worship Worship grace worship hymn English audio lyrics Worship CSMN Worship grace worship classic en en",
+    "content": "奇异恩典 一首熟悉的敬拜诗歌，视频中包含歌词。 CSMN Worship Music grace worship hymn English audio lyrics Music CSMN Worship grace worship classic en",
     "tags": [
-      "Worship",
+      "Music",
       "CSMN Worship",
       "grace",
       "worship",
       "classic",
-      "en",
       "en"
     ]
   },
   {
-    "kind": "song",
+    "kind": "video",
     "lang": "zh",
-    "href": "/zh/songs/peace-song",
+    "href": "/zh/videos/peace-song",
     "title": "平安之歌",
     "description": "一首安静默想的诗歌，有中文和英文音频。",
-    "content": "平安之歌 一首安静默想的诗歌，有中文和英文音频。 Light Worship Band Worship peace worship Chinese English audio lyrics Worship Light Worship Band peace worship Chinese zh en zh en",
+    "content": "平安之歌 一首安静默想的诗歌，有中文和英文音频。 Light Worship Band Music peace worship Chinese English audio lyrics Music Light Worship Band peace worship Chinese zh en",
     "tags": [
-      "Worship",
+      "Music",
       "Light Worship Band",
       "peace",
       "worship",
       "Chinese",
-      "zh",
-      "en",
       "zh",
       "en"
     ]
@@ -369,37 +363,34 @@
     ]
   },
   {
-    "kind": "song",
+    "kind": "video",
     "lang": "nl",
-    "href": "/nl/songs/amazing-grace",
+    "href": "/nl/videos/amazing-grace",
     "title": "Amazing Grace",
     "description": "Een bekend aanbiddingslied met Engelse audio en lyrics in de video.",
-    "content": "Amazing Grace Een bekend aanbiddingslied met Engelse audio en lyrics in de video. CSMN Worship Worship grace worship hymn English audio lyrics Worship CSMN Worship grace worship classic en en",
+    "content": "Amazing Grace Een bekend aanbiddingslied met Engelse audio en lyrics in de video. CSMN Worship Music grace worship hymn English audio lyrics Music CSMN Worship grace worship classic en",
     "tags": [
-      "Worship",
+      "Music",
       "CSMN Worship",
       "grace",
       "worship",
       "classic",
-      "en",
       "en"
     ]
   },
   {
-    "kind": "song",
+    "kind": "video",
     "lang": "nl",
-    "href": "/nl/songs/peace-song",
+    "href": "/nl/videos/peace-song",
     "title": "Lied van vrede",
     "description": "Een rustig lied met Chinese en Engelse audio-opties.",
-    "content": "Lied van vrede Een rustig lied met Chinese en Engelse audio-opties. Light Worship Band Worship peace worship Chinese English audio lyrics Worship Light Worship Band peace worship Chinese zh en zh en",
+    "content": "Lied van vrede Een rustig lied met Chinese en Engelse audio-opties. Light Worship Band Music peace worship Chinese English audio lyrics Music Light Worship Band peace worship Chinese zh en",
     "tags": [
-      "Worship",
+      "Music",
       "Light Worship Band",
       "peace",
       "worship",
       "Chinese",
-      "zh",
-      "en",
       "zh",
       "en"
     ]

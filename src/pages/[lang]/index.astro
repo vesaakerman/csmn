@@ -71,7 +71,7 @@ const supportingImage = "/images/hands-together.webp";
       <div class="mini-media-grid">
         {featuredItems.map((item) => (
           <a href={item.href}>
-            <span>{item.kind === "song" ? t.media.songType : t.media.videoType}</span>
+            <span>{t.media.videoType}</span>
             <strong>{item.title}</strong>
             <small>{item.artist || item.category}</small>
           </a>

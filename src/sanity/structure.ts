@@ -15,17 +15,7 @@ export const structure: StructureResolver = (S, context) => {
             .filter('_type == "video" && submittedBy.userId == $userId')
             .params({ userId }),
         ),
-      S.listItem()
-        .title("My songs")
-        .schemaType("song")
-        .child(
-          S.documentTypeList("song")
-            .title("My songs")
-            .filter('_type == "song" && submittedBy.userId == $userId')
-            .params({ userId }),
-        ),
       S.divider(),
       S.documentTypeListItem("video").title("All videos"),
-      S.documentTypeListItem("song").title("All songs"),
     ]);
 };

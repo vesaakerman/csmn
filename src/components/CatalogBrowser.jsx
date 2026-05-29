@@ -8,9 +8,8 @@ const languageLabel = {
   other: "Other",
 };
 
-export default function CatalogBrowser({ items, labels, initialKind = "all" }) {
+export default function CatalogBrowser({ items, labels }) {
   const [query, setQuery] = useState("");
-  const [kind, setKind] = useState(initialKind);
   const [language, setLanguage] = useState("all");
 
   const fuse = useMemo(
@@ -33,15 +32,10 @@ export default function CatalogBrowser({ items, labels, initialKind = "all" }) {
     const base = query.trim() ? fuse.search(query.trim()).map((result) => result.item) : items;
 
     return base.filter((item) => {
-      const typeMatches = kind === "all" || item.kind === kind;
       const languageMatches = language === "all" || item.languages?.includes(language);
-      return typeMatches && languageMatches;
+      return languageMatches;
     });
-  }, [fuse, items, kind, language, query]);
-
-  const videoItems = filtered.filter((item) => item.kind === "video");
-  const songItems = filtered.filter((item) => item.kind === "song");
-  const showTypeFilter = initialKind === "all";
+  }, [fuse, items, language, query]);
 
   return (
     <div className="catalog-browser">
@@ -52,14 +46,6 @@ export default function CatalogBrowser({ items, labels, initialKind = "all" }) {
           type="search"
           placeholder={labels.searchPlaceholder}
         />
-
-        {showTypeFilter && (
-          <select value={kind} onChange={(event) => setKind(event.target.value)} aria-label={labels.filterType}>
-            <option value="all">{labels.allTypes}</option>
-            <option value="video">{labels.videosOnly}</option>
-            <option value="song">{labels.songsOnly}</option>
-          </select>
-        )}
 
         <select value={language} onChange={(event) => setLanguage(event.target.value)} aria-label={labels.filterLanguage}>
           <option value="all">{labels.allLanguages}</option>
@@ -73,9 +59,9 @@ export default function CatalogBrowser({ items, labels, initialKind = "all" }) {
 
       {!filtered.length && <p className="empty-state">{labels.noResults}</p>}
 
-      {!!videoItems.length && (
+      {!!filtered.length && (
         <div className="video-grid">
-          {videoItems.map((item) => (
+          {filtered.map((item) => (
             <article className="media-card" key={item.id}>
               <a href={item.href} className="media-thumb">
                 <img src={item.thumbnailUrl} alt="" loading="lazy" />
@@ -94,48 +80,6 @@ export default function CatalogBrowser({ items, labels, initialKind = "all" }) {
               </div>
             </article>
           ))}
-        </div>
-      )}
-
-      {!!songItems.length && (
-        <div className="table-wrap">
-          <table className="catalog-table">
-            <thead>
-              <tr>
-                <th>{labels.songsOnly}</th>
-                <th>{labels.artist}</th>
-                <th>{labels.lyricsInVideo}</th>
-                <th>{labels.lyricsLanguage}</th>
-                <th>{labels.audio}</th>
-                <th>{labels.open}</th>
-              </tr>
-            </thead>
-            <tbody>
-              {songItems.map((item) => (
-                <tr key={item.id}>
-                  <td>
-                    <a className="table-title" href={item.href}>
-                      {item.title}
-                    </a>
-                    {item.description && <span>{item.description}</span>}
-                  </td>
-                  <td>{item.artist}</td>
-                  <td>{item.lyricsInVideo ? <span className="checkmark">✓</span> : <span className="muted">—</span>}</td>
-                  <td>
-                    <MetaPills values={item.lyricsLanguages} tone="gold" />
-                  </td>
-                  <td>
-                    <MetaPills values={item.audioLanguages} />
-                  </td>
-                  <td>
-                    <a className="btn-small btn-green" href={item.href}>
-                      {labels.stream}
-                    </a>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
         </div>
       )}
     </div>

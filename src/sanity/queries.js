@@ -1,5 +1,5 @@
 export const catalogQuery = `*[
-  _type in ["video", "song"] &&
+  _type == "video" &&
   defined(slug.current)
 ] | order(coalesce(publishedAt, _createdAt) desc) {
   _id,
@@ -13,13 +13,6 @@ export const catalogQuery = `*[
   provider,
   category,
   speaker,
-  artist,
-  streamingUrl,
-  lyricsUrl,
-  lyricsText,
-  lyricsInVideo,
-  lyricsLanguages,
-  audioLanguages,
   languages,
   tags,
   themes,
