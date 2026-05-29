@@ -1,0 +1,76 @@
+---
+import { languages } from "../text/ui";
+import { replaceLanguageInPath } from "../utils/langHelpers";
+
+const { lang, page, t, currentPath } = Astro.props;
+const nav = t.nav;
+const path = (slug = "") => `/${lang}/${slug}`.replace(/\/$/, "/");
+const active = (slug) => page === slug || currentPath.includes(`/${slug}`);
+---
+
+<header class="site-header">
+  <div class="container">
+    <div class="nav-shell">
+      <a class="brand-mark" href={path()} aria-label={t.siteName}>
+        <span>{t.siteName}</span>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-label={nav.menu} data-menu-toggle>
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="site-nav" data-site-nav>
+        <a class={active("home") ? "active" : ""} href={path()}>{nav.home}</a>
+        <a class={active("events") ? "active" : ""} href={path("events")}>{nav.events}</a>
+        <a class={active("fellowship") ? "active" : ""} href={path("fellowship")}>{nav.fellowship}</a>
+
+        <div class="nav-dropdown">
+          <button type="button" class={active("resources") || active("songs") || active("videos") ? "active" : ""}>
+            {nav.resources}
+          </button>
+          <div class="dropdown-menu-lite">
+            <a href={path("resources")}>{nav.resources}</a>
+            <a href={path("videos")}>{nav.videos}</a>
+            <a href={path("songs")}>{nav.songs}</a>
+          </div>
+        </div>
+
+        <div class="nav-dropdown">
+          <button type="button" class={active("about") ? "active" : ""}>
+            {nav.about}
+          </button>
+          <div class="dropdown-menu-lite">
+            <a href={path("about")}>{nav.about}</a>
+            <a href="/admin">{nav.login}</a>
+          </div>
+        </div>
+
+        <a class={active("donate") ? "active nav-donate" : "nav-donate"} href={path("donate")}>{nav.donate}</a>
+
+        <form class="header-search" method="get" action={path("search")}>
+          <label class="visually-hidden" for="header-search">{nav.search}</label>
+          <input id="header-search" type="search" name="s" placeholder={nav.search} />
+        </form>
+
+        <div class="language-switcher" aria-label={nav.language}>
+          {languages.map((item) => (
+            <a class={item.code === lang ? "active" : ""} href={replaceLanguageInPath(currentPath, item.code)}>
+              {item.short}
+            </a>
+          ))}
+        </div>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<script is:inline>
+  const toggle = document.querySelector("[data-menu-toggle]");
+  const nav = document.querySelector("[data-site-nav]");
+  toggle?.addEventListener("click", () => {
+    nav?.classList.toggle("open");
+    toggle?.classList.toggle("open");
+  });
+</script>

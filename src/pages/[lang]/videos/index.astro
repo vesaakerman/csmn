@@ -1,0 +1,31 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import CatalogBrowser from "../../../components/CatalogBrowser.jsx";
+import { getCatalogItems } from "../../../utils/catalog";
+import { getLangStaticPaths } from "../../../utils/langHelpers";
+import { getUi } from "../../../text/ui";
+
+export const prerender = true;
+
+export async function getStaticPaths() {
+  return getLangStaticPaths();
+}
+
+const lang = Astro.params.lang;
+const t = getUi(lang);
+const items = await getCatalogItems(lang, "video");
+---
+
+<BaseLayout lang={lang} pageTitle={t.pages.videos} page="videos">
+  <section class="catalog-hero">
+    <div class="container">
+      <h1>{t.media.videoCatalogTitle}</h1>
+      <p>{t.media.videoCatalogIntro}</p>
+    </div>
+  </section>
+  <section class="catalog-section">
+    <div class="container">
+      <CatalogBrowser items={items} labels={t.media} initialKind="video" client:load />
+    </div>
+  </section>
+</BaseLayout>

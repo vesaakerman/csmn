@@ -1,0 +1,26 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import SearchResults from "../../components/SearchResults.jsx";
+import { getLangStaticPaths } from "../../utils/langHelpers";
+import { getUi } from "../../text/ui";
+
+export const prerender = true;
+
+export async function getStaticPaths() {
+  return getLangStaticPaths();
+}
+
+const lang = Astro.params.lang;
+const t = getUi(lang);
+---
+
+<BaseLayout lang={lang} pageTitle={t.pages.search} page="search">
+  <section class="catalog-hero">
+    <div class="container">
+      <h1>{t.search.title}</h1>
+    </div>
+  </section>
+  <section class="container">
+    <SearchResults labels={t.search} client:load />
+  </section>
+</BaseLayout>

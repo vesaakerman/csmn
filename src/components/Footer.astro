@@ -1,0 +1,11 @@
+---
+const { lang, t } = Astro.props;
+---
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <a href={`/${lang}/about`}>{t.footer.contact}</a>
+    <a class="footer-logo" href={`/${lang}/`}>{t.siteName}</a>
+    <span>{t.footer.copyright}</span>
+  </div>
+</footer>

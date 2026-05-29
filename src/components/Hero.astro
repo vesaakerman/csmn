@@ -1,0 +1,13 @@
+---
+const { lang, t } = Astro.props;
+---
+
+<section class="home-hero">
+  <div class="hero-copy">
+    <p class="eyebrow">{t.siteLongName}</p>
+    <h1>{t.home.heroTitle}</h1>
+    <p>{t.home.heroText}</p>
+    <a class="btn-main" href={`/${lang}/events`}>{t.home.heroCta}</a>
+  </div>
+  <div class="hero-image" aria-hidden="true"></div>
+</section>

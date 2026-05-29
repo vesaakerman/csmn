@@ -1,0 +1,31 @@
+{
+  "name": "csmn",
+  "type": "module",
+  "version": "0.1.0",
+  "scripts": {
+    "dev": "npm run index && astro dev --host 127.0.0.1",
+    "build": "npm run index && astro build",
+    "preview": "astro preview",
+    "index": "node scripts/build-search-index.mjs",
+    "sanity:dev": "sanity dev --host 127.0.0.1 --port 3333",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/react": "^4.4.2",
+    "@sanity/astro": "^3.2.10",
+    "@sanity/client": "^7.14.1",
+    "@sanity/vision": "^3.88.0",
+    "astro": "^5.17.1",
+    "bootstrap": "^5.3.6",
+    "fuse.js": "^7.1.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "sanity": "^3.88.0",
+    "sass": "^1.89.0",
+    "styled-components": "^6.4.2"
+  },
+  "devDependencies": {
+    "@types/react": "^19.1.8",
+    "@types/react-dom": "^19.1.6"
+  }
+}

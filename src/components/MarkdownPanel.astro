@@ -1,0 +1,7 @@
+---
+const { Content, narrow = false } = Astro.props;
+---
+
+<section class:list={["content-panel", { "content-panel-narrow": narrow }]}>
+  <Content />
+</section>

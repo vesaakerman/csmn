@@ -1,0 +1,28 @@
+---
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { getUi } from "../text/ui";
+import "../styles/global.scss";
+
+const { lang, pageTitle, pageDescription = "", page = "" } = Astro.props;
+const t = getUi(lang);
+const title = pageTitle ? `${pageTitle} | ${t.siteName}` : t.siteName;
+---
+
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    {pageDescription && <meta name="description" content={pageDescription} />}
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <title>{title}</title>
+  </head>
+  <body>
+    <Header lang={lang} page={page} t={t} currentPath={Astro.url.pathname} />
+    <main>
+      <slot />
+    </main>
+    <Footer lang={lang} t={t} />
+  </body>
+</html>

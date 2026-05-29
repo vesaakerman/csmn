@@ -1,0 +1,18 @@
+---
+const { lang, t } = Astro.props;
+const cards = [
+  { key: "connect", href: `/${lang}/fellowship`, icon: "people" },
+  { key: "media", href: `/${lang}/resources`, icon: "media" },
+  { key: "resources", href: `/${lang}/resources`, icon: "tag" },
+];
+---
+
+<section class="feature-cards" aria-label={t.nav.resources}>
+  {cards.map((card) => (
+    <a class={`feature-card feature-card-${card.key}`} href={card.href}>
+      <span class={`feature-icon feature-icon-${card.icon}`} aria-hidden="true"></span>
+      <h2>{t.cards[card.key].title}</h2>
+      <p>{t.cards[card.key].text}</p>
+    </a>
+  ))}
+</section>

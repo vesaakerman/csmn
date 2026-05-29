@@ -1,0 +1,41 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import VideoEmbed from "../../../components/VideoEmbed.astro";
+import { getCatalogStaticPaths, labelForLanguage } from "../../../utils/catalog";
+import { formatDate } from "../../../utils/langHelpers";
+import { getUi, languages } from "../../../text/ui";
+
+export const prerender = true;
+
+export async function getStaticPaths() {
+  return getCatalogStaticPaths("song", languages);
+}
+
+const { item } = Astro.props;
+const lang = Astro.params.lang;
+const t = getUi(lang);
+---
+
+<BaseLayout lang={lang} pageTitle={item.title} page="songs">
+  <article class="detail-page container">
+    <a class="back-link" href={`/${lang}/songs`}>{t.media.backToSongs}</a>
+    <h1>{item.title}</h1>
+    {item.videoUrl ? <VideoEmbed url={item.videoUrl} title={item.title} /> : <img class="detail-image" src="/images/study.jpg" alt="" />}
+    <div class="detail-grid">
+      <div>
+        {item.description && <p class="detail-lead">{item.description}</p>}
+        {item.externalUrl && <a class="btn-main btn-green" href={item.externalUrl}>{t.media.stream}</a>}
+        {item.lyricsText && <pre class="lyrics-block">{item.lyricsText}</pre>}
+      </div>
+      <aside class="detail-meta">
+        {item.artist && <p><strong>{t.media.artist}</strong><span>{item.artist}</span></p>}
+        {item.category && <p><strong>{t.media.category}</strong><span>{item.category}</span></p>}
+        {item.audioLanguages.length > 0 && <p><strong>{t.media.audio}</strong><span>{item.audioLanguages.map(labelForLanguage).join(", ")}</span></p>}
+        {item.lyricsLanguages.length > 0 && <p><strong>{t.media.lyricsLanguage}</strong><span>{item.lyricsLanguages.map(labelForLanguage).join(", ")}</span></p>}
+        <p><strong>{t.media.lyricsInVideo}</strong><span>{item.lyricsInVideo ? t.media.yes : t.media.no}</span></p>
+        {item.submittedBy && <p><strong>{t.media.submittedBy}</strong><span>{item.submittedBy}</span></p>}
+        {item.publishedAt && <p><strong>{t.media.published}</strong><span>{formatDate(item.publishedAt, lang)}</span></p>}
+      </aside>
+    </div>
+  </article>
+</BaseLayout>

@@ -1,0 +1,81 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import FeatureCards from "../../components/FeatureCards.astro";
+import Hero from "../../components/Hero.astro";
+import { getCatalogItems } from "../../utils/catalog";
+import { getLangStaticPaths } from "../../utils/langHelpers";
+import { getUi } from "../../text/ui";
+
+export const prerender = true;
+
+export async function getStaticPaths() {
+  return getLangStaticPaths();
+}
+
+const lang = Astro.params.lang;
+const t = getUi(lang);
+const featuredItems = (await getCatalogItems(lang)).filter((item) => item.featured).slice(0, 3);
+---
+
+<BaseLayout lang={lang} pageTitle={t.pages.home} page="home">
+  <Hero lang={lang} t={t} />
+
+  <section class="home-section">
+    <div class="container home-intro">
+      <h2>{t.home.introTitle}</h2>
+      <p>{t.home.introText}</p>
+      <div class="event-list compact-list">
+        <a href={`/${lang}/discover-life`}>
+          <img src="/images/study.jpg" alt="" />
+          <span>
+            <strong>Discover Life</strong>
+            <small>29 May 2026 18:00</small>
+          </span>
+        </a>
+        <a href={`/${lang}/discover-life`}>
+          <img src="/images/study.jpg" alt="" />
+          <span>
+            <strong>Discover Life</strong>
+            <small>05 June 2026 18:00</small>
+          </span>
+        </a>
+        <a href={`/${lang}/discover-life`}>
+          <img src="/images/study.jpg" alt="" />
+          <span>
+            <strong>Discover Life</strong>
+            <small>12 June 2026 18:00</small>
+          </span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+    <FeatureCards lang={lang} t={t} />
+  </div>
+
+  <section class="container home-discover">
+    <div>
+      <p class="ghost-word">Discover life</p>
+      <h2>{t.home.discoverTitle}</h2>
+      <p>{t.home.discoverText}</p>
+      <a class="btn-main btn-gold" href={`/${lang}/discover-life`}>{t.home.readMore}</a>
+    </div>
+    <img src="/images/fellowship.jpg" alt="" />
+  </section>
+
+  {featuredItems.length > 0 && (
+    <section class="container media-preview">
+      <h2>{t.nav.resources}</h2>
+      <div class="mini-media-grid">
+        {featuredItems.map((item) => (
+          <a href={item.href}>
+            <span>{item.kind === "song" ? t.media.songType : t.media.videoType}</span>
+            <strong>{item.title}</strong>
+            <small>{item.artist || item.category}</small>
+          </a>
+        ))}
+      </div>
+    </section>
+  )}
+</BaseLayout>
