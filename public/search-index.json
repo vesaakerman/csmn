@@ -59,8 +59,8 @@
     "lang": "en",
     "href": "/en/resources",
     "title": "Resources and videos",
-    "description": "Resources and videos Use this page to find CSMN media. Videos, including music videos and songs, are added through Sanity by trusted editors, so the catalog can grow without changing the Astro pages. Search by title, con",
-    "content": "Resources and videos Use this page to find CSMN media. Videos, including music videos and songs, are added through Sanity by trusted editors, so the catalog can grow without changing the Astro pages. Search by title, contributor, language, topic, tag, or extra metadata. The same metadata makes it easier to build more advanced filtering later.",
+    "description": "Resources and videos Use this page to find CSMN media. Videos, including music videos and songs, are added through Sanity by trusted editors, so the catalog can grow without changing the Astro pages. Search by title, des",
+    "content": "Resources and videos Use this page to find CSMN media. Videos, including music videos and songs, are added through Sanity by trusted editors, so the catalog can grow without changing the Astro pages. Search by title, description, published date, or extra search terms. The same metadata makes it easier to build more advanced filtering later.",
     "tags": [
       "resources"
     ]
@@ -125,8 +125,8 @@
     "lang": "zh",
     "href": "/zh/resources",
     "title": "资源与视频",
-    "description": "资源与视频 这个页面用于查找 CSMN 媒体内容。视频，包括音乐视频和诗歌视频，由可信任的编辑通过 Sanity 添加，所以目录可以持续增长，而不需要改动 Astro 页面。 你可以按标题、贡献者、语言、主题、标签或额外关键词来搜索。良好的元数据也让以后添加更复杂的筛选更容易。",
-    "content": "资源与视频 这个页面用于查找 CSMN 媒体内容。视频，包括音乐视频和诗歌视频，由可信任的编辑通过 Sanity 添加，所以目录可以持续增长，而不需要改动 Astro 页面。 你可以按标题、贡献者、语言、主题、标签或额外关键词来搜索。良好的元数据也让以后添加更复杂的筛选更容易。",
+    "description": "资源与视频 这个页面用于查找 CSMN 媒体内容。视频，包括音乐视频和诗歌视频，由可信任的编辑通过 Sanity 添加，所以目录可以持续增长，而不需要改动 Astro 页面。 你可以按标题、描述、发布日期或额外关键词来搜索。良好的元数据也让以后添加更复杂的筛选更容易。",
+    "content": "资源与视频 这个页面用于查找 CSMN 媒体内容。视频，包括音乐视频和诗歌视频，由可信任的编辑通过 Sanity 添加，所以目录可以持续增长，而不需要改动 Astro 页面。 你可以按标题、描述、发布日期或额外关键词来搜索。良好的元数据也让以后添加更复杂的筛选更容易。",
     "tags": [
       "resources"
     ]
@@ -192,7 +192,7 @@
     "href": "/nl/resources",
     "title": "Resources en video's",
     "description": "Resources en video's Gebruik deze pagina om CSMN media te vinden. Video's, inclusief muziekvideo's en liederen, worden via Sanity toegevoegd door vertrouwde editors, zodat de catalogus kan groeien zonder de Astro pagina'",
-    "content": "Resources en video's Gebruik deze pagina om CSMN media te vinden. Video's, inclusief muziekvideo's en liederen, worden via Sanity toegevoegd door vertrouwde editors, zodat de catalogus kan groeien zonder de Astro pagina's aan te passen. Je kunt zoeken op titel, bijdrager, taal, onderwerp, tag of extra metadata. Diezelfde metadata maakt later uitgebreidere filters mogelijk.",
+    "content": "Resources en video's Gebruik deze pagina om CSMN media te vinden. Video's, inclusief muziekvideo's en liederen, worden via Sanity toegevoegd door vertrouwde editors, zodat de catalogus kan groeien zonder de Astro pagina's aan te passen. Je kunt zoeken op titel, beschrijving, publicatiedatum of extra zoektermen. Diezelfde metadata maakt later uitgebreidere filters mogelijk.",
     "tags": [
       "resources"
     ]
@@ -200,199 +200,145 @@
   {
     "kind": "video",
     "lang": "en",
-    "href": "/en/videos/discover-life-head-heart-hands",
-    "title": "Discover Life: Head, Heart and Hands",
-    "description": "A short introduction to the CSMN Discover Life gatherings and the questions we explore together.",
-    "content": "Discover Life: Head, Heart and Hands A short introduction to the CSMN Discover Life gatherings and the questions we explore together. CSMN Team Discover Life head heart hands faith students questions Christianity Discover Life CSMN Team faith questions students en zh",
+    "href": "/en/videos/a-new-you",
+    "title": "A New You",
+    "description": "abc",
+    "content": "A New You abc Chinese abc def",
     "tags": [
-      "Discover Life",
-      "CSMN Team",
-      "faith",
-      "questions",
-      "students",
-      "en",
-      "zh"
+      "abc",
+      "def"
     ]
   },
   {
     "kind": "video",
     "lang": "en",
-    "href": "/en/videos/fellowship-night-testimony",
-    "title": "Fellowship Night Testimony",
-    "description": "A student story about friendship, food, study, and discovering faith in the Netherlands.",
-    "content": "Fellowship Night Testimony A student story about friendship, food, study, and discovering faith in the Netherlands. CSMN Student Testimony community testimony fellowship Netherlands Testimony CSMN Student fellowship story community en",
-    "tags": [
-      "Testimony",
-      "CSMN Student",
-      "fellowship",
-      "story",
-      "community",
-      "en"
-    ]
+    "href": "/en/videos/obama",
+    "title": "Obama",
+    "description": "dddddddddddd",
+    "content": "Obama dddddddddddd",
+    "tags": []
+  },
+  {
+    "kind": "video",
+    "lang": "en",
+    "href": "/en/videos/il-divo",
+    "title": "Il Divo",
+    "description": "def",
+    "content": "Il Divo def English",
+    "tags": []
   },
   {
     "kind": "video",
     "lang": "en",
     "href": "/en/videos/amazing-grace",
-    "title": "Amazing Grace",
-    "description": "A familiar worship song with English audio and lyrics in the video.",
-    "content": "Amazing Grace A familiar worship song with English audio and lyrics in the video. CSMN Worship Music grace worship hymn English audio lyrics Music CSMN Worship grace worship classic en",
-    "tags": [
-      "Music",
-      "CSMN Worship",
-      "grace",
-      "worship",
-      "classic",
-      "en"
-    ]
+    "title": "Amazing grace",
+    "description": "abc",
+    "content": "Amazing grace abc",
+    "tags": []
   },
   {
     "kind": "video",
     "lang": "en",
-    "href": "/en/videos/peace-song",
-    "title": "Peace Song",
-    "description": "A reflective song with Chinese and English audio options.",
-    "content": "Peace Song A reflective song with Chinese and English audio options. Light Worship Band Music peace worship Chinese English audio lyrics Music Light Worship Band peace worship Chinese zh en",
+    "href": "/en/videos/amazing",
+    "title": "Amazing",
+    "description": "no joo",
+    "content": "Amazing no joo",
+    "tags": []
+  },
+  {
+    "kind": "video",
+    "lang": "zh",
+    "href": "/zh/videos/a-new-you",
+    "title": "A New You",
+    "description": "abc",
+    "content": "A New You abc Chinese abc def",
     "tags": [
-      "Music",
-      "Light Worship Band",
-      "peace",
-      "worship",
-      "Chinese",
-      "zh",
-      "en"
+      "abc",
+      "def"
     ]
   },
   {
     "kind": "video",
     "lang": "zh",
-    "href": "/zh/videos/discover-life-head-heart-hands",
-    "title": "探索生命：头脑、心灵和双手",
-    "description": "介绍 CSMN Discover Life 聚会，以及我们一起探索的问题。",
-    "content": "探索生命：头脑、心灵和双手 介绍 CSMN Discover Life 聚会，以及我们一起探索的问题。 CSMN Team Discover Life head heart hands faith students questions Christianity Discover Life CSMN Team faith questions students en zh",
-    "tags": [
-      "Discover Life",
-      "CSMN Team",
-      "faith",
-      "questions",
-      "students",
-      "en",
-      "zh"
-    ]
+    "href": "/zh/videos/obama",
+    "title": "Obama",
+    "description": "dddddddddddd",
+    "content": "Obama dddddddddddd",
+    "tags": []
   },
   {
     "kind": "video",
     "lang": "zh",
-    "href": "/zh/videos/fellowship-night-testimony",
-    "title": "团契之夜见证",
-    "description": "一位学生分享在荷兰经历友谊、晚餐、学习和信仰探索的故事。",
-    "content": "团契之夜见证 一位学生分享在荷兰经历友谊、晚餐、学习和信仰探索的故事。 CSMN Student Testimony community testimony fellowship Netherlands Testimony CSMN Student fellowship story community en",
-    "tags": [
-      "Testimony",
-      "CSMN Student",
-      "fellowship",
-      "story",
-      "community",
-      "en"
-    ]
+    "href": "/zh/videos/il-divo",
+    "title": "Il Divo",
+    "description": "def",
+    "content": "Il Divo def English",
+    "tags": []
   },
   {
     "kind": "video",
     "lang": "zh",
     "href": "/zh/videos/amazing-grace",
-    "title": "奇异恩典",
-    "description": "一首熟悉的敬拜诗歌，视频中包含歌词。",
-    "content": "奇异恩典 一首熟悉的敬拜诗歌，视频中包含歌词。 CSMN Worship Music grace worship hymn English audio lyrics Music CSMN Worship grace worship classic en",
-    "tags": [
-      "Music",
-      "CSMN Worship",
-      "grace",
-      "worship",
-      "classic",
-      "en"
-    ]
+    "title": "Amazing grace",
+    "description": "abc",
+    "content": "Amazing grace abc",
+    "tags": []
   },
   {
     "kind": "video",
     "lang": "zh",
-    "href": "/zh/videos/peace-song",
-    "title": "平安之歌",
-    "description": "一首安静默想的诗歌，有中文和英文音频。",
-    "content": "平安之歌 一首安静默想的诗歌，有中文和英文音频。 Light Worship Band Music peace worship Chinese English audio lyrics Music Light Worship Band peace worship Chinese zh en",
+    "href": "/zh/videos/amazing",
+    "title": "Amazing",
+    "description": "no joo",
+    "content": "Amazing no joo",
+    "tags": []
+  },
+  {
+    "kind": "video",
+    "lang": "nl",
+    "href": "/nl/videos/a-new-you",
+    "title": "A New You",
+    "description": "abc",
+    "content": "A New You abc Chinese abc def",
     "tags": [
-      "Music",
-      "Light Worship Band",
-      "peace",
-      "worship",
-      "Chinese",
-      "zh",
-      "en"
+      "abc",
+      "def"
     ]
   },
   {
     "kind": "video",
     "lang": "nl",
-    "href": "/nl/videos/discover-life-head-heart-hands",
-    "title": "Discover Life: hoofd, hart en handen",
-    "description": "Een korte introductie tot de Discover Life bijeenkomsten van CSMN.",
-    "content": "Discover Life: hoofd, hart en handen Een korte introductie tot de Discover Life bijeenkomsten van CSMN. CSMN Team Discover Life head heart hands faith students questions Christianity Discover Life CSMN Team faith questions students en zh",
-    "tags": [
-      "Discover Life",
-      "CSMN Team",
-      "faith",
-      "questions",
-      "students",
-      "en",
-      "zh"
-    ]
+    "href": "/nl/videos/obama",
+    "title": "Obama",
+    "description": "dddddddddddd",
+    "content": "Obama dddddddddddd",
+    "tags": []
   },
   {
     "kind": "video",
     "lang": "nl",
-    "href": "/nl/videos/fellowship-night-testimony",
-    "title": "Getuigenis van fellowship avond",
-    "description": "Een studentenverhaal over vriendschap, eten, studie en geloof ontdekken in Nederland.",
-    "content": "Getuigenis van fellowship avond Een studentenverhaal over vriendschap, eten, studie en geloof ontdekken in Nederland. CSMN Student Testimony community testimony fellowship Netherlands Testimony CSMN Student fellowship story community en",
-    "tags": [
-      "Testimony",
-      "CSMN Student",
-      "fellowship",
-      "story",
-      "community",
-      "en"
-    ]
+    "href": "/nl/videos/il-divo",
+    "title": "Il Divo",
+    "description": "def",
+    "content": "Il Divo def English",
+    "tags": []
   },
   {
     "kind": "video",
     "lang": "nl",
     "href": "/nl/videos/amazing-grace",
-    "title": "Amazing Grace",
-    "description": "Een bekend aanbiddingslied met Engelse audio en lyrics in de video.",
-    "content": "Amazing Grace Een bekend aanbiddingslied met Engelse audio en lyrics in de video. CSMN Worship Music grace worship hymn English audio lyrics Music CSMN Worship grace worship classic en",
-    "tags": [
-      "Music",
-      "CSMN Worship",
-      "grace",
-      "worship",
-      "classic",
-      "en"
-    ]
+    "title": "Amazing grace",
+    "description": "abc",
+    "content": "Amazing grace abc",
+    "tags": []
   },
   {
     "kind": "video",
     "lang": "nl",
-    "href": "/nl/videos/peace-song",
-    "title": "Lied van vrede",
-    "description": "Een rustig lied met Chinese en Engelse audio-opties.",
-    "content": "Lied van vrede Een rustig lied met Chinese en Engelse audio-opties. Light Worship Band Music peace worship Chinese English audio lyrics Music Light Worship Band peace worship Chinese zh en",
-    "tags": [
-      "Music",
-      "Light Worship Band",
-      "peace",
-      "worship",
-      "Chinese",
-      "zh",
-      "en"
-    ]
+    "href": "/nl/videos/amazing",
+    "title": "Amazing",
+    "description": "no joo",
+    "content": "Amazing no joo",
+    "tags": []
   }
 ]

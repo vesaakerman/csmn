@@ -1,5 +1,11 @@
 import { defineField, defineType } from "sanity";
-import { currentUserInitialValue, languageOptions, submittedByField } from "./shared";
+import { currentUserInitialValue, submittedByField } from "./shared";
+
+const videoLanguageOptions = [
+  { title: "English", value: "en" },
+  { title: "Chinese", value: "zh" },
+  { title: "Dutch", value: "nl" },
+];
 
 export const video = defineType({
   name: "video",
@@ -10,7 +16,7 @@ export const video = defineType({
     defineField({
       name: "title",
       title: "Title",
-      type: "localizedString",
+      type: "string",
       validation: (Rule) => Rule.required(),
     }),
     defineField({
@@ -18,7 +24,7 @@ export const video = defineType({
       title: "Slug",
       type: "slug",
       options: {
-        source: (doc: any) => doc.title?.en || doc.title?.zh || doc.title?.nl || "video",
+        source: (doc: any) => doc.title || "video",
         maxLength: 96,
       },
       validation: (Rule) => Rule.required(),
@@ -33,19 +39,6 @@ export const video = defineType({
         }),
     }),
     defineField({
-      name: "provider",
-      title: "Video provider",
-      type: "string",
-      options: {
-        list: [
-          { title: "YouTube", value: "youtube" },
-          { title: "Vimeo", value: "vimeo" },
-          { title: "Other", value: "external" },
-        ],
-        layout: "radio",
-      },
-    }),
-    defineField({
       name: "thumbnail",
       title: "Custom thumbnail",
       type: "image",
@@ -54,37 +47,16 @@ export const video = defineType({
     defineField({
       name: "description",
       title: "Description",
-      type: "localizedText",
+      type: "text",
+      rows: 4,
     }),
     defineField({
-      name: "speaker",
-      title: "Contributor / artist / speaker",
-      type: "string",
-    }),
-    defineField({
-      name: "category",
-      title: "Category",
+      name: "language",
+      title: "Language",
       type: "string",
       options: {
-        list: [
-          "Discover Life",
-          "Fellowship",
-          "Testimony",
-          "Teaching",
-          "Music",
-          "Event",
-          "Other",
-        ],
-      },
-    }),
-    defineField({
-      name: "languages",
-      title: "Languages in the video",
-      type: "array",
-      of: [{ type: "string" }],
-      options: {
-        list: languageOptions,
-        layout: "tags",
+        list: videoLanguageOptions,
+        layout: "radio",
       },
     }),
     defineField({
@@ -92,14 +64,6 @@ export const video = defineType({
       title: "Tags",
       type: "array",
       of: [{ type: "string" }],
-      options: { layout: "tags" },
-    }),
-    defineField({
-      name: "themes",
-      title: "Themes",
-      type: "array",
-      of: [{ type: "string" }],
-      options: { layout: "tags" },
     }),
     defineField({
       name: "searchTerms",
@@ -120,11 +84,28 @@ export const video = defineType({
       initialValue: false,
     }),
     submittedByField(),
+    defineField({ name: "provider", title: "Legacy provider", type: "string", hidden: true }),
+    defineField({ name: "category", title: "Legacy category", type: "string", hidden: true }),
+    defineField({ name: "speaker", title: "Legacy speaker", type: "string", hidden: true }),
+    defineField({
+      name: "languages",
+      title: "Legacy languages",
+      type: "array",
+      of: [{ type: "string" }],
+      hidden: true,
+    }),
+    defineField({
+      name: "themes",
+      title: "Legacy themes",
+      type: "array",
+      of: [{ type: "string" }],
+      hidden: true,
+    }),
   ],
   preview: {
     select: {
-      title: "title.en",
-      subtitle: "category",
+      title: "title",
+      subtitle: "videoUrl",
       media: "thumbnail",
     },
     prepare({ title, subtitle, media }) {

@@ -17,14 +17,14 @@ export function normalizeSlug(slug) {
   return slug.current || "";
 }
 
-export function labelForLanguage(code) {
+export function labelForVideoLanguage(code) {
   const labels = {
-    en: "EN",
-    zh: "中文",
-    nl: "NL",
-    other: "Other",
+    en: "English",
+    zh: "Chinese",
+    nl: "Dutch",
   };
-  return labels[code] || code.toUpperCase();
+
+  return labels[code] || "";
 }
 
 export function normalizeCatalogItem(item, lang) {
@@ -32,6 +32,9 @@ export function normalizeCatalogItem(item, lang) {
   const title = localized(item.title, lang);
   const description = localized(item.description, lang);
   const slug = normalizeSlug(item.slug);
+  const language = item.language || item.languages?.[0] || "";
+  const languageLabel = labelForVideoLanguage(language);
+  const tags = item.tags || [];
 
   return {
     id: item._id,
@@ -42,25 +45,18 @@ export function normalizeCatalogItem(item, lang) {
     href: `/${lang}/videos/${slug}`,
     externalUrl: item.videoUrl,
     videoUrl: item.videoUrl || "",
+    language,
+    languageLabel,
+    tags,
     thumbnailUrl: item.thumbnailUrl || getVideoThumbnail(item.videoUrl) || "/images/hands-together.webp",
-    provider: item.provider || inferProvider(item.videoUrl || ""),
-    artist: item.artist || item.speaker || "",
-    category: item.category || "",
-    tags: item.tags || [],
-    themes: item.themes || [],
-    languages: item.languages || [],
     publishedAt: item.publishedAt || item._createdAt || "",
     featured: Boolean(item.featured),
     submittedBy: item.submittedBy?.name || "",
     searchText: [
       title,
       description,
-      item.artist,
-      item.speaker,
-      item.category,
-      ...(item.tags || []),
-      ...(item.themes || []),
-      ...(item.languages || []),
+      languageLabel,
+      ...tags,
       item.searchTerms,
     ]
       .filter(Boolean)
@@ -117,20 +113,20 @@ export async function getCatalogStaticPaths(kind, languages) {
 
 export function getEmbedUrl(url) {
   if (!url) return "";
-  const youtubeId = getYouTubeId(url);
-  if (youtubeId) return `https://www.youtube-nocookie.com/embed/${youtubeId}`;
+  const youtube = getYouTubeEmbedInfo(url);
+  if (youtube.id) {
+    const params = new URLSearchParams();
+    params.set("feature", "oembed");
+    if (youtube.start) params.set("start", String(youtube.start));
+    const query = params.toString();
+
+    return `https://www.youtube.com/embed/${youtube.id}${query ? `?${query}` : ""}`;
+  }
 
   const vimeoId = getVimeoId(url);
   if (vimeoId) return `https://player.vimeo.com/video/${vimeoId}`;
 
   return "";
-}
-
-export function inferProvider(url) {
-  if (!url) return "";
-  if (getYouTubeId(url)) return "youtube";
-  if (getVimeoId(url)) return "vimeo";
-  return "external";
 }
 
 export function getVideoThumbnail(url) {
@@ -141,9 +137,55 @@ export function getVideoThumbnail(url) {
 
 function getYouTubeId(url) {
   const match = String(url).match(
-    /(?:youtube\.com\/(?:watch\?v=|embed\/|shorts\/)|youtu\.be\/)([A-Za-z0-9_-]{6,})/,
+    /(?:youtube(?:-nocookie)?\.com\/(?:watch\?v=|embed\/|shorts\/|live\/)|youtu\.be\/)([A-Za-z0-9_-]{6,})/,
   );
   return match?.[1] || "";
+}
+
+function getYouTubeEmbedInfo(url) {
+  const rawUrl = String(url);
+
+  try {
+    const parsed = new URL(rawUrl);
+    const host = parsed.hostname.replace(/^www\./, "");
+    const pathParts = parsed.pathname.split("/").filter(Boolean);
+    let id = "";
+
+    if (host === "youtu.be") {
+      id = pathParts[0] || "";
+    }
+
+    if (["youtube.com", "m.youtube.com", "youtube-nocookie.com"].includes(host)) {
+      if (pathParts[0] === "watch") id = parsed.searchParams.get("v") || "";
+      if (["embed", "shorts", "live"].includes(pathParts[0])) id = pathParts[1] || "";
+    }
+
+    if (id) {
+      return {
+        id,
+        start: parseYouTubeTime(parsed.searchParams.get("start") || parsed.searchParams.get("t")),
+      };
+    }
+  } catch {
+    // Fall back to the looser match below for pasted or partially encoded URLs.
+  }
+
+  return {
+    id: getYouTubeId(rawUrl),
+    start: parseYouTubeTime(rawUrl.match(/[?&](?:start|t)=([^&]+)/)?.[1]),
+  };
+}
+
+function parseYouTubeTime(value) {
+  if (!value) return 0;
+  const text = decodeURIComponent(String(value)).trim();
+  if (/^\d+$/.test(text)) return Number(text);
+
+  const match = text.match(/^(?:(\d+)h)?(?:(\d+)m)?(?:(\d+)s)?$/);
+  if (!match) return 0;
+
+  const [, hours = "0", minutes = "0", seconds = "0"] = match;
+  return Number(hours) * 3600 + Number(minutes) * 60 + Number(seconds);
 }
 
 function getVimeoId(url) {

@@ -1,7 +1,7 @@
 ---
 import BaseLayout from "../../../layouts/BaseLayout.astro";
 import VideoEmbed from "../../../components/VideoEmbed.astro";
-import { getCatalogStaticPaths, labelForLanguage } from "../../../utils/catalog";
+import { getCatalogStaticPaths } from "../../../utils/catalog";
 import { formatDate } from "../../../utils/langHelpers";
 import { getUi, languages } from "../../../text/ui";
 
@@ -20,21 +20,19 @@ const t = getUi(lang);
   <article class="detail-page container">
     <a class="back-link" href={`/${lang}/videos`}>{t.media.backToVideos}</a>
     <h1>{item.title}</h1>
-    <VideoEmbed url={item.videoUrl} title={item.title} />
+    <VideoEmbed url={item.videoUrl} title={item.title} externalLabel={t.media.openVideo} />
     <div class="detail-grid">
       <div>
         {item.description && <p class="detail-lead">{item.description}</p>}
-        {item.tags.length > 0 && (
-          <p class="tag-list">{item.tags.map((tag) => <span>{tag}</span>)}</p>
-        )}
       </div>
-      <aside class="detail-meta">
-        {item.artist && <p><strong>{t.media.artist}</strong><span>{item.artist}</span></p>}
-        {item.category && <p><strong>{t.media.category}</strong><span>{item.category}</span></p>}
-        {item.languages.length > 0 && <p><strong>{t.media.filterLanguage}</strong><span>{item.languages.map(labelForLanguage).join(", ")}</span></p>}
-        {item.submittedBy && <p><strong>{t.media.submittedBy}</strong><span>{item.submittedBy}</span></p>}
-        {item.publishedAt && <p><strong>{t.media.published}</strong><span>{formatDate(item.publishedAt, lang)}</span></p>}
-      </aside>
+      {(item.languageLabel || item.tags.length || item.submittedBy || item.publishedAt) && (
+        <aside class="detail-meta">
+          {item.languageLabel && <p><strong>{t.nav.language}</strong><span>{item.languageLabel}</span></p>}
+          {!!item.tags.length && <p><strong>{t.media.tags}</strong><span>{item.tags.join(", ")}</span></p>}
+          {item.submittedBy && <p><strong>{t.media.submittedBy}</strong><span>{item.submittedBy}</span></p>}
+          {item.publishedAt && <p><strong>{t.media.published}</strong><span>{formatDate(item.publishedAt, lang)}</span></p>}
+        </aside>
+      )}
     </div>
   </article>
 </BaseLayout>

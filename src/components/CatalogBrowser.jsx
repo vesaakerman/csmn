@@ -1,41 +1,22 @@
 import { useMemo, useState } from "react";
 import Fuse from "fuse.js";
 
-const languageLabel = {
-  en: "EN",
-  zh: "中文",
-  nl: "NL",
-  other: "Other",
-};
-
 export default function CatalogBrowser({ items, labels }) {
   const [query, setQuery] = useState("");
-  const [language, setLanguage] = useState("all");
 
   const fuse = useMemo(
     () =>
       new Fuse(items, {
-        keys: ["title", "description", "artist", "category", "tags", "themes", "searchText"],
+        keys: ["title", "description", "languageLabel", "tags", "searchText"],
         threshold: 0.28,
         ignoreLocation: true,
       }),
     [items],
   );
 
-  const languages = useMemo(() => {
-    const found = new Set();
-    items.forEach((item) => item.languages?.forEach((lang) => found.add(lang)));
-    return Array.from(found);
-  }, [items]);
-
   const filtered = useMemo(() => {
-    const base = query.trim() ? fuse.search(query.trim()).map((result) => result.item) : items;
-
-    return base.filter((item) => {
-      const languageMatches = language === "all" || item.languages?.includes(language);
-      return languageMatches;
-    });
-  }, [fuse, items, language, query]);
+    return query.trim() ? fuse.search(query.trim()).map((result) => result.item) : items;
+  }, [fuse, items, query]);
 
   return (
     <div className="catalog-browser">
@@ -46,15 +27,6 @@ export default function CatalogBrowser({ items, labels }) {
           type="search"
           placeholder={labels.searchPlaceholder}
         />
-
-        <select value={language} onChange={(event) => setLanguage(event.target.value)} aria-label={labels.filterLanguage}>
-          <option value="all">{labels.allLanguages}</option>
-          {languages.map((code) => (
-            <option value={code} key={code}>
-              {languageLabel[code] || code}
-            </option>
-          ))}
-        </select>
       </div>
 
       {!filtered.length && <p className="empty-state">{labels.noResults}</p>}
@@ -68,12 +40,12 @@ export default function CatalogBrowser({ items, labels }) {
                 <span className="play-dot"></span>
               </a>
               <div className="media-card-body">
-                <p className="item-kicker">{item.category || labels.videoType}</p>
+                <p className="item-kicker">{labels.videoType}</p>
                 <h2>
                   <a href={item.href}>{item.title}</a>
                 </h2>
                 {item.description && <p>{item.description}</p>}
-                <MetaPills values={item.languages} />
+                <MetaPills values={[item.languageLabel, ...(item.tags || [])]} />
                 <a className="btn-small" href={item.href}>
                   {labels.watch}
                 </a>
@@ -86,14 +58,15 @@ export default function CatalogBrowser({ items, labels }) {
   );
 }
 
-function MetaPills({ values = [], tone = "blue" }) {
-  if (!values.length) return <span className="muted">—</span>;
+function MetaPills({ values = [] }) {
+  const cleanValues = values.filter(Boolean);
+  if (!cleanValues.length) return null;
 
   return (
     <span className="pill-row">
-      {values.map((value) => (
-        <span className={`meta-pill meta-pill-${tone}`} key={value}>
-          {languageLabel[value] || value}
+      {cleanValues.slice(0, 5).map((value) => (
+        <span className="meta-pill meta-pill-blue" key={value}>
+          {value}
         </span>
       ))}
     </span>

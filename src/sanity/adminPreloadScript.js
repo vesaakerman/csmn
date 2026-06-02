@@ -47,6 +47,7 @@ export const adminPreloadScript = `
       padding-top: 24px !important;
       padding-bottom: 24px !important;
     }
+
   \`;
   document.head.appendChild(style);
 

@@ -7,6 +7,7 @@
     "build": "npm run index && astro build",
     "preview": "astro preview",
     "index": "node scripts/build-search-index.mjs",
+    "migrate:video-metadata": "node scripts/migrate-video-metadata.mjs",
     "sanity:dev": "sanity dev --host 127.0.0.1 --port 3333",
     "astro": "astro"
   },

@@ -73,7 +73,7 @@ const supportingImage = "/images/hands-together.webp";
           <a href={item.href}>
             <span>{t.media.videoType}</span>
             <strong>{item.title}</strong>
-            <small>{item.artist || item.category}</small>
+            {item.description && <small>{item.description}</small>}
           </a>
         ))}
       </div>

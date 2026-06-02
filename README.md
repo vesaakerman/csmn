@@ -57,6 +57,14 @@ That starts Sanity Studio at `http://127.0.0.1:3333/`. Add `http://127.0.0.1:333
 
 Trusted editors log in to Sanity Studio, then add videos. Music videos and song links are handled as videos. The Studio includes a "My videos" view based on the `submittedBy` metadata that is set when a document is created.
 
+Video documents intentionally use a small metadata set: English title, slug, YouTube/Vimeo URL, optional custom thumbnail, English description, language, tags, extra search terms, published date, featured flag, and submitted-by metadata.
+
+If older Sanity video documents still contain localized title/description objects, create a Sanity write token, add it as `SANITY_API_TOKEN` in `.env`, then run:
+
+```bash
+npm run migrate:video-metadata
+```
+
 This is an editor-friendly view, not a substitute for enterprise document-level security. For trusted editors it keeps the workflow simple. If many less-trusted members later need uploads, add a separate submission flow with moderation.
 
 ## Search

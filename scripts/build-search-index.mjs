@@ -8,6 +8,25 @@ const languages = ["en", "zh", "nl"];
 const outputFile = "public/search-index.json";
 const textRoot = "src/text-long";
 
+function loadEnvFile() {
+  if (!fs.existsSync(".env")) return;
+
+  const lines = fs.readFileSync(".env", "utf-8").split(/\r?\n/);
+  for (const line of lines) {
+    const trimmed = line.trim();
+    if (!trimmed || trimmed.startsWith("#")) continue;
+
+    const separator = trimmed.indexOf("=");
+    if (separator === -1) continue;
+
+    const key = trimmed.slice(0, separator).trim();
+    const rawValue = trimmed.slice(separator + 1).trim();
+    const value = rawValue.replace(/^['"]|['"]$/g, "");
+
+    if (!process.env[key]) process.env[key] = value;
+  }
+}
+
 function stripMarkdown(raw) {
   return raw
     .replace(/^---[\s\S]*?---/, "")
@@ -34,6 +53,16 @@ function normalizeSlug(slug) {
   if (!slug) return "";
   if (typeof slug === "string") return slug;
   return slug.current || "";
+}
+
+function labelForVideoLanguage(code) {
+  const labels = {
+    en: "English",
+    zh: "Chinese",
+    nl: "Dutch",
+  };
+
+  return labels[code] || "";
 }
 
 function buildPageEntries() {
@@ -100,13 +129,8 @@ function buildCatalogEntries(rawItems) {
       const title = localized(item.title, lang);
       const description = localized(item.description, lang);
       const href = `/${lang}/videos/${slug}`;
-      const tags = [
-        item.category,
-        item.speaker,
-        ...(item.tags || []),
-        ...(item.themes || []),
-        ...(item.languages || []),
-      ].filter(Boolean);
+      const languageLabel = labelForVideoLanguage(item.language || item.languages?.[0]);
+      const tags = item.tags || [];
 
       entries.push({
         kind: "video",
@@ -117,10 +141,9 @@ function buildCatalogEntries(rawItems) {
         content: [
           title,
           description,
-          item.speaker,
-          item.category,
-          item.searchTerms,
+          languageLabel,
           tags.join(" "),
+          item.searchTerms,
         ]
           .filter(Boolean)
           .join(" "),
@@ -131,6 +154,8 @@ function buildCatalogEntries(rawItems) {
 
   return entries;
 }
+
+loadEnvFile();
 
 const entries = [
   ...buildPageEntries(),
