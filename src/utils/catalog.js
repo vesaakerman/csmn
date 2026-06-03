@@ -17,14 +17,30 @@ export function normalizeSlug(slug) {
   return slug.current || "";
 }
 
-export function labelForVideoLanguage(code) {
+export function labelForVideoCollection(value) {
   const labels = {
-    en: "English",
-    zh: "Chinese",
-    nl: "Dutch",
+    "chinese-worship": "Chinese Worship",
+    "english-worship": "English Worship",
+    videos: "Videos",
   };
 
-  return labels[code] || "";
+  return labels[value] || "";
+}
+
+function normalizeVideoCollection(value) {
+  const clean = String(value || "").trim().toLowerCase();
+  const aliases = {
+    "chinese worship": "chinese-worship",
+    chinese_worship: "chinese-worship",
+    chineseworship: "chinese-worship",
+    "english worship": "english-worship",
+    english_worship: "english-worship",
+    englishworship: "english-worship",
+    video: "videos",
+    videos: "videos",
+  };
+
+  return aliases[clean] || clean;
 }
 
 export function normalizeCatalogItem(item, lang) {
@@ -32,8 +48,8 @@ export function normalizeCatalogItem(item, lang) {
   const title = localized(item.title, lang);
   const description = localized(item.description, lang);
   const slug = normalizeSlug(item.slug);
-  const language = item.language || item.languages?.[0] || "";
-  const languageLabel = labelForVideoLanguage(language);
+  const collection = normalizeVideoCollection(item.collection || item.category);
+  const collectionLabel = labelForVideoCollection(collection);
   const tags = item.tags || [];
 
   return {
@@ -45,17 +61,16 @@ export function normalizeCatalogItem(item, lang) {
     href: `/${lang}/videos/${slug}`,
     externalUrl: item.videoUrl,
     videoUrl: item.videoUrl || "",
-    language,
-    languageLabel,
+    collection,
+    collectionLabel,
     tags,
     thumbnailUrl: item.thumbnailUrl || getVideoThumbnail(item.videoUrl) || "/images/hands-together.webp",
     publishedAt: item.publishedAt || item._createdAt || "",
-    featured: Boolean(item.featured),
     submittedBy: item.submittedBy?.name || "",
     searchText: [
       title,
       description,
-      languageLabel,
+      collectionLabel,
       ...tags,
       item.searchTerms,
     ]

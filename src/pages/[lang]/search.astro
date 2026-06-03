@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import PageHero from "../../components/PageHero.astro";
 import SearchResults from "../../components/SearchResults.jsx";
 import { getLangStaticPaths } from "../../utils/langHelpers";
 import { getUi } from "../../text/ui";
@@ -15,6 +16,7 @@ const t = getUi(lang);
 ---
 
 <BaseLayout lang={lang} pageTitle={t.pages.search} page="search">
+  <PageHero image="/images/hands-together.webp" />
   <section class="catalog-hero">
     <div class="container">
       <h1>{t.search.title}</h1>

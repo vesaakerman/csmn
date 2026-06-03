@@ -27,22 +27,20 @@ const active = (slug) => page === slug || currentPath.includes(`/${slug}`);
         <a class={active("fellowship") ? "active" : ""} href={path("fellowship")}>{nav.fellowship}</a>
 
         <div class="nav-dropdown">
-          <button type="button" class={active("resources") || active("videos") ? "active" : ""}>
+          <a class:list={["dropdown-trigger", { active: active("resources") || active("videos") }]} href={path("resources")}>
             {nav.resources}
-          </button>
+          </a>
           <div class="dropdown-menu-lite">
-            <a href={path("resources")}>{nav.resources}</a>
             <a href={path("videos")}>{nav.videos}</a>
           </div>
         </div>
 
         <div class="nav-dropdown">
-          <button type="button" class={active("about") ? "active" : ""}>
+          <a class:list={["dropdown-trigger", { active: active("about") }]} href={path("about")}>
             {nav.about}
-          </button>
+          </a>
           <div class="dropdown-menu-lite">
-            <a href={path("about")}>{nav.about}</a>
-            <a href="/admin">{nav.login}</a>
+            <a href="/admin" target="_blank" rel="noopener noreferrer">{nav.login}</a>
           </div>
         </div>
 

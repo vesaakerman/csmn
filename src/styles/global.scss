@@ -131,7 +131,8 @@ h3 {
   position: relative;
 }
 
-.nav-dropdown button::after {
+.nav-dropdown button::after,
+.dropdown-trigger::after {
   content: "";
   width: 0.45rem;
   height: 0.45rem;
@@ -242,7 +243,7 @@ h3 {
   background:
     linear-gradient(90deg, rgba($white, 0.08), rgba($white, 0)),
     url("/images/jogger.webp") center / cover no-repeat;
-  clip-path: ellipse(85% 70% at 82% 50%);
+  clip-path: ellipse(85% 61% at 82% 50%);
 }
 
 .btn-main,
@@ -452,15 +453,16 @@ h3 {
 
 .page-hero {
   position: relative;
-  max-width: 86rem;
-  margin: 0 auto 2rem;
+  width: min(100% - 1.5rem, 1140px);
+  margin: 0 auto 1.5rem;
 }
 
 .page-hero img {
   display: block;
   width: 100%;
-  height: 18rem;
+  height: clamp(9.5rem, 20vw, 14rem);
   object-fit: cover;
+  border-radius: 0 0 8px 8px;
 }
 
 .page-hero img[src$="group-of-three.webp"] {
@@ -492,8 +494,18 @@ h3 {
   color: $ink;
 }
 
+.content-panel img[src$="donation-qr.png"] {
+  display: block;
+  width: min(100%, 22rem);
+  margin: 2rem auto 0;
+  padding: 1rem;
+  background: $white;
+  border: 1px solid $gray-l;
+  border-radius: 8px;
+}
+
 .catalog-hero {
-  padding: 5rem 0 3rem;
+  padding: 3rem 0 2rem;
   background: $white;
   border-bottom: 1px solid rgba($navy-d, 0.1);
 }
@@ -506,13 +518,22 @@ h3 {
 
 .catalog-controls {
   display: grid;
-  grid-template-columns: minmax(15rem, 1fr) minmax(11rem, 16rem) minmax(11rem, 16rem);
+  grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
   gap: 0.8rem;
-  margin-bottom: 2rem;
+  margin-bottom: 0.8rem;
+}
+
+.catalog-filter-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  align-items: stretch;
+  gap: 0.8rem;
+  margin-bottom: 0.85rem;
 }
 
 .catalog-controls input,
 .catalog-controls select,
+.catalog-filter-row select,
 .search-controls-large input {
   width: 100%;
   min-height: 3.5rem;
@@ -522,6 +543,36 @@ h3 {
   background: $white;
   color: $ink;
   font-size: 1rem;
+}
+
+.catalog-controls select:disabled,
+.catalog-filter-row select:disabled {
+  color: $gray-m;
+  background: $gray-l;
+  cursor: not-allowed;
+  opacity: 0.72;
+}
+
+.catalog-reset {
+  min-height: 3.5rem;
+  padding: 0 1.2rem;
+  border: 1px solid rgba($navy-m, 0.2);
+  border-radius: 8px;
+  background: $blue-l;
+  color: $navy-d;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.catalog-reset:disabled {
+  cursor: default;
+  opacity: 0.52;
+}
+
+.catalog-result-count {
+  margin: 0 0 1.35rem;
+  color: $gray-m;
+  font-weight: 800;
 }
 
 .video-grid {
@@ -709,10 +760,6 @@ h3 {
   width: 100%;
   height: 100%;
   border: 0;
-}
-
-.video-actions {
-  margin: -1rem 0 2rem;
 }
 
 .detail-image {

@@ -10,12 +10,11 @@ export const catalogQuery = `*[
   slug,
   description,
   videoUrl,
-  language,
-  languages,
+  collection,
+  category,
   tags,
   searchTerms,
   publishedAt,
-  featured,
   submittedBy,
   "thumbnailUrl": thumbnail.asset->url
 }`;

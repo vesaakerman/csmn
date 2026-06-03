@@ -55,14 +55,30 @@ function normalizeSlug(slug) {
   return slug.current || "";
 }
 
-function labelForVideoLanguage(code) {
+function labelForVideoCollection(value) {
   const labels = {
-    en: "English",
-    zh: "Chinese",
-    nl: "Dutch",
+    "chinese-worship": "Chinese Worship",
+    "english-worship": "English Worship",
+    videos: "Videos",
   };
 
-  return labels[code] || "";
+  return labels[value] || "";
+}
+
+function normalizeVideoCollection(value) {
+  const clean = String(value || "").trim().toLowerCase();
+  const aliases = {
+    "chinese worship": "chinese-worship",
+    chinese_worship: "chinese-worship",
+    chineseworship: "chinese-worship",
+    "english worship": "english-worship",
+    english_worship: "english-worship",
+    englishworship: "english-worship",
+    video: "videos",
+    videos: "videos",
+  };
+
+  return aliases[clean] || clean;
 }
 
 function buildPageEntries() {
@@ -129,7 +145,7 @@ function buildCatalogEntries(rawItems) {
       const title = localized(item.title, lang);
       const description = localized(item.description, lang);
       const href = `/${lang}/videos/${slug}`;
-      const languageLabel = labelForVideoLanguage(item.language || item.languages?.[0]);
+      const collectionLabel = labelForVideoCollection(normalizeVideoCollection(item.collection || item.category));
       const tags = item.tags || [];
 
       entries.push({
@@ -141,7 +157,7 @@ function buildCatalogEntries(rawItems) {
         content: [
           title,
           description,
-          languageLabel,
+          collectionLabel,
           tags.join(" "),
           item.searchTerms,
         ]

@@ -1,9 +1,7 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import CatalogBrowser from "../../components/CatalogBrowser.jsx";
 import MarkdownPanel from "../../components/MarkdownPanel.astro";
 import PageHero from "../../components/PageHero.astro";
-import { getCatalogItems } from "../../utils/catalog";
 import { getStaticPagePaths, loadMarkdown } from "../../utils/langHelpers";
 import { getUi } from "../../text/ui";
 
@@ -17,7 +15,6 @@ const lang = Astro.params.lang;
 const page = Astro.params.page;
 const t = getUi(lang);
 const Content = await loadMarkdown(lang, page);
-const catalogItems = page === "resources" ? await getCatalogItems(lang) : [];
 const pageTitle = t.pages[page] || t.siteName;
 const pageHeroImages = {
   events: "/images/group.webp",
@@ -32,12 +29,4 @@ const heroImage = pageHeroImages[page] || "/images/hands-together.webp";
   <div class="container page-body">
     <MarkdownPanel Content={Content} />
   </div>
-
-  {page === "resources" && (
-    <section class="catalog-section">
-      <div class="container">
-        <CatalogBrowser items={catalogItems} labels={t.media} client:load />
-      </div>
-    </section>
-  )}
 </BaseLayout>

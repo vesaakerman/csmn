@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../../../layouts/BaseLayout.astro";
 import CatalogBrowser from "../../../components/CatalogBrowser.jsx";
+import PageHero from "../../../components/PageHero.astro";
 import { getCatalogItems } from "../../../utils/catalog";
 import { getLangStaticPaths } from "../../../utils/langHelpers";
 import { getUi } from "../../../text/ui";
@@ -17,6 +18,7 @@ const items = await getCatalogItems(lang, "video");
 ---
 
 <BaseLayout lang={lang} pageTitle={t.pages.videos} page="videos">
+  <PageHero image="/images/hands-together.webp" />
   <section class="catalog-hero">
     <div class="container">
       <h1>{t.media.videoCatalogTitle}</h1>

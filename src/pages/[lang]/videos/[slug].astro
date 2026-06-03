@@ -20,14 +20,13 @@ const t = getUi(lang);
   <article class="detail-page container">
     <a class="back-link" href={`/${lang}/videos`}>{t.media.backToVideos}</a>
     <h1>{item.title}</h1>
-    <VideoEmbed url={item.videoUrl} title={item.title} externalLabel={t.media.openVideo} />
+    <VideoEmbed url={item.videoUrl} title={item.title} />
     <div class="detail-grid">
       <div>
         {item.description && <p class="detail-lead">{item.description}</p>}
       </div>
-      {(item.languageLabel || item.tags.length || item.submittedBy || item.publishedAt) && (
+      {(item.tags.length || item.submittedBy || item.publishedAt) && (
         <aside class="detail-meta">
-          {item.languageLabel && <p><strong>{t.nav.language}</strong><span>{item.languageLabel}</span></p>}
           {!!item.tags.length && <p><strong>{t.media.tags}</strong><span>{item.tags.join(", ")}</span></p>}
           {item.submittedBy && <p><strong>{t.media.submittedBy}</strong><span>{item.submittedBy}</span></p>}
           {item.publishedAt && <p><strong>{t.media.published}</strong><span>{formatDate(item.publishedAt, lang)}</span></p>}

@@ -31,6 +31,7 @@
 
   .nav-dropdown,
   .nav-dropdown button,
+  .nav-dropdown > a,
   .site-nav > a,
   .header-search,
   .language-switcher {
@@ -69,12 +70,13 @@
     grid-template-columns: 1fr;
   }
 
-  .catalog-controls {
+  .catalog-controls,
+  .catalog-filter-row {
     grid-template-columns: 1fr;
   }
 
   .page-hero {
-    margin-top: 4.5rem;
+    width: calc(100% - 1rem);
   }
 }
 

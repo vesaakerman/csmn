@@ -2,4 +2,6 @@
 
 Bedankt dat je onze ministry ondersteunt.
 
-Je kunt de QR-code scannen of de donatielink gebruiken die CSMN aanlevert. Zodra de definitieve betaalprovider of QR-afbeelding klaar is, kan deze Astro pagina worden bijgewerkt.
+Je kunt de QR-code hieronder scannen en wordt dan doorgestuurd naar je mobiele bankieren-app.
+
+![Donatie QR-code](/images/donation-qr.png)

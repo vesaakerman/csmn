@@ -1,10 +1,10 @@
 import { defineField, defineType } from "sanity";
 import { currentUserInitialValue, submittedByField } from "./shared";
 
-const videoLanguageOptions = [
-  { title: "English", value: "en" },
-  { title: "Chinese", value: "zh" },
-  { title: "Dutch", value: "nl" },
+const videoCollectionOptions = [
+  { title: "Chinese Worship", value: "chinese-worship" },
+  { title: "English Worship", value: "english-worship" },
+  { title: "Videos", value: "videos" },
 ];
 
 export const video = defineType({
@@ -51,11 +51,12 @@ export const video = defineType({
       rows: 4,
     }),
     defineField({
-      name: "language",
-      title: "Language",
+      name: "collection",
+      title: "Collection",
+      description: "Choose where this item belongs in the songs & videos library.",
       type: "string",
       options: {
-        list: videoLanguageOptions,
+        list: videoCollectionOptions,
         layout: "radio",
       },
     }),
@@ -77,13 +78,9 @@ export const video = defineType({
       title: "Published date",
       type: "datetime",
     }),
-    defineField({
-      name: "featured",
-      title: "Featured on overview pages",
-      type: "boolean",
-      initialValue: false,
-    }),
     submittedByField(),
+    defineField({ name: "featured", title: "Legacy featured", type: "boolean", hidden: true }),
+    defineField({ name: "language", title: "Legacy language", type: "string", hidden: true }),
     defineField({ name: "provider", title: "Legacy provider", type: "string", hidden: true }),
     defineField({ name: "category", title: "Legacy category", type: "string", hidden: true }),
     defineField({ name: "speaker", title: "Legacy speaker", type: "string", hidden: true }),

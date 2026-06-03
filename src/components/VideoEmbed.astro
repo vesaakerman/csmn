@@ -1,26 +1,21 @@
 ---
 import { getEmbedUrl } from "../utils/catalog";
 
-const { url, title, externalLabel = "Open video" } = Astro.props;
+const { url, title } = Astro.props;
 const embedUrl = getEmbedUrl(url);
 ---
 
 {embedUrl ? (
-  <>
-    <div class="video-embed">
-      <iframe
-        src={embedUrl}
-        title={title}
-        loading="lazy"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        referrerpolicy="strict-origin-when-cross-origin"
-        allowfullscreen
-      ></iframe>
-    </div>
-    <p class="video-actions">
-      <a class="btn-main" href={url} target="_blank" rel="noopener noreferrer">{externalLabel}</a>
-    </p>
-  </>
+  <div class="video-embed">
+    <iframe
+      src={embedUrl}
+      title={title}
+      loading="lazy"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      referrerpolicy="strict-origin-when-cross-origin"
+      allowfullscreen
+    ></iframe>
+  </div>
 ) : (
-  <a class="btn-main" href={url} target="_blank" rel="noopener noreferrer">{externalLabel}</a>
+  <p class="empty-state">This video cannot be embedded.</p>
 )}

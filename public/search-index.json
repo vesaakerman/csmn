@@ -3,9 +3,9 @@
     "kind": "page",
     "lang": "en",
     "href": "/en/about",
-    "title": "CSMN: frequently asked questions",
-    "description": "CSMN: frequently asked questions Who is CSMN? CSMN stands for Chinese Student Ministry Netherlands. We are a Christian organization for Chinese students and are linked to the International Christian Fellowship. What do w",
-    "content": "CSMN: frequently asked questions Who is CSMN? CSMN stands for Chinese Student Ministry Netherlands. We are a Christian organization for Chinese students and are linked to the International Christian Fellowship. What do we do? We create a safe and welcoming space where students can explore faith, ask meaningful questions, build community, and grow together. This includes regular meetings, discussions, worship, social events, and occasional trips. What do we not do? We do not force anyone to follow Jesus. We respect everyone’s journey and beliefs. Why specifically Chinese students? Our team has a special bond with China. Most of us have lived there and feel a deep connection to the culture and people. We want Chinese students to feel seen, understood, and at home in a country that can feel very different. I am not a Christian. Can I join? Yes. We welcome students from all backgrounds and worldviews, whether you are curious, skeptical, or simply looking for community. Editors can log in through the Login link under About Us.",
+    "title": "Welcome to Chinese Student Ministries Netherlands (CSMN)",
+    "description": "Welcome to Chinese Student Ministries Netherlands (CSMN) CSMN is a community for Chinese university students in the Netherlands, with a special focus on those living and studying in Wageningen. We provide a welcoming and",
+    "content": "Welcome to Chinese Student Ministries Netherlands (CSMN) CSMN is a community for Chinese university students in the Netherlands, with a special focus on those living and studying in Wageningen. We provide a welcoming and open space where students can connect, build friendships, and explore meaningful questions about life, culture, and faith. What We Offer In addition to our weekly fellowship gatherings, where we share a Chinese meal and engage in discussions guided by the Bible, we also organize a wide range of events throughout the year. These events are designed to be both thoughtful and enjoyable, because life is serious, but also fun! Examples of past and upcoming activities include: BBQs & Hot Pot evenings Cross cultural exchange nights \"Life Explored\" sessions Leadership development workshop Hikes in and around Wageningen Chestnut picking in autumn City trips to explore the Netherlands And many more! Whether you are looking for a place to grow personally, spiritually, or socially, you are warmly invited to join us. Find out more about our events here! Over CSMN For more information about our foundation's registration, articles of association, and core values, click here (Dutch language only).",
     "tags": [
       "about"
     ]
@@ -26,8 +26,8 @@
     "lang": "en",
     "href": "/en/donate",
     "title": "One time donation",
-    "description": "One time donation Thank you for supporting our ministry. You can scan the QR code or use the donation link provided by CSMN. When the final payment provider or QR image is ready, this page can be updated in Astro.",
-    "content": "One time donation Thank you for supporting our ministry. You can scan the QR code or use the donation link provided by CSMN. When the final payment provider or QR image is ready, this page can be updated in Astro.",
+    "description": "One time donation Thank you for supporting our ministry. You can scan the QR code below and will be directed to your Mobile Phone banking App.",
+    "content": "One time donation Thank you for supporting our ministry. You can scan the QR code below and will be directed to your Mobile Phone banking App.",
     "tags": [
       "donate"
     ]
@@ -58,9 +58,9 @@
     "kind": "page",
     "lang": "en",
     "href": "/en/resources",
-    "title": "Resources and videos",
-    "description": "Resources and videos Use this page to find CSMN media. Videos, including music videos and songs, are added through Sanity by trusted editors, so the catalog can grow without changing the Astro pages. Search by title, des",
-    "content": "Resources and videos Use this page to find CSMN media. Videos, including music videos and songs, are added through Sanity by trusted editors, so the catalog can grow without changing the Astro pages. Search by title, description, published date, or extra search terms. The same metadata makes it easier to build more advanced filtering later.",
+    "title": "Resource Library",
+    "description": "Resource Library In this section, you’ll find a collection of practical and spiritual resources to help you grow, both in daily life and in faith. Whether you're looking for inspiration in the kitchen, seeking to explore",
+    "content": "Resource Library In this section, you’ll find a collection of practical and spiritual resources to help you grow, both in daily life and in faith. Whether you're looking for inspiration in the kitchen, seeking to explore the Christian faith more deeply, or discovering your spiritual gifts — we hope these materials serve and encourage you on your journey. Watch, Listen & Reflect We have a huge amount of songs selected and listed that that can be used for corporate worship. The songs we selectedare to inspire, encourage, and support you in your spiritual journey and everyday life. Whether you're seeking moments of worship, deepening your understanding of faith, or developing practical life skills, these resources are here to enrich and equip you. All content is chosen with gathering together in a mixed environmet of Chinese with non mandarin speaking people. Enjoy them alone or share with friends, small groups, or your fellowship community.",
     "tags": [
       "resources"
     ]
@@ -69,9 +69,9 @@
     "kind": "page",
     "lang": "zh",
     "href": "/zh/about",
-    "title": "CSMN 常见问题",
-    "description": "CSMN 常见问题 CSMN 是什么？ CSMN 是 Chinese Student Ministry Netherlands。我们是一个面向中国学生的基督教组织，并与 International Christian Fellowship 有联系。 我们做什么？ 我们希望创造一个安全、友好的空间，让学生可以探索信仰、提出真实的问题、建立关系，并一起成长。 我们不做什么？ 我们不会强迫任何人跟随耶稣。我们尊重每个人的经历和信念。 为什么特",
-    "content": "CSMN 常见问题 CSMN 是什么？ CSMN 是 Chinese Student Ministry Netherlands。我们是一个面向中国学生的基督教组织，并与 International Christian Fellowship 有联系。 我们做什么？ 我们希望创造一个安全、友好的空间，让学生可以探索信仰、提出真实的问题、建立关系，并一起成长。 我们不做什么？ 我们不会强迫任何人跟随耶稣。我们尊重每个人的经历和信念。 为什么特别关注中国学生？ 我们的团队与中国有特别的连接。许多人曾在中国生活，也理解跨文化生活的不容易。我们希望中国学生在荷兰感到被看见、被理解、有家的感觉。 我不是基督徒，可以参加吗？ 当然可以。无论你好奇、怀疑，还是只是想认识朋友，我们都欢迎你。 编辑可以通过 About Us 菜单里的 Login 登录。",
+    "title": "欢迎来到 Chinese Student Ministries Netherlands (CSMN)",
+    "description": "欢迎来到 Chinese Student Ministries Netherlands (CSMN) CSMN 是一个面向在荷兰中国大学生的群体，特别关注在瓦赫宁根生活和学习的学生。我们希望提供一个友善、开放的空间，让学生可以彼此连接、建立友谊，并一起探索关于生命、文化和信仰的重要问题。 我们提供什么 除了每周的团契聚会，我们会一起分享中餐，并围绕圣经引导的问题进行讨论；我们也会在一年中组织各种活动。这些活动既有思考，也有乐趣，因为生活",
+    "content": "欢迎来到 Chinese Student Ministries Netherlands (CSMN) CSMN 是一个面向在荷兰中国大学生的群体，特别关注在瓦赫宁根生活和学习的学生。我们希望提供一个友善、开放的空间，让学生可以彼此连接、建立友谊，并一起探索关于生命、文化和信仰的重要问题。 我们提供什么 除了每周的团契聚会，我们会一起分享中餐，并围绕圣经引导的问题进行讨论；我们也会在一年中组织各种活动。这些活动既有思考，也有乐趣，因为生活是认真的，但也应该是有意思的！ 过去和即将举行的活动包括： BBQ 和火锅晚上 跨文化交流夜 \"Life Explored\" 聚会 领导力发展工作坊 瓦赫宁根及周边徒步 秋天捡栗子 探索荷兰城市的一日游 还有更多活动！无论你想在个人、属灵或社交方面成长，我们都诚挚邀请你加入我们。在这里了解更多活动！ Over CSMN 如果你想了解基金会注册信息、章程和核心价值，请点击这里（仅荷兰语）。",
     "tags": [
       "about"
     ]
@@ -92,8 +92,8 @@
     "lang": "zh",
     "href": "/zh/donate",
     "title": "一次性奉献",
-    "description": "一次性奉献 感谢你支持我们的事工。 你可以扫描 CSMN 提供的二维码，或使用奉献链接。等最终的支付方式和二维码图片准备好后，这个 Astro 页面可以直接更新。",
-    "content": "一次性奉献 感谢你支持我们的事工。 你可以扫描 CSMN 提供的二维码，或使用奉献链接。等最终的支付方式和二维码图片准备好后，这个 Astro 页面可以直接更新。",
+    "description": "一次性奉献 感谢你支持我们的事工。 你可以扫描下面的二维码，并会被引导到手机银行 App。",
+    "content": "一次性奉献 感谢你支持我们的事工。 你可以扫描下面的二维码，并会被引导到手机银行 App。",
     "tags": [
       "donate"
     ]
@@ -124,9 +124,9 @@
     "kind": "page",
     "lang": "zh",
     "href": "/zh/resources",
-    "title": "资源与视频",
-    "description": "资源与视频 这个页面用于查找 CSMN 媒体内容。视频，包括音乐视频和诗歌视频，由可信任的编辑通过 Sanity 添加，所以目录可以持续增长，而不需要改动 Astro 页面。 你可以按标题、描述、发布日期或额外关键词来搜索。良好的元数据也让以后添加更复杂的筛选更容易。",
-    "content": "资源与视频 这个页面用于查找 CSMN 媒体内容。视频，包括音乐视频和诗歌视频，由可信任的编辑通过 Sanity 添加，所以目录可以持续增长，而不需要改动 Astro 页面。 你可以按标题、描述、发布日期或额外关键词来搜索。良好的元数据也让以后添加更复杂的筛选更容易。",
+    "title": "资源库",
+    "description": "资源库 在这里，你可以找到帮助日常生活和信仰成长的实用与属灵资源。无论你想寻找敬拜诗歌、讲座、见证或其他媒体，我们希望这些内容能鼓励你继续前行。 观看、聆听与默想 我们收集了一些适合个人鼓励、共同敬拜和小组分享的诗歌与视频。内容会考虑中文和非普通话群体一起聚集的环境，让不同语言背景的人也能一起使用。 你可以通过资源菜单下的 诗歌与视频 子菜单，浏览中文敬拜、英文敬拜和其他视频。",
+    "content": "资源库 在这里，你可以找到帮助日常生活和信仰成长的实用与属灵资源。无论你想寻找敬拜诗歌、讲座、见证或其他媒体，我们希望这些内容能鼓励你继续前行。 观看、聆听与默想 我们收集了一些适合个人鼓励、共同敬拜和小组分享的诗歌与视频。内容会考虑中文和非普通话群体一起聚集的环境，让不同语言背景的人也能一起使用。 你可以通过资源菜单下的 诗歌与视频 子菜单，浏览中文敬拜、英文敬拜和其他视频。",
     "tags": [
       "resources"
     ]
@@ -135,9 +135,9 @@
     "kind": "page",
     "lang": "nl",
     "href": "/nl/about",
-    "title": "CSMN: veelgestelde vragen",
-    "description": "CSMN: veelgestelde vragen Wie is CSMN? CSMN staat voor Chinese Student Ministry Netherlands. We zijn een christelijke organisatie voor Chinese studenten en verbonden met International Christian Fellowship. Wat doen we? W",
-    "content": "CSMN: veelgestelde vragen Wie is CSMN? CSMN staat voor Chinese Student Ministry Netherlands. We zijn een christelijke organisatie voor Chinese studenten en verbonden met International Christian Fellowship. Wat doen we? We creëren een veilige en gastvrije plek waar studenten geloof kunnen verkennen, betekenisvolle vragen kunnen stellen, community bouwen en samen groeien. Wat doen we niet? We dwingen niemand om Jezus te volgen. We respecteren ieders eigen reis en overtuiging. Waarom specifiek Chinese studenten? Ons team heeft een speciale band met China. Velen van ons hebben daar gewoond en kennen de cultuur. We willen dat Chinese studenten zich gezien, begrepen en thuis voelen in Nederland. Ik ben geen christen. Kan ik komen? Ja. We verwelkomen studenten met allerlei achtergronden, of je nu nieuwsgierig, kritisch of gewoon op zoek naar community bent. Editors kunnen inloggen via Login onder Over Ons.",
+    "title": "Welcome to Chinese Student Ministries Netherlands (CSMN)",
+    "description": "Welcome to Chinese Student Ministries Netherlands (CSMN) CSMN is een community voor Chinese universitaire studenten in Nederland, met speciale aandacht voor studenten die in Wageningen wonen en studeren. We bieden een ga",
+    "content": "Welcome to Chinese Student Ministries Netherlands (CSMN) CSMN is een community voor Chinese universitaire studenten in Nederland, met speciale aandacht voor studenten die in Wageningen wonen en studeren. We bieden een gastvrije en open plek waar studenten elkaar kunnen ontmoeten, vriendschappen kunnen opbouwen en betekenisvolle vragen over leven, cultuur en geloof kunnen verkennen. What We Offer Naast onze wekelijkse fellowship bijeenkomsten, waar we samen Chinees eten en gesprekken voeren aan de hand van de Bijbel, organiseren we door het jaar heen allerlei activiteiten. Deze activiteiten zijn bedoeld om zowel doordacht als plezierig te zijn, want het leven is serieus, maar ook leuk! Voorbeelden van eerdere en komende activiteiten zijn: BBQs en Hot Pot avonden Cross culturele uitwisselingsavonden \"Life Explored\" sessies Workshop leiderschapsontwikkeling Wandelingen in en rond Wageningen Kastanjes rapen in de herfst Stedentrips om Nederland te ontdekken En nog veel meer! Of je nu zoekt naar een plek om persoonlijk, geestelijk of sociaal te groeien, je bent van harte welkom. Lees hier meer over onze events! Over CSMN Voor meer informatie over de registratie van onze stichting, statuten en kernwaarden, klik hier (alleen in het Nederlands).",
     "tags": [
       "about"
     ]
@@ -158,8 +158,8 @@
     "lang": "nl",
     "href": "/nl/donate",
     "title": "Eenmalige donatie",
-    "description": "Eenmalige donatie Bedankt dat je onze ministry ondersteunt. Je kunt de QR code scannen of de donatielink gebruiken die CSMN aanlevert. Zodra de definitieve betaalprovider of QR afbeelding klaar is, kan deze Astro pagina ",
-    "content": "Eenmalige donatie Bedankt dat je onze ministry ondersteunt. Je kunt de QR code scannen of de donatielink gebruiken die CSMN aanlevert. Zodra de definitieve betaalprovider of QR afbeelding klaar is, kan deze Astro pagina worden bijgewerkt.",
+    "description": "Eenmalige donatie Bedankt dat je onze ministry ondersteunt. Je kunt de QR code hieronder scannen en wordt dan doorgestuurd naar je mobiele bankieren app.",
+    "content": "Eenmalige donatie Bedankt dat je onze ministry ondersteunt. Je kunt de QR code hieronder scannen en wordt dan doorgestuurd naar je mobiele bankieren app.",
     "tags": [
       "donate"
     ]
@@ -190,9 +190,9 @@
     "kind": "page",
     "lang": "nl",
     "href": "/nl/resources",
-    "title": "Resources en video's",
-    "description": "Resources en video's Gebruik deze pagina om CSMN media te vinden. Video's, inclusief muziekvideo's en liederen, worden via Sanity toegevoegd door vertrouwde editors, zodat de catalogus kan groeien zonder de Astro pagina'",
-    "content": "Resources en video's Gebruik deze pagina om CSMN media te vinden. Video's, inclusief muziekvideo's en liederen, worden via Sanity toegevoegd door vertrouwde editors, zodat de catalogus kan groeien zonder de Astro pagina's aan te passen. Je kunt zoeken op titel, beschrijving, publicatiedatum of extra zoektermen. Diezelfde metadata maakt later uitgebreidere filters mogelijk.",
+    "title": "Resource Library",
+    "description": "Resource Library In deze sectie vind je praktische en geestelijke resources die helpen bij groei in het dagelijks leven en in geloof. Of je nu zoekt naar worship, talks, getuigenissen of andere media, we hopen dat dit ma",
+    "content": "Resource Library In deze sectie vind je praktische en geestelijke resources die helpen bij groei in het dagelijks leven en in geloof. Of je nu zoekt naar worship, talks, getuigenissen of andere media, we hopen dat dit materiaal je onderweg bemoedigt. Watch, Listen & Reflect We verzamelen liederen en video's die gebruikt kunnen worden voor persoonlijke bemoediging, gezamenlijke worship en kleine groepen. Het materiaal is gekozen met een gemengde omgeving van Chinese en niet Mandarijn sprekende mensen in gedachten, zodat het bruikbaar is wanneer mensen samenkomen over taalgrenzen heen. Gebruik het submenu Liederen & video's onder Resources om Chinese worship, English worship en andere video's te bekijken.",
     "tags": [
       "resources"
     ]
@@ -202,8 +202,8 @@
     "lang": "en",
     "href": "/en/videos/a-new-you",
     "title": "A New You",
-    "description": "abc",
-    "content": "A New You abc Chinese abc def",
+    "description": "def",
+    "content": "A New You def Chinese Worship abc def",
     "tags": [
       "abc",
       "def"
@@ -215,16 +215,19 @@
     "href": "/en/videos/obama",
     "title": "Obama",
     "description": "dddddddddddd",
-    "content": "Obama dddddddddddd",
-    "tags": []
+    "content": "Obama dddddddddddd English Worship tag  extra",
+    "tags": [
+      "tag",
+      ""
+    ]
   },
   {
     "kind": "video",
     "lang": "en",
     "href": "/en/videos/il-divo",
     "title": "Il Divo",
-    "description": "def",
-    "content": "Il Divo def English",
+    "description": "abc",
+    "content": "Il Divo abc Videos",
     "tags": []
   },
   {
@@ -233,7 +236,7 @@
     "href": "/en/videos/amazing-grace",
     "title": "Amazing grace",
     "description": "abc",
-    "content": "Amazing grace abc",
+    "content": "Amazing grace abc English Worship",
     "tags": []
   },
   {
@@ -242,7 +245,7 @@
     "href": "/en/videos/amazing",
     "title": "Amazing",
     "description": "no joo",
-    "content": "Amazing no joo",
+    "content": "Amazing no joo English Worship",
     "tags": []
   },
   {
@@ -250,8 +253,8 @@
     "lang": "zh",
     "href": "/zh/videos/a-new-you",
     "title": "A New You",
-    "description": "abc",
-    "content": "A New You abc Chinese abc def",
+    "description": "def",
+    "content": "A New You def Chinese Worship abc def",
     "tags": [
       "abc",
       "def"
@@ -263,16 +266,19 @@
     "href": "/zh/videos/obama",
     "title": "Obama",
     "description": "dddddddddddd",
-    "content": "Obama dddddddddddd",
-    "tags": []
+    "content": "Obama dddddddddddd English Worship tag  extra",
+    "tags": [
+      "tag",
+      ""
+    ]
   },
   {
     "kind": "video",
     "lang": "zh",
     "href": "/zh/videos/il-divo",
     "title": "Il Divo",
-    "description": "def",
-    "content": "Il Divo def English",
+    "description": "abc",
+    "content": "Il Divo abc Videos",
     "tags": []
   },
   {
@@ -281,7 +287,7 @@
     "href": "/zh/videos/amazing-grace",
     "title": "Amazing grace",
     "description": "abc",
-    "content": "Amazing grace abc",
+    "content": "Amazing grace abc English Worship",
     "tags": []
   },
   {
@@ -290,7 +296,7 @@
     "href": "/zh/videos/amazing",
     "title": "Amazing",
     "description": "no joo",
-    "content": "Amazing no joo",
+    "content": "Amazing no joo English Worship",
     "tags": []
   },
   {
@@ -298,8 +304,8 @@
     "lang": "nl",
     "href": "/nl/videos/a-new-you",
     "title": "A New You",
-    "description": "abc",
-    "content": "A New You abc Chinese abc def",
+    "description": "def",
+    "content": "A New You def Chinese Worship abc def",
     "tags": [
       "abc",
       "def"
@@ -311,16 +317,19 @@
     "href": "/nl/videos/obama",
     "title": "Obama",
     "description": "dddddddddddd",
-    "content": "Obama dddddddddddd",
-    "tags": []
+    "content": "Obama dddddddddddd English Worship tag  extra",
+    "tags": [
+      "tag",
+      ""
+    ]
   },
   {
     "kind": "video",
     "lang": "nl",
     "href": "/nl/videos/il-divo",
     "title": "Il Divo",
-    "description": "def",
-    "content": "Il Divo def English",
+    "description": "abc",
+    "content": "Il Divo abc Videos",
     "tags": []
   },
   {
@@ -329,7 +338,7 @@
     "href": "/nl/videos/amazing-grace",
     "title": "Amazing grace",
     "description": "abc",
-    "content": "Amazing grace abc",
+    "content": "Amazing grace abc English Worship",
     "tags": []
   },
   {
@@ -338,7 +347,7 @@
     "href": "/nl/videos/amazing",
     "title": "Amazing",
     "description": "no joo",
-    "content": "Amazing no joo",
+    "content": "Amazing no joo English Worship",
     "tags": []
   }
 ]

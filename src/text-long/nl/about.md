@@ -1,18 +1,23 @@
-## CSMN: veelgestelde vragen
+## Welcome to Chinese Student Ministries Netherlands (CSMN)
 
-**Wie is CSMN?**  
-CSMN staat voor Chinese Student Ministry Netherlands. We zijn een christelijke organisatie voor Chinese studenten en verbonden met International Christian Fellowship.
+CSMN is een community voor Chinese universitaire studenten in Nederland, met speciale aandacht voor studenten die in Wageningen wonen en studeren. We bieden een gastvrije en open plek waar studenten elkaar kunnen ontmoeten, vriendschappen kunnen opbouwen en betekenisvolle vragen over leven, cultuur en geloof kunnen verkennen.
 
-**Wat doen we?**  
-We creëren een veilige en gastvrije plek waar studenten geloof kunnen verkennen, betekenisvolle vragen kunnen stellen, community bouwen en samen groeien.
+## What We Offer
 
-**Wat doen we niet?**  
-We dwingen niemand om Jezus te volgen. We respecteren ieders eigen reis en overtuiging.
+Naast onze wekelijkse fellowship-bijeenkomsten, waar we samen Chinees eten en gesprekken voeren aan de hand van de Bijbel, organiseren we door het jaar heen allerlei activiteiten. Deze activiteiten zijn bedoeld om zowel doordacht als plezierig te zijn, want het leven is serieus, maar ook leuk!
 
-**Waarom specifiek Chinese studenten?**  
-Ons team heeft een speciale band met China. Velen van ons hebben daar gewoond en kennen de cultuur. We willen dat Chinese studenten zich gezien, begrepen en thuis voelen in Nederland.
+Voorbeelden van eerdere en komende activiteiten zijn:
 
-**Ik ben geen christen. Kan ik komen?**  
-Ja. We verwelkomen studenten met allerlei achtergronden, of je nu nieuwsgierig, kritisch of gewoon op zoek naar community bent.
+- BBQs en Hot Pot-avonden
+- Cross-culturele uitwisselingsavonden
+- "Life Explored"-sessies
+- Workshop leiderschapsontwikkeling
+- Wandelingen in en rond Wageningen
+- Kastanjes rapen in de herfst
+- Stedentrips om Nederland te ontdekken
 
-Editors kunnen inloggen via **Login** onder Over Ons.
+En nog veel meer! Of je nu zoekt naar een plek om persoonlijk, geestelijk of sociaal te groeien, je bent van harte welkom. [Lees hier meer over onze events!](/nl/events)
+
+## Over CSMN
+
+Voor meer informatie over de registratie van onze stichting, statuten en kernwaarden, klik hier (alleen in het Nederlands).

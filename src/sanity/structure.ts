@@ -16,6 +16,6 @@ export const structure: StructureResolver = (S, context) => {
             .params({ userId }),
         ),
       S.divider(),
-      S.documentTypeListItem("video").title("All videos"),
+      S.documentTypeListItem("video").title("Videos"),
     ]);
 };
