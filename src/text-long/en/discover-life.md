@@ -5,7 +5,7 @@
 **From:** 29 May 2026 18:00 until 22:00  
 **At:** CSMN Home  
 **Contact:** pert@csmn.nl  
-**Website:** http://fellowship
+**Website:** ...
 
 Our weekly event is a place to spend time together during a Chinese dinner, have fun, sing, study, and talk about real questions. Check out more on our website or register using the link above.
 

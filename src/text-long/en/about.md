@@ -18,6 +18,6 @@ Examples of past and upcoming activities include:
 
 And many more! Whether you are looking for a place to grow personally, spiritually, or socially, you are warmly invited to join us. [Find out more about our events here!](/en/events)
 
-## Over CSMN
+## About CSMN
 
 For more information about our foundation's registration, articles of association, and core values, see the [ANBI page](/en/about/anbi) (official information in Dutch).

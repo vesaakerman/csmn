@@ -6,7 +6,7 @@ De stichting heeft de ANBI status. Door deze status zijn giften aan de stichting
 
 ### Gegevens van de Stichting
 
-- Naam: Chinese Student Ministry Netherlands
+- Naam: Chinese Student Ministries Netherlands
 - Contactgegevens: Bert Verbeeke, Jan Slauerhoffstraat 17, 6708 RJ Wageningen, 06-19995615
 - Bestuur: voorzitter E. J. Bakker, secretaris J.G.W. Verbeeke-Sterken, penningmeester M. Tolstead
 - Beloningsbeleid: zoals vermeld in de statuten ontvangt het bestuur geen beloning voor de verrichte werkzaamheden.
@@ -31,4 +31,4 @@ De stichting houdt een reservekapitaal aan voor continuiteit, stelt jaarlijks ee
 
 ### Donaties
 
-Donaties aan CSMN kunnen worden gedaan onder de naam Chinese Students Ministry Netherlands op bankrekening NL57RABO0307579336.
+Donaties aan CSMN kunnen worden gedaan onder de naam Chinese Student Ministries Netherlands op bankrekening NL57RABO0307579336.

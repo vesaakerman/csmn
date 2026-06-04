@@ -6,7 +6,7 @@ What separates us from God is sin. No matter how good we think we are, every per
 
 That one and only way is through faith in Jesus Christ ([John 14:6](https://www.bibleref.com/John/14/John-14-6.html)). God Himself came to earth, as a human, living a perfect and sinless life ([Hebrews 4:15](https://www.bibleref.com/Hebrews/4/Hebrews-4-15.html)). He willingly died as a sacrifice to pay the debt for our sins ([2 Corinthians 5:21](https://www.bibleref.com/2-Corinthians/5/2-Corinthians-5-21.html)). According to the Scriptures, anyone can be “saved”—forgiven by God and guaranteed heaven—through faith in Jesus Christ ([Romans 10:13](https://www.bibleref.com/Romans/10/Romans-10-13.html)). This isn’t a call for blind, ignorant belief ([Acts 17:11](https://www.bibleref.com/Acts/17/Acts-17-11.html); [1 John 4:1](https://www.bibleref.com/1-John/4/1-John-4-1.html)). It’s an invitation from the Holy Spirit to submission and trust ([James 4:7](https://www.bibleref.com/James/4/James-4-7.html)). It’s a choice to let go of everything else in order to rely entirely on God.
 
-There is nothing anyone can “do” in order to be saved. The only way a person can find salvation is by accepting Jesus Christ as their savior. This simply means believing that…
+There is nothing anyone can “do” in order to be saved. The only way a person can find salvation is by accepting Jesus Christ as their Savior. This simply means believing that…
 
 - I am a sinner, who deserves God’s judgment ([Romans 3:23](https://www.bibleref.com/Romans/3/Romans-3-23.html); [Romans 6:23](https://www.bibleref.com/Romans/6/Romans-6-23.html)).
 
@@ -66,7 +66,7 @@ God never intended for people to be entirely alone ([Genesis 2:18](https://www.b
 
 We need other believers to help us properly understand the written Word of God ([Acts 8:30–31](https://www.bibleref.com/Acts/8/Acts-8-30.html); [Titus 1:7–9](https://www.bibleref.com/Titus/1/Titus-1-7.html)). Newer believers need the wisdom and experience of more mature Christians ([Titus 2:1](https://www.bibleref.com/Titus/2/Titus-2-1.html)). This process is called *discipleship*. Discipleship is crucial to living a successful Christian life. The Bible is our ultimate guide ([2 Timothy 3:16–17](https://www.bibleref.com/2-Timothy/3/2-Timothy-3-16.html); [1 Corinthians 4:6](https://www.bibleref.com/1-Corinthians/4/1-Corinthians-4-6.html)), but mentors and friends are necessary to properly grasp those truths ([Proverbs 11:14](https://www.bibleref.com/Proverbs/11/Proverbs-11-14.html); [Hebrews 5:12–14](https://www.bibleref.com/Hebrews/5/Hebrews-5-12.html)).
 
-Churches are also important so that followers of Christ can thank God for all He has done for us. This act of praising God is called *worship*. Because God is holy, merciful, loving, righteous and graceful, He deserves our worship ([Revelation 4:11](https://www.bibleref.com/Revelation/4/Revelation-4-11.html); [Isaiah 6:1–7](https://www.bibleref.com/Isaiah/6/Isaiah-6-1.html)).
+Churches are also important so that followers of Christ can thank God for all He has done for us. This act of praising God is called *worship*. Because God is holy, merciful, loving, righteous and gracious, He deserves our worship ([Revelation 4:11](https://www.bibleref.com/Revelation/4/Revelation-4-11.html); [Isaiah 6:1–7](https://www.bibleref.com/Isaiah/6/Isaiah-6-1.html)).
 
 **3) Take time for God on a daily basis.**
 
@@ -74,7 +74,7 @@ For a saved Christian, contact with God is like food: the longer one goes withou
 
 The first way we focus on God is prayer. Prayer does not have to be long, complicated, or eloquent. It does not have to use the "right" words or be organized in the "right" way. Jesus' model prayer ([Matthew 6:9–13](https://www.bibleref.com/Matthew/6/Matthew-6-9.html)) tells us that prayer is where we praise God, tell Him what concerns us, and ask Him to provide for those needs.
 
-The second way is study of the Word of God: the Bible. Teachers and pastors in a church will help you learn about Scripture. However, it's very important to read the Bible yourself. Scripture is the most-authoritative source of spiritual knowledge. While it does not answer *every question* a person could possibly ask, it does tell us everything we *must* know to live according to God's will.
+The second way is study of the Word of God: the Bible. Teachers and pastors in a church will help you learn about Scripture. However, it's very important to read the Bible yourself. Scripture is the most authoritative source of spiritual knowledge. While it does not answer *every question* a person could possibly ask, it does tell us everything we *must* know to live according to God's will.
 
 **4) Develop relationships for spiritual growth.**
 
@@ -162,15 +162,15 @@ Above all, remember: this is *your* story. Be honest, be real, and let it reflec
 
 This question supposes the need for being saved. If you don’t have that question, feel free to read more elsewhere on our site.
 
-The foundation of Christianity is that salvation is only through faith in Jesus as Saviour. The one and only action you as a person must do in order to get right with God, is to accept this truth: Jesus did everything necessary to restore the relationship between you and God. It does not get more complicated. However, the (positive) implication is huge!
+The foundation of Christianity is that salvation is only through faith in Jesus as Savior. The one thing you must do in order to get right with God is to accept this truth: Jesus did everything necessary to restore the relationship between you and God. It is not more complicated than that. However, the positive implication is huge!
 
-Basically, God has done His part already. He stretched out His hand and you can grasp it to get out of misery. He will then give you a true identity and personhood and you will be changed in your thinking. In this new identity you are a new creation while it is completely you! You will become the real you.
+Basically, God has done His part already. He has stretched out His hand, and you can grasp it to be lifted out of misery. He will then give you a true identity and personhood, and you will be changed in your thinking. In this new identity, you are a new creation while still being completely yourself. You will become the real you.
 
-This new you will act differently since you have a new hope and reason to live for. Your current habits will all be put before God. Some habits might be polished since they are gifts from the Spirit. For other habits you might want to let go since they are not healthy.
+This new you will act differently because you have new hope and a new reason to live. Your current habits will all be brought before God. Some habits might be refined because they are gifts from the Spirit. Other habits you might want to let go of because they are not healthy.
 
-There are also good deeds you will start doing. While before your life was centered on yourself (selfish), you will become self-less. Not that you will not have me-time, but your we-time will be focused on the good and prosperity of others. This goes further than just responding to situations. You will go and find new ways to serve God and your community. There are good works that God provides for you to do. Good works are part of the new life God gives.
+You will also begin to do good works. Where your life was previously centered on yourself, you will become selfless. This does not mean you will never have time for yourself, but your time with others will be focused on their good and well-being. This goes further than just responding to situations. You will find new ways to serve God and your community. There are good works that God provides for you to do. Good works are part of the new life God gives.
 
-People not understanding the Christian Faith often have the question: if you only have to believe, then you can continue doing bad things. So who is that Christian God anyway? To answer this question we will give you some direction how the Bible looks to that:
+People who do not understand the Christian faith often ask: if you only have to believe, then can you continue doing bad things? So who is that Christian God anyway? To answer this question, we will give you some direction on how the Bible speaks about this:
 
 - This is perhaps the most important question in all of Christian theology. This question is the cause of the Reformation, the split between the Protestant churches and the Roman Catholic Church. Is salvation by faith alone, or by faith plus works? Am I saved just by believing in Jesus, or do I have to believe in Jesus and do certain things?
 
@@ -180,4 +180,4 @@ People not understanding the Christian Faith often have the question: if you onl
 
 - Paul says the same thing in his writings. The good fruit believers should have in their lives is listed in Galatians 5:22-23. Immediately after telling us that we are saved by faith, not works (Ephesians 2:8-9), Paul informs us that we were created to do good works (Ephesians 2:10).
 
-- Paul expects just as much of a changed life as James does: Therefore, if anyone is in Christ, is a new creation. The old has gone, the new is here! (2 Corinthians 5:17). James and Paul do not disagree in their teaching regarding salvation. They approach the same subject from different perspectives. Paul simply emphasized that justification is by faith alone while James put emphasis on the fact that genuine faith in Christ produces good works.
+- Paul expects just as much of a changed life as James does: Therefore, if anyone is in Christ, he is a new creation. The old has gone, the new is here! (2 Corinthians 5:17). James and Paul do not disagree in their teaching regarding salvation. They approach the same subject from different perspectives. Paul simply emphasized that justification is by faith alone while James put the emphasis on the fact that genuine faith in Christ produces good works.

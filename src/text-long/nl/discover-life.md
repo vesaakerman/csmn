@@ -5,7 +5,7 @@
 **Van:** 29 mei 2026 18:00 tot 22:00  
 **Locatie:** CSMN Home  
 **Contact:** pert@csmn.nl  
-**Website:** http://fellowship
+**Website:** Fellowship
 
 Ons wekelijkse event is een plek om samen te eten, plezier te hebben, te zingen, te studeren en echte vragen te bespreken. Meld je aan via de link hierboven.
 

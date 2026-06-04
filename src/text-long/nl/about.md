@@ -1,8 +1,8 @@
-## Welcome to Chinese Student Ministries Netherlands (CSMN)
+## Welkom bij Chinese Student Ministries Netherlands (CSMN)
 
 CSMN is een community voor Chinese universitaire studenten in Nederland, met speciale aandacht voor studenten die in Wageningen wonen en studeren. We bieden een gastvrije en open plek waar studenten elkaar kunnen ontmoeten, vriendschappen kunnen opbouwen en betekenisvolle vragen over leven, cultuur en geloof kunnen verkennen.
 
-## What We Offer
+## Wat Wij Bieden
 
 Naast onze wekelijkse fellowship-bijeenkomsten, waar we samen Chinees eten en gesprekken voeren aan de hand van de Bijbel, organiseren we door het jaar heen allerlei activiteiten. Deze activiteiten zijn bedoeld om zowel doordacht als plezierig te zijn, want het leven is serieus, maar ook leuk!
 

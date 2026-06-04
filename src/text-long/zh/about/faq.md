@@ -2,7 +2,7 @@
 
 ### CSMN 是谁？
 
-CSMN 是 Chinese Student Ministry Netherlands 的缩写。我们是面向中国学生的基督教组织，并正式与 International Christian Fellowship (ICF) 有联系。
+CSMN 是 Chinese Student Ministries Netherlands 的缩写。我们是面向中国学生的基督教组织，并正式与 International Christian Fellowship (ICF) 有联系。
 
 ### 我们做什么？
 
@@ -30,11 +30,23 @@ CSMN 是 Chinese Student Ministry Netherlands 的缩写。我们是面向中国�
 
 ### 除了固定聚会，还有什么活动？
 
-我们会组织徒步和自然活动、电影之夜、社交晚餐、游戏之夜、周末退修和营会。
+除了每周聚会，我们还会组织：
+
+- 徒步和自然活动
+- 电影之夜
+- 社交晚餐
+- 游戏之夜
+- 周末退修和营会
 
 ### 一个典型的晚上是什么样？
 
-通常会有欢迎和自由交流、唱诗或敬拜（参与自愿）、短讲或讨论、小组反思，以及食物、点心和社交时间。
+通常会包括：
+
+- 欢迎和自由交流
+- 唱诗或敬拜，参与是自愿的
+- 简短分享或讨论
+- 小组对话或反思
+- 食物、点心和社交时间
 
 ### CSMN 只面向新教徒吗？
 

@@ -2,7 +2,7 @@
 
 ### Who is CSMN?
 
-CSMN stands for Chinese Student Ministry Netherlands. We are a Christian organisation for Chinese students and are officially linked to the International Christian Fellowship (ICF).
+CSMN stands for Chinese Student Ministries Netherlands. We are a Christian organization for Chinese students and are officially linked to the International Christian Fellowship (ICF).
 
 ### What do we do?
 
@@ -28,14 +28,26 @@ There is no cost to join. Our events and meetings are free unless otherwise spec
 
 We aim for a friendly and respectful environment. We do not drink alcohol or smoke during our gatherings or events.
 
-### What activities do you do besides regular meetings?
+### What kind of activities do we do besides the regular meetings?
 
-In addition to weekly gatherings, we organise hikes, nature trips, movie nights, social dinners, game nights, weekend retreats, and camps.
+In addition to weekly gatherings, we organize:
 
-### How does a typical evening look?
+- Hikes and nature trips
+- Movie nights
+- Social dinners
+- Game nights
+- Weekend retreats and camps
 
-A usual evening includes welcome and informal hangout, singing or worship with optional participation, a short talk or discussion, group conversation or reflection, and food or snacks with social time.
+### What does a typical evening look like?
+
+A usual evening includes:
+
+- Welcome and informal hangout
+- Singing or worship, with optional participation
+- A short talk or discussion
+- Group conversation or reflection
+- Food, snacks, and social time
 
 ### Are you only for Protestants?
 
-While we are a Protestant Christian organisation, we warmly welcome students from all denominations and beliefs. Everyone is invited to join and be part of the community.
+While we are a Protestant Christian organization, we warmly welcome students from all denominations and beliefs. Everyone is invited to join and be part of the community.

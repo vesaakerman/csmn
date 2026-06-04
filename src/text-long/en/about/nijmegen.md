@@ -1,15 +1,21 @@
-## CSMN Group in Nijmegen
+## CSMN Group in Nijmegen: You're Invited
 
-We are excited to have a CSMN group in Nijmegen. This is a friendly place to meet other students, eat good food, and talk about things that matter. CSMN has a long history of welcoming Chinese students across Dutch campuses and creating safe, curious spaces to explore life and faith.
+We are excited to have a CSMN group in Nijmegen. This is a friendly place to meet other students, eat great food, and talk about the things that matter. CSMN has a long history of welcoming Chinese students across Dutch campuses and creating safe, curious spaces to explore life and faith.
 
 ### What We Do
 
-- Share a warm meal, often with good Chinese food.
-- Share stories about student life in Nijmegen: classes, housing, culture shock, and the funny moments in between.
-- Gather to ask big questions together: meaning, purpose, faith, and what it looks like to live well as a student.
+- Share a warm meal, yes, with lots of good Chinese food.
+- Share stories about student life in Nijmegen: classes, housing, culture shock, and the funny bits in between.
+- Gather to ask big questions together: meaning, purpose, and what it looks like to live well as a student.
 
-### Join a Gathering
+### Join Our Gathering
 
-Our gatherings are relaxed, informal, and built around food and conversation. Come as you are. Whether you are curious, skeptical, or already on a spiritual path, you are welcome to join, eat, and talk.
+Come to one of our meetups. It will be relaxed, informal, and full of food and conversation. Check the [events page](/en/events) for the next scheduled meeting.
 
-For practical questions, see the [FAQ](/en/about/faq) or contact CSMN for more information.
+### Got Questions?
+
+Visit our [FAQ](/en/about/faq) for practical information about starting or joining a CSMN group, safety, what to bring, and more.
+
+**Come as you are. Whether you are curious, skeptical, or already on a spiritual path, you are welcome to join, eat, and talk. Let's get to know each other in Nijmegen.**
+
+**For more information, contact us!**

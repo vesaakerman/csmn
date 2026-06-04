@@ -8,7 +8,7 @@ Stichting Chinese Student Ministries Netherlands 在荷兰商会注册，注册�
 
 ### 基金会信息
 
-- 名称：Chinese Student Ministry Netherlands
+- 名称：Chinese Student Ministries Netherlands
 - 联系人：Bert Verbeeke, Jan Slauerhoffstraat 17, 6708 RJ Wageningen, 06-19995615
 - 董事会：E. J. Bakker, J.G.W. Verbeeke-Sterken, M. Tolstead
 - 报酬政策：董事会成员不因其工作领取报酬。
@@ -25,4 +25,4 @@ Stichting Chinese Student Ministries Netherlands 在荷兰商会注册，注册�
 
 ### 奉献
 
-捐赠可汇至 Chinese Students Ministry Netherlands，银行账号 NL57RABO0307579336。
+捐赠可汇至 Chinese Student Ministries Netherlands，银行账号 NL57RABO0307579336。

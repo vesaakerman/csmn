@@ -9,7 +9,7 @@ export const defaultLang = "en";
 export const ui = {
   en: {
     siteName: "CSMN",
-    siteLongName: "Chinese Student Ministry Netherlands",
+    siteLongName: "Chinese Student Ministries Netherlands",
     nav: {
       home: "@CSMN",
       events: "Events",
@@ -43,12 +43,12 @@ export const ui = {
     },
     home: {
       heroTitle: "Events",
-      heroText: "Join us at CSMN events, a warm space to connect, share, and grow as a community.",
+      heroText: "Join us at the CSMN events, a vibrant space where we come together to connect, share, and grow as a community.",
       heroCta: "Read More",
       introTitle: "Events",
-      introText: "We organize gatherings for you to hang out. Check the events below and sign up when you want to join.",
+      introText: "We organize gatherings where you can hang out. Check the events below and sign up when you want to join.",
       discoverTitle: "Discover life with Head, Heart and Hands",
-      discoverText: "CSMN is a place where Chinese university students in the Netherlands can meet, learn about Dutch culture, and explore Christianity.",
+      discoverText: "Chinese Student Ministries Netherlands (CSMN) is a place where Chinese university students in the Netherlands can meet, learn about Dutch culture, and explore Christianity. All Chinese students are welcome, regardless of their faith or worldview.",
       readMore: "Read more",
     },
     cards: {
@@ -62,7 +62,7 @@ export const ui = {
       },
       resources: {
         title: "Resources",
-        text: "Material to help you learn by head and heart, with space for honest questions.",
+        text: "Materials to help you learn with your head and heart, with space for honest questions.",
       },
     },
     media: {
@@ -138,12 +138,12 @@ export const ui = {
     },
     home: {
       heroTitle: "活动",
-      heroText: "欢迎参加 CSMN 活动，一起交流、分享，并在群体中成长。",
+      heroText: "欢迎参加 CSMN 活动，在充满活力的空间中相聚、交流、分享，并在群体中成长。",
       heroCta: "了解更多",
       introTitle: "活动",
-      introText: "我们组织聚会和活动。请查看下面的活动，并在想参加时注册。",
+      introText: "我们定期组织活动，例如聚餐、徒步旅行、城市旅行和电影之夜。请查看下面的活动，并在想参加时报名。",
       discoverTitle: "用头脑、心灵和双手探索生命",
-      discoverText: "CSMN 是在荷兰的中国学生相聚、了解荷兰文化并探索基督信仰的地方。",
+      discoverText: "华人学生团契是一个独特的平台，让中国大学生可以聚会、了解荷兰文化和基督信仰。我们尊重你的宗教观和世界观，并欢迎所有中国学生。每周中式晚餐后，学生们会思考一些有意义的人生问题，并以圣经作为引导。",
       readMore: "了解更多",
     },
     cards: {
@@ -199,7 +199,7 @@ export const ui = {
   },
   nl: {
     siteName: "CSMN",
-    siteLongName: "Chinese Student Ministry Netherlands",
+    siteLongName: "Chinese Student Ministries Netherlands",
     nav: {
       home: "@CSMN",
       events: "Events",
@@ -233,12 +233,12 @@ export const ui = {
     },
     home: {
       heroTitle: "Events",
-      heroText: "Doe mee met CSMN-events: een warme plek om te verbinden, delen en groeien als community.",
+      heroText: "Doe mee met de CSMN-events: een levendige plek waar we samenkomen om contact te maken, te delen en als gemeenschap te groeien.",
       heroCta: "Lees meer",
       introTitle: "Events",
-      introText: "We organiseren bijeenkomsten om elkaar te ontmoeten. Bekijk de events hieronder en meld je aan.",
+      introText: "We organiseren regelmatig activiteiten, zoals gezamenlijke maaltijden, wandelingen, stadsuitjes en filmavonden. Bekijk de events hieronder en meld je aan wanneer je wilt meedoen.",
       discoverTitle: "Discover life met hoofd, hart en handen",
-      discoverText: "CSMN is een plek waar Chinese studenten in Nederland elkaar ontmoeten, cultuur leren kennen en het christelijk geloof verkennen.",
+      discoverText: "Chinese Student Ministries Netherlands (CSMN) is een plek waar Chinese studenten aan Nederlandse universiteiten elkaar kunnen ontmoeten, meer kunnen leren over de Nederlandse cultuur en het christelijk geloof. Alle Chinese studenten zijn welkom, ongeacht hun geloofsovertuiging of levensbeschouwing. Elke week, na een Chinese maaltijd, gaan studenten in op betekenisvolle levensvragen en gebruiken ze de Bijbel als leidraad.",
       readMore: "Lees meer",
     },
     cards: {

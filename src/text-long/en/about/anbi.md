@@ -8,7 +8,7 @@ The official information and documents are in Dutch.
 
 ### Foundation Details
 
-- Name: Chinese Student Ministry Netherlands
+- Name: Chinese Student Ministries Netherlands
 - Contact: Bert Verbeeke, Jan Slauerhoffstraat 17, 6708 RJ Wageningen, 06-19995615
 - Board: E. J. Bakker, J.G.W. Verbeeke-Sterken, M. Tolstead
 - Remuneration policy: the board does not receive payment for its work.
@@ -25,4 +25,4 @@ The official information and documents are in Dutch.
 
 ### Donations
 
-Donations can be made to Chinese Students Ministry Netherlands, bank account NL57RABO0307579336.
+Donations can be made to Chinese Student Ministries Netherlands, bank account NL57RABO0307579336.

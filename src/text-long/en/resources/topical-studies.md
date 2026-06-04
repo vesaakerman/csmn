@@ -1,6 +1,6 @@
 <div class="resource-article">
   <h2>Topical Studies CSMN</h2>
-  <p class="resource-lead">We have created material that we want to bring to you for when it is useful.</p>
+  <p class="resource-lead">We have created material that we want to make available when it is useful.</p>
 
   <div class="resource-table-wrap">
     <table class="resource-table">
