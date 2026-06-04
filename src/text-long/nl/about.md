@@ -20,4 +20,4 @@ En nog veel meer! Of je nu zoekt naar een plek om persoonlijk, geestelijk of soc
 
 ## Over CSMN
 
-Voor meer informatie over de registratie van onze stichting, statuten en kernwaarden, klik hier (alleen in het Nederlands).
+Voor meer informatie over de registratie van onze stichting, statuten en kernwaarden, zie de [ANBI pagina](/nl/about/anbi).

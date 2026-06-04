@@ -6,6 +6,17 @@ const { lang, page, t, currentPath } = Astro.props;
 const nav = t.nav;
 const path = (slug = "") => `/${lang}/${slug}`.replace(/\/$/, "/");
 const active = (slug) => page === slug || currentPath.includes(`/${slug}`);
+const resourceLinks = [
+  { href: path("videos"), label: nav.videos },
+  { href: path("resources/bible-study-and-research"), label: t.pages["bible-study-and-research"] },
+  { href: path("resources/topical-studies"), label: t.pages["topical-studies"] },
+  { href: path("resources/spiritual-growth"), label: t.pages["spiritual-growth"] },
+];
+const aboutLinks = [
+  { href: path("about/faq"), label: t.pages.faq },
+  { href: path("about/nijmegen"), label: t.pages.nijmegen },
+  { href: path("about/anbi"), label: t.pages.anbi },
+];
 ---
 
 <header class="site-header">
@@ -31,7 +42,7 @@ const active = (slug) => page === slug || currentPath.includes(`/${slug}`);
             {nav.resources}
           </a>
           <div class="dropdown-menu-lite">
-            <a href={path("videos")}>{nav.videos}</a>
+            {resourceLinks.map((item) => <a href={item.href}>{item.label}</a>)}
           </div>
         </div>
 
@@ -40,6 +51,7 @@ const active = (slug) => page === slug || currentPath.includes(`/${slug}`);
             {nav.about}
           </a>
           <div class="dropdown-menu-lite">
+            {aboutLinks.map((item) => <a href={item.href}>{item.label}</a>)}
             <a href="/admin" target="_blank" rel="noopener noreferrer">{nav.login}</a>
           </div>
         </div>

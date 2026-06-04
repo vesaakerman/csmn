@@ -1,0 +1,36 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import MarkdownPanel from "../../../components/MarkdownPanel.astro";
+import PageHero from "../../../components/PageHero.astro";
+import { languages } from "../../../text/ui";
+import { loadMarkdown } from "../../../utils/langHelpers";
+import { getUi } from "../../../text/ui";
+
+export const prerender = true;
+
+export async function getStaticPaths() {
+  const aboutPages = ["faq", "nijmegen", "anbi"];
+
+  return languages.flatMap((language) =>
+    aboutPages.map((aboutPage) => ({
+      params: {
+        lang: language.code,
+        aboutPage,
+      },
+    })),
+  );
+}
+
+const lang = Astro.params.lang;
+const aboutPage = Astro.params.aboutPage;
+const t = getUi(lang);
+const Content = await loadMarkdown(lang, `about/${aboutPage}`);
+const pageTitle = t.pages[aboutPage] || t.pages.about;
+---
+
+<BaseLayout lang={lang} pageTitle={pageTitle} page="about">
+  <PageHero image="/images/hands-together.webp" />
+  <div class="container page-body">
+    <MarkdownPanel Content={Content} />
+  </div>
+</BaseLayout>

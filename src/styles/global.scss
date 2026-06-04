@@ -490,6 +490,25 @@ h3 {
   font-size: 1.22rem;
 }
 
+.content-panel h3 {
+  margin-top: 2rem;
+  color: $navy-d;
+  font-size: 1.45rem;
+}
+
+.content-panel ul,
+.content-panel ol {
+  padding-left: 1.35rem;
+}
+
+.content-panel li + li {
+  margin-top: 0.35rem;
+}
+
+.content-panel a {
+  font-weight: 800;
+}
+
 .content-panel strong {
   color: $ink;
 }
@@ -502,6 +521,110 @@ h3 {
   background: $white;
   border: 1px solid $gray-l;
   border-radius: 8px;
+}
+
+.resource-article h2 {
+  margin-bottom: 1.5rem;
+  color: $blue-m;
+  font-size: clamp(2.35rem, 4vw, 3.1rem);
+}
+
+.resource-article h3 {
+  margin: 4rem 0 1.6rem;
+  color: $gold-m;
+  font-size: clamp(2.8rem, 6vw, 4.4rem);
+  font-weight: 500;
+  line-height: 1.05;
+}
+
+.resource-article .resource-lead {
+  color: $gray-m;
+  font-weight: 800;
+}
+
+.resource-table-wrap {
+  overflow-x: auto;
+  margin: 3rem 0 2rem;
+  border: 1px solid rgba($navy-d, 0.08);
+  border-radius: 0;
+  background: $white;
+}
+
+.resource-table {
+  width: 100%;
+  min-width: 44rem;
+  border-collapse: collapse;
+}
+
+.resource-table th,
+.resource-table td {
+  padding: 0.9rem 1rem;
+  vertical-align: top;
+  color: $gray-m;
+  border-bottom: 1px solid rgba($navy-d, 0.06);
+  font-size: 1.08rem;
+  line-height: 1.25;
+}
+
+.resource-table th {
+  color: $gray-m;
+  font-weight: 900;
+}
+
+.resource-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.resource-table td:first-child {
+  color: $navy-m;
+  font-weight: 800;
+}
+
+.resource-table td:last-child {
+  width: 11rem;
+  color: $gray-m;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.resource-file-name {
+  display: block;
+}
+
+.resource-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-top: 0.55rem;
+}
+
+.resource-badges span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 1.55rem;
+  padding: 0 0.5rem;
+  border-radius: 4px;
+  background: $gray-l;
+  color: $gray-m;
+  font-size: 0.78rem;
+  font-weight: 900;
+}
+
+.resource-badges span:first-child {
+  background: $green-m;
+  color: $white;
+}
+
+.resource-library-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.8rem;
+  padding: 0 1.1rem;
+  border-radius: 8px;
+  background: $blue-l;
+  color: $navy-d;
+  text-decoration: none;
 }
 
 .catalog-hero {

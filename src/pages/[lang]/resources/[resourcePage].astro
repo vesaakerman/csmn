@@ -1,0 +1,46 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import MarkdownPanel from "../../../components/MarkdownPanel.astro";
+import PageHero from "../../../components/PageHero.astro";
+import { languages } from "../../../text/ui";
+import { loadMarkdown } from "../../../utils/langHelpers";
+import { getUi } from "../../../text/ui";
+
+export const prerender = true;
+
+export async function getStaticPaths() {
+  const resourcePages = [
+    { slug: "bible-study-and-research", contentPath: "resources/bible-study-and-research" },
+    { slug: "topical-studies", contentPath: "resources/topical-studies" },
+    { slug: "spiritual-growth", contentPath: "resources/spiritual-growth" },
+    { slug: "growing-spiritualy", contentPath: "resources/spiritual-growth" },
+  ];
+
+  return languages.flatMap((language) =>
+    resourcePages.map((item) => ({
+      params: {
+        lang: language.code,
+        resourcePage: item.slug,
+      },
+      props: {
+        contentPath: item.contentPath,
+      },
+    })),
+  );
+}
+
+const lang = Astro.params.lang;
+const resourcePage = Astro.params.resourcePage;
+const { contentPath } = Astro.props;
+const t = getUi(lang);
+const pageKey = contentPath.split("/").pop();
+const Content = await loadMarkdown(lang, contentPath);
+const pageTitle = t.pages[resourcePage] || t.pages[pageKey] || t.pages.resources;
+---
+
+<BaseLayout lang={lang} pageTitle={pageTitle} page="resources">
+  <PageHero image="/images/team.webp" />
+  <div class="container page-body">
+    <MarkdownPanel Content={Content} />
+  </div>
+</BaseLayout>

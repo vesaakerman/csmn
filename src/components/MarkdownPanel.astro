@@ -2,6 +2,19 @@
 const { Content, narrow = false } = Astro.props;
 ---
 
-<section class:list={["content-panel", { "content-panel-narrow": narrow }]}>
+<section class:list={["content-panel", { "content-panel-narrow": narrow }]} data-markdown-panel>
   <Content />
 </section>
+
+<script is:inline>
+  document.querySelectorAll("[data-markdown-panel] a[href]").forEach((link) => {
+    const url = new URL(link.getAttribute("href"), window.location.href);
+    const isWebLink = url.protocol === "http:" || url.protocol === "https:";
+    const isExternal = isWebLink && url.origin !== window.location.origin;
+
+    if (isExternal) {
+      link.target = "_blank";
+      link.relList.add("noopener", "noreferrer");
+    }
+  });
+</script>

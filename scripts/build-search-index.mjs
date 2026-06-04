@@ -33,6 +33,7 @@ function stripMarkdown(raw) {
     .replace(/```[\s\S]*?```/g, " ")
     .replace(/!\[[^\]]*]\([^)]*\)/g, " ")
     .replace(/\[([^\]]+)]\([^)]*\)/g, "$1")
+    .replace(/<[^>]+>/g, " ")
     .replace(/[#>*_`-]/g, " ")
     .replace(/\s+/g, " ")
     .trim();
@@ -84,15 +85,30 @@ function normalizeVideoCollection(value) {
 function buildPageEntries() {
   const entries = [];
 
+  function collectMarkdownFiles(dir) {
+    const files = [];
+
+    for (const name of fs.readdirSync(dir)) {
+      const fullPath = path.join(dir, name);
+      const stat = fs.statSync(fullPath);
+
+      if (stat.isDirectory()) {
+        files.push(...collectMarkdownFiles(fullPath));
+      } else if (name.endsWith(".md")) {
+        files.push(fullPath);
+      }
+    }
+
+    return files;
+  }
+
   for (const lang of languages) {
     const dir = path.join(textRoot, lang);
     if (!fs.existsSync(dir)) continue;
 
-    for (const file of fs.readdirSync(dir)) {
-      if (!file.endsWith(".md")) continue;
-
-      const slug = file.replace(/\.md$/, "");
-      const raw = fs.readFileSync(path.join(dir, file), "utf-8");
+    for (const file of collectMarkdownFiles(dir)) {
+      const slug = path.relative(dir, file).replace(/\.md$/, "").split(path.sep).join("/");
+      const raw = fs.readFileSync(file, "utf-8");
       entries.push({
         kind: "page",
         lang,

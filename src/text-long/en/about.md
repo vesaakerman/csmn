@@ -20,4 +20,4 @@ And many more! Whether you are looking for a place to grow personally, spiritual
 
 ## Over CSMN
 
-For more information about our foundation's registration, articles of association, and core values, click here (Dutch language only).
+For more information about our foundation's registration, articles of association, and core values, see the [ANBI page](/en/about/anbi) (official information in Dutch).
