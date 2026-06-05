@@ -75,6 +75,24 @@
     grid-template-columns: 1fr;
   }
 
+  .event-signup {
+    justify-content: flex-start;
+  }
+
+  .discover-event-page {
+    min-height: auto;
+    padding: 2.4rem;
+    border-radius: 24px;
+  }
+
+  .discover-event-page h1 {
+    font-size: 3.6rem;
+  }
+
+  .discover-event-page .event-signup {
+    margin: 2.8rem 0 3.2rem;
+  }
+
   .page-hero {
     width: calc(100% - 1rem);
   }
@@ -83,8 +101,51 @@
 @media (max-width: 575.98px) {
   .content-panel,
   .detail-page,
-  .home-discover {
+  .home-discover,
+  .signup-panel {
     padding: 1.25rem;
+  }
+
+  .signup-phone-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .discover-event-page {
+    padding: 1.35rem;
+    border-radius: 16px;
+  }
+
+  .discover-event-page h1 {
+    font-size: 3rem;
+  }
+
+  .discover-event-page .event-signup {
+    margin: 2rem 0 2.6rem;
+  }
+
+  .discover-event-page .event-signup > .btn-main {
+    min-width: 8.75rem;
+    min-height: 4rem;
+    border-radius: 1.4rem;
+    font-size: 1.05rem;
+  }
+
+  .discover-event-meta {
+    gap: 0.5rem;
+    font-size: 1.05rem;
+  }
+
+  .event-meta-icon {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+
+  .discover-event-copy {
+    margin-top: 2.6rem;
+  }
+
+  .discover-event-copy p {
+    font-size: 1.08rem;
   }
 
   h1,

@@ -1,0 +1,195 @@
+---
+import { formatDiscoverLifeDate, getDiscoverLifeDates, getDiscoverLifeSignupCopy } from "../data/discoverLife";
+
+const { lang = "en" } = Astro.props;
+
+const t = getDiscoverLifeSignupCopy(lang);
+const modalId = `event-signup-${lang}`;
+const formName = "discover-life-signup";
+const eventDates = getDiscoverLifeDates(lang);
+const defaultEvent = eventDates[0];
+const defaultRegistrationText = formatDiscoverLifeDate(t.registrationTemplate, defaultEvent);
+---
+
+<section
+  class="event-signup"
+  data-event-signup
+  data-success={t.success}
+  data-error={t.error}
+  data-event-dates={JSON.stringify(eventDates)}
+  data-registration-template={t.registrationTemplate}
+>
+  <button class="btn-main btn-gold" type="button" data-open-signup aria-haspopup="dialog" aria-controls={modalId}>
+    <span aria-hidden="true">✓</span>
+    <span>{t.button}</span>
+  </button>
+
+  <div class="signup-modal" id={modalId} role="dialog" aria-modal="true" aria-labelledby={`${modalId}-title`} hidden>
+    <div class="signup-backdrop" data-close-signup></div>
+    <div class="signup-panel" role="document">
+      <button class="signup-close" type="button" data-close-signup aria-label={t.close}>×</button>
+      <h2 id={`${modalId}-title`}>{t.title}</h2>
+      <p class="signup-event-summary" data-event-summary>{defaultRegistrationText}</p>
+
+      <form
+        name={formName}
+        method="POST"
+        action={`/${lang}/discover-life/`}
+        data-netlify="true"
+        data-netlify-honeypot="bot-field"
+        data-signup-form
+      >
+        <input type="hidden" name="form-name" value={formName} />
+        <input type="hidden" name="language" value={lang} />
+        <input type="hidden" name="event" value="Discover Life" />
+        <input type="hidden" name="eventDate" value={defaultEvent.date} data-event-date-input />
+        <input type="hidden" name="eventDateLabel" value={defaultEvent.label} data-event-date-label-input />
+        <input type="hidden" name="eventStart" value={defaultEvent.time} data-event-start-input />
+        <p class="visually-hidden">
+          <label>Do not fill this in: <input name="bot-field" /></label>
+        </p>
+
+        <label>
+          <span>{t.name}</span>
+          <input name="name" type="text" autocomplete="name" required />
+        </label>
+
+        <label>
+          <span>{t.email}</span>
+          <input name="email" type="email" autocomplete="email" required />
+        </label>
+
+        <div class="signup-phone-grid">
+          <label>
+            <span>{t.countryCode}</span>
+            <span class="signup-country-control">
+              <span class="signup-flag" data-country-flag aria-hidden="true">🇳🇱</span>
+              <select name="countryCode" autocomplete="tel-country-code" required>
+                <option value="+31" data-flag="🇳🇱" selected>NL +31</option>
+                <option value="+86" data-flag="🇨🇳">CN +86</option>
+                <option value="+32" data-flag="🇧🇪">BE +32</option>
+                <option value="+49" data-flag="🇩🇪">DE +49</option>
+                <option value="+44" data-flag="🇬🇧">UK +44</option>
+                <option value="+33" data-flag="🇫🇷">FR +33</option>
+                <option value="+358" data-flag="🇫🇮">FI +358</option>
+                <option value="+1" data-flag="🇺🇸">US +1</option>
+                <option value="+1" data-flag="🇨🇦">CA +1</option>
+              </select>
+            </span>
+          </label>
+
+          <label>
+            <span>{t.phone}</span>
+            <input name="phone" type="tel" inputmode="tel" autocomplete="tel-national" required />
+          </label>
+        </div>
+
+        <label>
+          <span>{t.restrictions}</span>
+          <textarea name="foodRestrictions" rows="3" placeholder={t.restrictionsPlaceholder}></textarea>
+        </label>
+
+        <div class="signup-actions">
+          <button class="btn-small" type="submit">{t.submit}</button>
+          <button class="signup-secondary" type="button" data-close-signup>{t.close}</button>
+        </div>
+
+        <p class="signup-status" data-signup-status role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<script is:inline>
+  document.querySelectorAll("[data-event-signup]").forEach((root) => {
+    const modal = root.querySelector(".signup-modal");
+    const openButton = root.querySelector("[data-open-signup]");
+    const closeButtons = root.querySelectorAll("[data-close-signup]");
+    const form = root.querySelector("[data-signup-form]");
+    const status = root.querySelector("[data-signup-status]");
+    const summary = root.querySelector("[data-event-summary]");
+    const dateInput = root.querySelector("[data-event-date-input]");
+    const dateLabelInput = root.querySelector("[data-event-date-label-input]");
+    const startInput = root.querySelector("[data-event-start-input]");
+    const countrySelect = root.querySelector("select[name='countryCode']");
+    const countryFlag = root.querySelector("[data-country-flag]");
+    const eventDates = JSON.parse(root.getAttribute("data-event-dates") || "[]");
+    const registrationTemplate = root.getAttribute("data-registration-template") || "Register for Discover Life! on {date} starting at {time}.";
+    let previousFocus = null;
+
+    const selectedEvent = () => {
+      const params = new URLSearchParams(window.location.search);
+      const date = params.get("date");
+      return eventDates.find((item) => item.date === date) || eventDates[0];
+    };
+
+    const applyEvent = () => {
+      const event = selectedEvent();
+      if (!event) return;
+      summary.textContent = registrationTemplate.replace("{date}", event.label).replace("{time}", event.time);
+      dateInput.value = event.date;
+      dateLabelInput.value = event.label;
+      startInput.value = event.time;
+    };
+
+    const updateFlag = () => {
+      const selected = countrySelect?.selectedOptions?.[0];
+      countryFlag.textContent = selected?.dataset?.flag || "";
+    };
+
+    const open = () => {
+      previousFocus = document.activeElement;
+      applyEvent();
+      updateFlag();
+      modal.hidden = false;
+      document.body.classList.add("modal-open");
+      modal.querySelector("input, select, textarea, button")?.focus();
+    };
+
+    const close = () => {
+      modal.hidden = true;
+      document.body.classList.remove("modal-open");
+      previousFocus?.focus?.();
+    };
+
+    openButton?.addEventListener("click", open);
+    closeButtons.forEach((button) => button.addEventListener("click", close));
+    countrySelect?.addEventListener("change", updateFlag);
+    applyEvent();
+    updateFlag();
+
+    modal?.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") close();
+    });
+
+    form?.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      status.textContent = "";
+      const submitButton = form.querySelector("button[type='submit']");
+      if (submitButton) submitButton.disabled = true;
+
+      try {
+        const body = new URLSearchParams(new FormData(form));
+        const response = await fetch("/", {
+          method: "POST",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body,
+        });
+
+        if (!response.ok) throw new Error("Signup failed");
+
+        form.reset();
+        form.querySelector("select[name='countryCode']").value = "+31";
+        applyEvent();
+        updateFlag();
+        status.textContent = root.getAttribute("data-success") || "Thank you. Your signup has been sent.";
+        status.classList.remove("is-error");
+      } catch (error) {
+        status.textContent = root.getAttribute("data-error") || "Something went wrong. Please try again.";
+        status.classList.add("is-error");
+      } finally {
+        if (submitButton) submitButton.disabled = false;
+      }
+    });
+  });
+</script>

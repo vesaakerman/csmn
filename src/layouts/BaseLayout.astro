@@ -24,5 +24,22 @@ const title = pageTitle ? `${pageTitle} | ${t.siteName}` : t.siteName;
       <slot />
     </main>
     <Footer lang={lang} t={t} />
+    <script is:inline>
+      document.querySelectorAll("a[href]").forEach((link) => {
+        try {
+          const url = new URL(link.getAttribute("href"), window.location.href);
+          const isWebLink = url.protocol === "http:" || url.protocol === "https:";
+          const isExternal = isWebLink && url.origin !== window.location.origin;
+          const isPdf = url.pathname.toLowerCase().endsWith(".pdf");
+
+          if (isExternal || isPdf) {
+            link.target = "_blank";
+            link.relList.add("noopener", "noreferrer");
+          }
+        } catch {
+          // Ignore unusual links that cannot be parsed as URLs.
+        }
+      });
+    </script>
   </body>
 </html>

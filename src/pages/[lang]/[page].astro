@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import DiscoverLifeEvent from "../../components/DiscoverLifeEvent.astro";
 import MarkdownPanel from "../../components/MarkdownPanel.astro";
 import PageHero from "../../components/PageHero.astro";
 import { getStaticPagePaths, loadMarkdown } from "../../utils/langHelpers";
@@ -25,8 +26,16 @@ const heroImage = pageHeroImages[page] || "/images/hands-together.webp";
 ---
 
 <BaseLayout lang={lang} pageTitle={pageTitle} page={page}>
-  <PageHero image={heroImage} />
-  <div class="container page-body">
-    <MarkdownPanel Content={Content} />
-  </div>
+  {page === "discover-life" ? (
+    <div class="container page-body">
+      <DiscoverLifeEvent lang={lang} />
+    </div>
+  ) : (
+    <>
+      <PageHero image={heroImage} />
+      <div class="container page-body">
+        <MarkdownPanel Content={Content} />
+      </div>
+    </>
+  )}
 </BaseLayout>

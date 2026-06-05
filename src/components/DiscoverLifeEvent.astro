@@ -1,0 +1,68 @@
+---
+import EventSignup from "./EventSignup.astro";
+import { formatDiscoverLifeDate, getDiscoverLifeDates, getDiscoverLifePageCopy } from "../data/discoverLife";
+
+const { lang = "en" } = Astro.props;
+const copy = getDiscoverLifePageCopy(lang);
+const eventDates = getDiscoverLifeDates(lang);
+const defaultEvent = eventDates[0];
+const defaultFromText = formatDiscoverLifeDate(copy.fromTemplate, defaultEvent);
+---
+
+<section
+  class="discover-event-page"
+  data-discover-event-page
+  data-event-dates={JSON.stringify(eventDates)}
+  data-from-template={copy.fromTemplate}
+>
+  <h1>{copy.title}</h1>
+
+  <EventSignup lang={lang} />
+
+  <div class="discover-event-meta" aria-label={copy.title}>
+    <p>
+      <span class="event-meta-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="M7 2v3M17 2v3M4 9h16M5 5h14a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Z"/></svg>
+      </span>
+      <span data-event-from>{defaultFromText}</span>
+    </p>
+    <p>
+      <span class="event-meta-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="m3 6 6-3 6 3 6-3v15l-6 3-6-3-6 3V6Zm6-3v15m6-12v15"/></svg>
+      </span>
+      <span>{copy.at} <a href={`/${lang}/fellowship`}>{copy.location}</a></span>
+    </p>
+    <p>
+      <span class="event-meta-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="M4 6h16v12H4V6Zm0 1 8 6 8-6"/></svg>
+      </span>
+      <a href={`mailto:${copy.contact}`}>{copy.contact}</a>
+    </p>
+    <p>
+      <span class="event-meta-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18Zm0-18c3 2.5 4.5 5.5 4.5 9S15 18.5 12 21m0-18c-3 2.5-4.5 5.5-4.5 9S9 18.5 12 21M3 12h18"/></svg>
+      </span>
+      <a href={`/${lang}/fellowship`}>{copy.website}</a>
+    </p>
+  </div>
+
+  <div class="discover-event-copy">
+    <p>{copy.intro}</p>
+    <p>{copy.body}</p>
+  </div>
+</section>
+
+<script is:inline>
+  document.querySelectorAll("[data-discover-event-page]").forEach((root) => {
+    const eventDates = JSON.parse(root.getAttribute("data-event-dates") || "[]");
+    const fromTemplate = root.getAttribute("data-from-template") || "From {date} {time} until 22:00";
+    const fromNode = root.querySelector("[data-event-from]");
+    const params = new URLSearchParams(window.location.search);
+    const date = params.get("date");
+    const event = eventDates.find((item) => item.date === date) || eventDates[0];
+
+    if (event && fromNode) {
+      fromNode.textContent = fromTemplate.replace("{date}", event.label).replace("{time}", event.time);
+    }
+  });
+</script>

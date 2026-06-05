@@ -13,6 +13,12 @@ export async function getStaticPaths() {
 const lang = Astro.params.lang;
 const t = getUi(lang);
 const supportingImage = "/images/hands-together.webp";
+const discoverLifeEvents = [
+  { date: "2026-06-05", label: "05 June 2026 18:00" },
+  { date: "2026-06-12", label: "12 June 2026 18:00" },
+  { date: "2026-06-19", label: "19 June 2026 18:00" },
+  { date: "2026-06-26", label: "26 June 2026 18:00" },
+];
 ---
 
 <BaseLayout lang={lang} pageTitle={t.pages.home} page="home">
@@ -23,34 +29,15 @@ const supportingImage = "/images/hands-together.webp";
       <h2>{t.home.introTitle}</h2>
       <p>{t.home.introText}</p>
       <div class="event-list compact-list">
-        <a href={`/${lang}/discover-life`}>
-          <img src={supportingImage} alt="" />
-          <span>
-            <strong>Discover Life</strong>
-            <small>05 June 2026 18:00</small>
-          </span>
-        </a>
-        <a href={`/${lang}/discover-life`}>
-          <img src={supportingImage} alt="" />
-          <span>
-            <strong>Discover Life</strong>
-            <small>12 June 2026 18:00</small>
-          </span>
-        </a>
-        <a href={`/${lang}/discover-life`}>
-          <img src={supportingImage} alt="" />
-          <span>
-            <strong>Discover Life</strong>
-            <small>19 June 2026 18:00</small>
-          </span>
-        </a>
-        <a href={`/${lang}/discover-life`}>
-          <img src={supportingImage} alt="" />
-          <span>
-            <strong>Discover Life</strong>
-            <small>26 June 2026 18:00</small>
-          </span>
-        </a>
+        {discoverLifeEvents.map((event) => (
+          <a href={`/${lang}/discover-life/?date=${event.date}`}>
+            <img src={supportingImage} alt="" />
+            <span>
+              <strong>Discover Life</strong>
+              <small>{event.label}</small>
+            </span>
+          </a>
+        ))}
       </div>
     </div>
   </section>
