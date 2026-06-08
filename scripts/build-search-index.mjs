@@ -2,6 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { createClient } from "@sanity/client";
 import { sampleCatalog } from "../src/data/sampleCatalog.js";
+import { getChineseRecipes } from "../src/data/chineseRecipes.js";
 import { getTopicalStudyFiles } from "../src/data/topicalStudyFiles.js";
 import { catalogQuery } from "../src/sanity/queries.js";
 
@@ -46,6 +47,12 @@ function pageTitleFromMarkdown(raw, fallback) {
 }
 
 function extraSearchContentForPage(slug, lang) {
+  if (slug === "resources/chinese-recipes") {
+    return getChineseRecipes()
+      .map((item) => [item.title, item.file].join(" "))
+      .join(" ");
+  }
+
   if (slug !== "resources/topical-studies") return "";
 
   return getTopicalStudyFiles(lang)

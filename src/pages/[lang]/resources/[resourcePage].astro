@@ -2,6 +2,7 @@
 import BaseLayout from "../../../layouts/BaseLayout.astro";
 import MarkdownPanel from "../../../components/MarkdownPanel.astro";
 import PageHero from "../../../components/PageHero.astro";
+import ChineseRecipeList from "../../../components/ChineseRecipeList.astro";
 import TopicalStudyDownloads from "../../../components/TopicalStudyDownloads.astro";
 import { languages } from "../../../text/ui";
 import { loadMarkdown } from "../../../utils/langHelpers";
@@ -11,6 +12,7 @@ export const prerender = true;
 
 export async function getStaticPaths() {
   const resourcePages = [
+    { slug: "chinese-recipes", contentPath: "resources/chinese-recipes" },
     { slug: "bible-study-and-research", contentPath: "resources/bible-study-and-research" },
     { slug: "topical-studies", contentPath: "resources/topical-studies" },
     { slug: "spiritual-growth", contentPath: "resources/spiritual-growth" },
@@ -43,6 +45,7 @@ const pageTitle = t.pages[resourcePage] || t.pages[pageKey] || t.pages.resources
   <PageHero image="/images/team.webp" />
   <div class="container page-body">
     <MarkdownPanel Content={Content} />
+    {pageKey === "chinese-recipes" && <ChineseRecipeList />}
     {pageKey === "topical-studies" && <TopicalStudyDownloads lang={lang} />}
   </div>
 </BaseLayout>

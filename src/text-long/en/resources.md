@@ -9,6 +9,7 @@ We have selected and listed a large collection of songs and videos that can be u
 All content is chosen with mixed gatherings in mind, bringing together Chinese students and non-Mandarin-speaking people. Enjoy them alone or share them with friends, small groups, or your fellowship community.
 
 - [Songs & videos](/en/videos)
+- [Chinese recipes](/en/resources/chinese-recipes)
 - [Bible study & research](/en/resources/bible-study-and-research)
 - [Topical studies](/en/resources/topical-studies)
 - [Spiritual growth](/en/resources/spiritual-growth)

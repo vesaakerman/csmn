@@ -896,6 +896,37 @@ body.modal-open {
   stroke-linejoin: round;
 }
 
+.recipe-browser {
+  margin: 2rem 0 0;
+}
+
+.recipe-list {
+  max-width: 54rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid rgba($navy-d, 0.08);
+}
+
+.recipe-list li {
+  margin: 0;
+  border-bottom: 1px solid rgba($navy-d, 0.08);
+}
+
+.recipe-list a {
+  display: block;
+  padding: 0.85rem 0;
+  color: $navy-m;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.recipe-list a:hover,
+.recipe-list a:focus-visible {
+  color: $blue-hover;
+  text-decoration: underline;
+}
+
 .resource-library-link {
   display: inline-flex;
   align-items: center;

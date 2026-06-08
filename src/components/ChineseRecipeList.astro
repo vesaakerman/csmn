@@ -1,0 +1,19 @@
+---
+import { getChineseRecipes } from "../data/chineseRecipes";
+
+const recipes = getChineseRecipes();
+---
+
+<section class="recipe-browser">
+  <ul class="recipe-list">
+    {
+      recipes.map((recipe) => (
+        <li>
+          <a href={recipe.href} target="_blank" rel="noopener">
+            {recipe.title}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</section>

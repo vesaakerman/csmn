@@ -8,6 +8,7 @@ const path = (slug = "") => `/${lang}/${slug}`.replace(/\/$/, "/");
 const active = (slug) => page === slug || currentPath.includes(`/${slug}`);
 const resourceLinks = [
   { href: path("videos"), label: nav.videos },
+  { href: path("resources/chinese-recipes"), label: t.pages["chinese-recipes"] },
   { href: path("resources/bible-study-and-research"), label: t.pages["bible-study-and-research"] },
   { href: path("resources/topical-studies"), label: t.pages["topical-studies"] },
   { href: path("resources/spiritual-growth"), label: t.pages["spiritual-growth"] },

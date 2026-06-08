@@ -9,6 +9,7 @@
 你可以通过资源菜单下的 **诗歌与视频** 子菜单，浏览中文敬拜、英文敬拜和其他视频。
 
 - [诗歌与视频](/zh/videos)
+- [中国菜谱](/zh/resources/chinese-recipes)
 - [圣经学习与研究](/zh/resources/bible-study-and-research)
 - [主题学习](/zh/resources/topical-studies)
 - [灵命成长](/zh/resources/spiritual-growth)
