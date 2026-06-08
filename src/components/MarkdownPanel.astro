@@ -12,7 +12,9 @@ const { Content, narrow = false } = Astro.props;
     const isWebLink = url.protocol === "http:" || url.protocol === "https:";
     const isExternal = isWebLink && url.origin !== window.location.origin;
 
-    if (isExternal) {
+    const isPdf = url.pathname.toLowerCase().endsWith(".pdf");
+
+    if (isExternal || isPdf) {
       link.target = "_blank";
       link.relList.add("noopener", "noreferrer");
     }

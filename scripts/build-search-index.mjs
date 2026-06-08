@@ -2,6 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { createClient } from "@sanity/client";
 import { sampleCatalog } from "../src/data/sampleCatalog.js";
+import { getTopicalStudyFiles } from "../src/data/topicalStudyFiles.js";
 import { catalogQuery } from "../src/sanity/queries.js";
 
 const languages = ["en", "zh", "nl"];
@@ -42,6 +43,14 @@ function stripMarkdown(raw) {
 function pageTitleFromMarkdown(raw, fallback) {
   const heading = raw.match(/^#{1,3}\s+(.+)$/m)?.[1];
   return heading ? heading.trim() : fallback;
+}
+
+function extraSearchContentForPage(slug, lang) {
+  if (slug !== "resources/topical-studies") return "";
+
+  return getTopicalStudyFiles(lang)
+    .map((item) => [item.title, item.file, item.date, item.size].filter(Boolean).join(" "))
+    .join(" ");
 }
 
 function localized(value, lang) {
@@ -109,13 +118,17 @@ function buildPageEntries() {
     for (const file of collectMarkdownFiles(dir)) {
       const slug = path.relative(dir, file).replace(/\.md$/, "").split(path.sep).join("/");
       const raw = fs.readFileSync(file, "utf-8");
+      const content = [stripMarkdown(raw), extraSearchContentForPage(slug, lang)]
+        .filter(Boolean)
+        .join(" ");
+
       entries.push({
         kind: "page",
         lang,
         href: `/${lang}/${slug}`,
         title: pageTitleFromMarkdown(raw, slug),
-        description: stripMarkdown(raw).slice(0, 220),
-        content: stripMarkdown(raw),
+        description: content.slice(0, 220),
+        content,
         tags: [slug],
       });
     }

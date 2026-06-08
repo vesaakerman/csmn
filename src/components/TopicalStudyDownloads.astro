@@ -1,0 +1,46 @@
+---
+import { getTopicalStudyFiles } from "../data/topicalStudyFiles";
+
+const { lang = "en" } = Astro.props;
+const files = getTopicalStudyFiles(lang);
+
+const labels = {
+  en: { popular: "Popular", download: "Download" },
+  zh: { popular: "热门", download: "下载" },
+  nl: { popular: "Populair", download: "Download" },
+};
+
+const t = labels[lang] || labels.en;
+---
+
+<div class="resource-table-wrap">
+  <table class="resource-table resource-download-table">
+    <tbody>
+      {
+        files.map((item) => (
+          <tr>
+            <td>
+              <a class="resource-file-link" href={item.href} target="_blank" rel="noopener">
+                <span class="resource-file-name">{item.title}</span>
+              </a>
+              <span class="resource-badges">
+                <span>{t.popular}</span>
+                {item.version && <span>{item.version}</span>}
+                <span>{item.size}</span>
+              </span>
+            </td>
+            <td>{item.date}</td>
+            <td class="resource-actions">
+              <a href={item.href} target="_blank" rel="noopener" aria-label={`${t.download}: ${item.title}`}>
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M12 3v11m0 0 4-4m-4 4-4-4M5 17v3h14v-3" />
+                </svg>
+                <span class="visually-hidden">{t.download}</span>
+              </a>
+            </td>
+          </tr>
+        ))
+      }
+    </tbody>
+  </table>
+</div>

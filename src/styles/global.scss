@@ -822,6 +822,27 @@ body.modal-open {
   white-space: nowrap;
 }
 
+.resource-download-table {
+  min-width: 52rem;
+}
+
+.resource-download-table td:last-child {
+  width: 8rem;
+}
+
+.resource-file-link {
+  display: inline-flex;
+  color: $navy-m;
+  text-decoration: none;
+}
+
+.resource-file-link:hover,
+.resource-file-link:focus-visible,
+.resource-actions a:hover,
+.resource-actions a:focus-visible {
+  color: $blue-hover;
+}
+
 .resource-file-name {
   display: block;
 }
@@ -848,6 +869,31 @@ body.modal-open {
 .resource-badges span:first-child {
   background: $green-m;
   color: $white;
+}
+
+.resource-actions a {
+  display: inline-grid;
+  place-items: center;
+  width: 2.45rem;
+  height: 2.45rem;
+  border-radius: 8px;
+  color: $navy-m;
+  text-decoration: none;
+}
+
+.resource-actions a:hover,
+.resource-actions a:focus-visible {
+  background: $blue-l;
+}
+
+.resource-actions svg {
+  width: 1.35rem;
+  height: 1.35rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 .resource-library-link {

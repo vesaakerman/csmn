@@ -2,6 +2,7 @@
 import BaseLayout from "../../../layouts/BaseLayout.astro";
 import MarkdownPanel from "../../../components/MarkdownPanel.astro";
 import PageHero from "../../../components/PageHero.astro";
+import TopicalStudyDownloads from "../../../components/TopicalStudyDownloads.astro";
 import { languages } from "../../../text/ui";
 import { loadMarkdown } from "../../../utils/langHelpers";
 import { getUi } from "../../../text/ui";
@@ -42,5 +43,6 @@ const pageTitle = t.pages[resourcePage] || t.pages[pageKey] || t.pages.resources
   <PageHero image="/images/team.webp" />
   <div class="container page-body">
     <MarkdownPanel Content={Content} />
+    {pageKey === "topical-studies" && <TopicalStudyDownloads lang={lang} />}
   </div>
 </BaseLayout>
