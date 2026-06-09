@@ -69,6 +69,7 @@ h3 {
 .nav-shell {
   position: relative;
   display: flex;
+  align-items: center;
   justify-content: space-between;
   gap: 1rem;
 }
@@ -184,6 +185,18 @@ h3 {
 .language-switcher a.active {
   color: $white;
   background: $navy-m;
+}
+
+.mobile-header-tools {
+  display: contents;
+}
+
+.mobile-header-search {
+  display: none;
+}
+
+.language-switcher-mobile {
+  display: none;
 }
 
 .nav-toggle {

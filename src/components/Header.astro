@@ -5,6 +5,7 @@ import { replaceLanguageInPath } from "../utils/langHelpers";
 const { lang, page, t, currentPath } = Astro.props;
 const nav = t.nav;
 const path = (slug = "") => `/${lang}/${slug}`.replace(/\/$/, "/");
+const searchPath = `/${lang}/search/`;
 const active = (slug) => page === slug || currentPath.includes(`/${slug}`);
 const resourceLinks = [
   { href: path("videos"), label: nav.videos },
@@ -27,11 +28,26 @@ const aboutLinks = [
         <span>{t.siteName}</span>
       </a>
 
-      <button class="nav-toggle" type="button" aria-label={nav.menu} data-menu-toggle>
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
+      <div class="mobile-header-tools">
+        <form class="mobile-header-search" method="get" action={searchPath}>
+          <label class="visually-hidden" for="mobile-header-search">{nav.search}</label>
+          <input id="mobile-header-search" type="search" name="s" placeholder={nav.search} />
+        </form>
+
+        <div class="language-switcher language-switcher-mobile" aria-label={nav.language}>
+          {languages.map((item) => (
+            <a class={item.code === lang ? "active" : ""} href={replaceLanguageInPath(currentPath, item.code)}>
+              {item.short}
+            </a>
+          ))}
+        </div>
+
+        <button class="nav-toggle" type="button" aria-label={nav.menu} data-menu-toggle>
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
 
       <nav class="site-nav" data-site-nav>
         <a class={active("home") ? "active" : ""} href={path()}>{nav.home}</a>
@@ -59,7 +75,7 @@ const aboutLinks = [
 
         <a class={active("donate") ? "active nav-donate" : "nav-donate"} href={path("donate")}>{nav.donate}</a>
 
-        <form class="header-search" method="get" action={path("search")}>
+        <form class="header-search" method="get" action={searchPath}>
           <label class="visually-hidden" for="header-search">{nav.search}</label>
           <input id="header-search" type="search" name="s" placeholder={nav.search} />
         </form>

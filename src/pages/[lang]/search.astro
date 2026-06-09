@@ -1,7 +1,7 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import PageHero from "../../components/PageHero.astro";
-import SearchResults from "../../components/SearchResults.jsx";
+import SearchResults from "../../components/SearchResults.astro";
 import { getLangStaticPaths } from "../../utils/langHelpers";
 import { getUi } from "../../text/ui";
 
@@ -23,6 +23,6 @@ const t = getUi(lang);
     </div>
   </section>
   <section class="container">
-    <SearchResults labels={t.search} client:load />
+    <SearchResults lang={lang} labels={t.search} />
   </section>
 </BaseLayout>

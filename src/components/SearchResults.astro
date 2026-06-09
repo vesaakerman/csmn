@@ -1,0 +1,173 @@
+---
+const { lang, labels } = Astro.props;
+---
+
+<div
+  class="search-page"
+  data-search-page
+  data-lang={lang}
+  data-loading={labels.loading || "Loading..."}
+  data-results-label={labels.results}
+  data-no-results={labels.noResults}
+  data-page-type={labels.pageType}
+  data-video-type={labels.videoType}
+>
+  <div class="search-controls-large">
+    <input
+      data-search-input
+      type="search"
+      placeholder={labels.placeholder}
+      autocomplete="off"
+      autofocus
+    />
+  </div>
+
+  <p class="result-count" data-result-count>{labels.loading || "Loading..."}</p>
+  <p class="empty-state" data-empty-state hidden>{labels.noResults}</p>
+  <div class="search-results-list" data-results-list></div>
+</div>
+
+<script is:inline>
+  document.querySelectorAll("[data-search-page]").forEach((root) => {
+    const input = root.querySelector("[data-search-input]");
+    const count = root.querySelector("[data-result-count]");
+    const empty = root.querySelector("[data-empty-state]");
+    const list = root.querySelector("[data-results-list]");
+    const lang = root.getAttribute("data-lang") || "en";
+    const labels = {
+      loading: root.getAttribute("data-loading") || "Loading...",
+      results: root.getAttribute("data-results-label") || "results",
+      noResults: root.getAttribute("data-no-results") || "No results found.",
+      pageType: root.getAttribute("data-page-type") || "Page",
+      videoType: root.getAttribute("data-video-type") || "Video",
+    };
+    let entries = [];
+    let hasLoaded = false;
+
+    function normalize(value) {
+      return String(value || "")
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .toLowerCase();
+    }
+
+    function textFor(entry, key) {
+      const value = entry[key];
+      return Array.isArray(value) ? value.join(" ") : value || "";
+    }
+
+    function scoreEntry(entry, tokens) {
+      const fields = [
+        { key: "title", weight: 8 },
+        { key: "tags", weight: 5 },
+        { key: "description", weight: 3 },
+        { key: "content", weight: 1 },
+      ];
+      let score = 0;
+
+      for (const token of tokens) {
+        let tokenScore = 0;
+        for (const field of fields) {
+          const text = normalize(textFor(entry, field.key));
+          const index = text.indexOf(token);
+          if (index === -1) continue;
+
+          tokenScore = Math.max(tokenScore, field.weight + (index === 0 ? 1 : 0));
+        }
+
+        if (!tokenScore) return 0;
+        score += tokenScore;
+      }
+
+      return score;
+    }
+
+    function search(query) {
+      const cleanQuery = normalize(query).trim();
+      if (!cleanQuery) return entries.slice(0, 12);
+
+      const tokens = cleanQuery.split(/\s+/).filter(Boolean);
+      return entries
+        .map((entry) => ({ entry, score: scoreEntry(entry, tokens) }))
+        .filter((item) => item.score > 0)
+        .sort((first, second) => second.score - first.score || first.entry.title.localeCompare(second.entry.title))
+        .map((item) => item.entry);
+    }
+
+    function kindLabel(kind) {
+      return kind === "video" ? labels.videoType : labels.pageType;
+    }
+
+    function render() {
+      const query = input.value;
+      list.replaceChildren();
+
+      if (!hasLoaded) {
+        count.textContent = labels.loading;
+        empty.hidden = true;
+        return;
+      }
+
+      const results = search(query);
+      count.textContent = `${results.length} ${labels.results}`;
+      empty.hidden = results.length > 0;
+
+      for (const entry of results) {
+        const link = document.createElement("a");
+        link.className = "search-result";
+        link.href = entry.href;
+
+        const kind = document.createElement("span");
+        kind.textContent = kindLabel(entry.kind);
+        link.append(kind);
+
+        const title = document.createElement("h2");
+        title.textContent = entry.title;
+        link.append(title);
+
+        if (entry.description) {
+          const description = document.createElement("p");
+          description.textContent = entry.description;
+          link.append(description);
+        }
+
+        list.append(link);
+      }
+    }
+
+    function syncUrl() {
+      const url = new URL(window.location.href);
+      const query = input.value.trim();
+      if (query) {
+        url.searchParams.set("s", query);
+      } else {
+        url.searchParams.delete("s");
+      }
+      window.history.replaceState({}, "", url);
+    }
+
+    input.value = new URLSearchParams(window.location.search).get("s") || "";
+    input.addEventListener("input", () => {
+      syncUrl();
+      render();
+    });
+
+    render();
+
+    fetch("/search-index.json")
+      .then((response) => {
+        if (!response.ok) throw new Error("Search index unavailable");
+        return response.json();
+      })
+      .then((items) => {
+        entries = items.filter((entry) => entry.lang === lang);
+      })
+      .catch(() => {
+        entries = [];
+      })
+      .finally(() => {
+        hasLoaded = true;
+        render();
+      });
+  });
+</script>
