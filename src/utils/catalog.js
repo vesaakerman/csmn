@@ -1,6 +1,7 @@
 import { sampleCatalog } from "../data/sampleCatalog";
 import { catalogQuery } from "../sanity/queries";
 import { hasSanityConfig, sanityClient } from "./sanity";
+import { getVideoDescriptionCard, getVideoDescriptionDetail } from "./videoDescription";
 
 export const catalogKinds = ["video"];
 
@@ -49,6 +50,7 @@ export function normalizeCatalogItem(item, lang) {
   const kind = "video";
   const title = localized(item.title, lang);
   const description = localized(item.description, lang);
+  const displayDescription = getVideoDescriptionDetail(description);
   const slug = normalizeSlug(item.slug);
   const collection = normalizeVideoCollection(item.collection || item.category);
   const collectionLabel = labelForVideoCollection(collection);
@@ -59,6 +61,8 @@ export function normalizeCatalogItem(item, lang) {
     kind,
     title,
     description,
+    displayDescription,
+    cardDescription: getVideoDescriptionCard(description),
     slug,
     href: `/${lang}/videos/${slug}`,
     externalUrl: item.videoUrl,

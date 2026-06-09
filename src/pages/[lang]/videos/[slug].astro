@@ -23,7 +23,7 @@ const t = getUi(lang);
     <VideoEmbed url={item.videoUrl} title={item.title} />
     <div class="detail-grid">
       <div>
-        {item.description && <p class="detail-lead">{item.description}</p>}
+        {item.displayDescription && <p class="detail-lead">{item.displayDescription}</p>}
       </div>
       {(item.tags.length || item.submittedBy || item.publishedAt) && (
         <aside class="detail-meta">

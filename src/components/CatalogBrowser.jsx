@@ -116,7 +116,7 @@ export default function CatalogBrowser({ items, labels }) {
                 <h2>
                   <a href={item.href}>{item.title}</a>
                 </h2>
-                {item.description && <p>{item.description}</p>}
+                {item.cardDescription && <p>{item.cardDescription}</p>}
                 <MetaPills values={item.tags || []} />
                 <a className="btn-small" href={item.href}>
                   {labels.watch}

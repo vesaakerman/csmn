@@ -5,6 +5,7 @@ import { sampleCatalog } from "../src/data/sampleCatalog.js";
 import { getChineseRecipes } from "../src/data/chineseRecipes.js";
 import { getTopicalStudyFiles } from "../src/data/topicalStudyFiles.js";
 import { catalogQuery } from "../src/sanity/queries.js";
+import { getVideoDescriptionSearchPreview } from "../src/utils/videoDescription.js";
 
 const languages = ["en", "zh", "nl"];
 const outputFile = "public/search-index.json";
@@ -184,6 +185,7 @@ function buildCatalogEntries(rawItems) {
 
       const title = localized(item.title, lang);
       const description = localized(item.description, lang);
+      const displayDescription = getVideoDescriptionSearchPreview(description);
       const href = `/${lang}/videos/${slug}`;
       const collectionLabel = labelForVideoCollection(normalizeVideoCollection(item.collection || item.category));
       const tags = item.tags || [];
@@ -193,7 +195,7 @@ function buildCatalogEntries(rawItems) {
         lang,
         href,
         title,
-        description,
+        description: displayDescription,
         content: [
           title,
           description,
