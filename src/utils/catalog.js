@@ -1,8 +1,11 @@
 import { sampleCatalog } from "../data/sampleCatalog";
 import { catalogQuery } from "../sanity/queries";
-import { hasSanityConfig, sanityClient } from "./sanity";
+import { hasSanityConfig, sanityClient, sanityDataset, sanityProjectId } from "./sanity";
 
 export const catalogKinds = ["video"];
+
+let rawCatalogItemsPromise;
+let hasLoggedSanityDiagnostic = false;
 
 export function localized(value, lang) {
   if (!value) return "";
@@ -80,12 +83,43 @@ export function normalizeCatalogItem(item, lang) {
 }
 
 export async function getRawCatalogItems() {
+  if (!rawCatalogItemsPromise) {
+    rawCatalogItemsPromise = loadRawCatalogItems();
+  }
+
+  return rawCatalogItemsPromise;
+}
+
+async function loadRawCatalogItems() {
+  const token = import.meta.env.SANITY_API_TOKEN;
+  const useCdn = import.meta.env.PUBLIC_SANITY_USE_CDN === "true";
+
+  if (!hasLoggedSanityDiagnostic) {
+    console.info(
+      [
+        "Sanity Astro diagnostic:",
+        `projectId=${sanityProjectId || "(missing)"}`,
+        `dataset=${sanityDataset}`,
+        `configured=${hasSanityConfig ? "yes" : "no"}`,
+        `token=${token ? `present (${token.length} chars)` : "missing"}`,
+        `useCdn=${useCdn ? "true" : "false"}`,
+      ].join(" "),
+    );
+    hasLoggedSanityDiagnostic = true;
+  }
+
   if (!hasSanityConfig) return sampleCatalog;
 
   try {
-    return await sanityClient.fetch(catalogQuery);
+    const items = await sanityClient.fetch(catalogQuery);
+    const videoCount = items.filter((item) => item._type === "video").length;
+    console.info(`Sanity Astro diagnostic: fetched ${videoCount} video document(s).`);
+
+    return items;
   } catch (error) {
-    console.warn("Failed to load Sanity catalog. Check SANITY_API_TOKEN and dataset read permissions.", error);
+    console.warn(
+      `Sanity Astro diagnostic: fetch failed (${error.statusCode || error.status || "no status"}). ${error.message}`,
+    );
     return [];
   }
 }

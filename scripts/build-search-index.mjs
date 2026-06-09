@@ -98,6 +98,19 @@ function normalizeVideoCollection(value) {
   return aliases[clean] || clean;
 }
 
+function logSanityBuildDiagnostic({ projectId, dataset, hasSanityConfig, token, useCdn }) {
+  console.info(
+    [
+      "Sanity build diagnostic:",
+      `projectId=${projectId || "(missing)"}`,
+      `dataset=${dataset}`,
+      `configured=${hasSanityConfig ? "yes" : "no"}`,
+      `token=${token ? `present (${token.length} chars)` : "missing"}`,
+      `useCdn=${useCdn ? "true" : "false"}`,
+    ].join(" "),
+  );
+}
+
 function buildPageEntries() {
   const entries = [];
 
@@ -147,8 +160,12 @@ function buildPageEntries() {
 async function getCatalogItems() {
   const projectId = process.env.PUBLIC_SANITY_PROJECT_ID;
   const dataset = process.env.PUBLIC_SANITY_DATASET || "production";
+  const token = process.env.SANITY_API_TOKEN;
+  const useCdn = process.env.PUBLIC_SANITY_USE_CDN === "true";
   const hasSanityConfig =
     projectId && projectId !== "placeholder" && projectId !== "yourprojectid";
+
+  logSanityBuildDiagnostic({ projectId, dataset, hasSanityConfig, token, useCdn });
 
   if (!hasSanityConfig) return sampleCatalog;
 
@@ -157,14 +174,20 @@ async function getCatalogItems() {
       projectId,
       dataset,
       apiVersion: "2026-05-01",
-      useCdn: process.env.PUBLIC_SANITY_USE_CDN === "true",
-      token: process.env.SANITY_API_TOKEN,
+      useCdn,
+      token,
     });
 
-    return await client.fetch(catalogQuery);
+    const items = await client.fetch(catalogQuery);
+    const videoCount = items.filter((item) => item._type === "video").length;
+    console.info(`Sanity build diagnostic: fetched ${videoCount} video document(s).`);
+
+    return items;
   } catch (error) {
-    console.warn("Could not fetch Sanity content for search index; using samples.", error);
-    return sampleCatalog;
+    console.warn(
+      `Sanity build diagnostic: fetch failed (${error.statusCode || error.status || "no status"}). ${error.message}`,
+    );
+    return [];
   }
 }
 
