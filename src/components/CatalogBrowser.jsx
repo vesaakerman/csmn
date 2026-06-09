@@ -6,8 +6,6 @@ export default function CatalogBrowser({ items, labels }) {
   const [query, setQuery] = useState("");
   const [collection, setCollection] = useState("");
   const [tag, setTag] = useState("");
-  const [submitter, setSubmitter] = useState("");
-  const [year, setYear] = useState("");
 
   const fuse = useMemo(
     () =>
@@ -23,8 +21,6 @@ export default function CatalogBrowser({ items, labels }) {
     const collections = new Map();
     const tags = new Set();
     const tagCounts = new Map();
-    const submitters = new Set();
-    const years = new Set();
     let itemsWithoutCollection = 0;
 
     items.forEach((item) => {
@@ -36,20 +32,13 @@ export default function CatalogBrowser({ items, labels }) {
           tagCounts.set(value, (tagCounts.get(value) || 0) + 1);
         }
       });
-      if (item.submittedBy) submitters.add(item.submittedBy);
-      const itemYear = getYear(item.publishedAt);
-      if (itemYear) years.add(itemYear);
     });
 
     return {
       collections: Array.from(collections, ([value, label]) => ({ value, label })).sort(sortByCollectionOrder),
       tags: Array.from(tags).sort(sortText),
-      submitters: Array.from(submitters).sort(sortText),
-      years: Array.from(years).sort((a, b) => b.localeCompare(a)),
       hasCollectionSplit: collections.size > 1 || (collections.size === 1 && itemsWithoutCollection > 0),
       hasTagSplit: Array.from(tagCounts.values()).some((count) => count < items.length),
-      hasSubmitterSplit: submitters.size > 1,
-      hasYearSplit: years.size > 1,
     };
   }, [items]);
 
@@ -59,20 +48,16 @@ export default function CatalogBrowser({ items, labels }) {
     return queryResults.filter((item) => {
       if (collection && item.collection !== collection) return false;
       if (tag && !(item.tags || []).includes(tag)) return false;
-      if (submitter && item.submittedBy !== submitter) return false;
-      if (year && getYear(item.publishedAt) !== year) return false;
       return true;
     });
-  }, [collection, fuse, items, query, submitter, tag, year]);
+  }, [collection, fuse, items, query, tag]);
 
-  const hasSelection = Boolean(query || collection || tag || submitter || year);
+  const hasSelection = Boolean(query || collection || tag);
 
   function resetFilters() {
     setQuery("");
     setCollection("");
     setTag("");
-    setSubmitter("");
-    setYear("");
   }
 
   return (
@@ -107,22 +92,6 @@ export default function CatalogBrowser({ items, labels }) {
       </div>
 
       <div className="catalog-filter-row">
-        <FilterSelect
-          value={submitter}
-          onSelect={setSubmitter}
-          label={labels.submitterFilter}
-          defaultLabel={labels.allSubmitters}
-          options={options.submitters.map((option) => ({ value: option, label: option }))}
-          disabled={!options.hasSubmitterSplit}
-        />
-        <FilterSelect
-          value={year}
-          onSelect={setYear}
-          label={labels.yearFilter}
-          defaultLabel={labels.allYears}
-          options={options.years.map((option) => ({ value: option, label: option }))}
-          disabled={!options.hasYearSplit}
-        />
         <button className="catalog-reset" type="button" onClick={resetFilters} disabled={!hasSelection}>
           {labels.resetFilters}
         </button>
@@ -176,12 +145,6 @@ function FilterSelect({ value, onSelect, label, defaultLabel, options, disabled 
       ))}
     </select>
   );
-}
-
-function getYear(value) {
-  if (!value) return "";
-  const date = new Date(value);
-  return Number.isNaN(date.getTime()) ? "" : String(date.getFullYear());
 }
 
 function sortText(a, b) {

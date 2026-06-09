@@ -85,8 +85,8 @@ export async function getRawCatalogItems() {
   try {
     return await sanityClient.fetch(catalogQuery);
   } catch (error) {
-    console.warn("Failed to load Sanity catalog, using sample content.", error);
-    return sampleCatalog;
+    console.warn("Failed to load Sanity catalog. Check SANITY_API_TOKEN and dataset read permissions.", error);
+    return [];
   }
 }
 
