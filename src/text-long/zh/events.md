@@ -19,7 +19,6 @@
 
 ### 即将举行的 Discover Life
 
-- [Discover Life](/zh/discover-life)：2026 年 5 月 29 日 18:00
-- [Discover Life](/zh/discover-life)：2026 年 6 月 05 日 18:00
-- [Discover Life](/zh/discover-life)：2026 年 6 月 12 日 18:00
-- [Discover Life](/zh/discover-life)：2026 年 6 月 19 日 18:00
+- [Discover Life](/zh/discover-life/?date=2026-06-12)：2026 年 6 月 12 日 18:00
+- [Discover Life](/zh/discover-life/?date=2026-06-19)：2026 年 6 月 19 日 18:00
+- [Discover Life](/zh/discover-life/?date=2026-06-26)：2026 年 6 月 26 日 18:00

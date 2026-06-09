@@ -19,7 +19,6 @@ Living in or around Nijmegen? Check our group in [Nijmegen](/en/about/nijmegen).
 
 ### Upcoming Discover Life evenings
 
-- [Discover Life](/en/discover-life): 29 May 2026, 18:00
-- [Discover Life](/en/discover-life): 05 June 2026, 18:00
-- [Discover Life](/en/discover-life): 12 June 2026, 18:00
-- [Discover Life](/en/discover-life): 19 June 2026, 18:00
+- [Discover Life](/en/discover-life/?date=2026-06-12): 12 June 2026, 18:00
+- [Discover Life](/en/discover-life/?date=2026-06-19): 19 June 2026, 18:00
+- [Discover Life](/en/discover-life/?date=2026-06-26): 26 June 2026, 18:00

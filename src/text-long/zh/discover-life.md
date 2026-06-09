@@ -11,7 +11,6 @@
 
 ### 重复活动
 
-- Discover Life：2026 年 6 月 05 日 18:00
 - Discover Life：2026 年 6 月 12 日 18:00
 - Discover Life：2026 年 6 月 19 日 18:00
 - Discover Life：2026 年 6 月 26 日 18:00

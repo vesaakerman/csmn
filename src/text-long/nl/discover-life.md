@@ -11,7 +11,6 @@ We eten samen tijdens een Chinese maaltijd, hebben veel plezier, zingen en stude
 
 ### Herhaling
 
-- Discover Life: 05 juni 2026, 18:00
 - Discover Life: 12 juni 2026, 18:00
 - Discover Life: 19 juni 2026, 18:00
 - Discover Life: 26 juni 2026, 18:00

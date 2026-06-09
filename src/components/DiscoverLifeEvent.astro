@@ -1,11 +1,16 @@
 ---
 import EventSignup from "./EventSignup.astro";
-import { formatDiscoverLifeDate, getDiscoverLifeDates, getDiscoverLifePageCopy } from "../data/discoverLife";
+import {
+  formatDiscoverLifeDate,
+  getDefaultDiscoverLifeEvent,
+  getDiscoverLifeDates,
+  getDiscoverLifePageCopy,
+} from "../data/discoverLife";
 
 const { lang = "en" } = Astro.props;
 const copy = getDiscoverLifePageCopy(lang);
 const eventDates = getDiscoverLifeDates(lang);
-const defaultEvent = eventDates[0];
+const defaultEvent = getDefaultDiscoverLifeEvent(lang);
 const defaultFromText = formatDiscoverLifeDate(copy.fromTemplate, defaultEvent);
 ---
 
@@ -55,11 +60,18 @@ const defaultFromText = formatDiscoverLifeDate(copy.fromTemplate, defaultEvent);
 <script is:inline>
   document.querySelectorAll("[data-discover-event-page]").forEach((root) => {
     const eventDates = JSON.parse(root.getAttribute("data-event-dates") || "[]");
-    const fromTemplate = root.getAttribute("data-from-template") || "From {date} {time} until 22:00";
+    const fromTemplate = root.getAttribute("data-from-template") || "{date} from {time} until 22:00";
     const fromNode = root.querySelector("[data-event-from]");
     const params = new URLSearchParams(window.location.search);
     const date = params.get("date");
-    const event = eventDates.find((item) => item.date === date) || eventDates[0];
+    const now = new Date();
+    const today = [
+      now.getFullYear(),
+      String(now.getMonth() + 1).padStart(2, "0"),
+      String(now.getDate()).padStart(2, "0"),
+    ].join("-");
+    const upcomingEvent = eventDates.find((item) => item.date >= today) || eventDates[0];
+    const event = eventDates.find((item) => item.date === date) || upcomingEvent;
 
     if (event && fromNode) {
       fromNode.textContent = fromTemplate.replace("{date}", event.label).replace("{time}", event.time);

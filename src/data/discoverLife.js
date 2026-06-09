@@ -19,6 +19,18 @@ export const discoverLifeDates = {
   ],
 };
 
+export function getUpcomingDiscoverLifeDates(lang, referenceDate = new Date()) {
+  const today = toDateKey(referenceDate);
+  const dates = getDiscoverLifeDates(lang);
+  const upcoming = dates.filter((event) => event.date >= today);
+
+  return upcoming.length ? upcoming : dates;
+}
+
+export function getDefaultDiscoverLifeEvent(lang, referenceDate = new Date()) {
+  return getUpcomingDiscoverLifeDates(lang, referenceDate)[0];
+}
+
 export const discoverLifeSignupCopy = {
   en: {
     button: "Join",
@@ -70,7 +82,7 @@ export const discoverLifeSignupCopy = {
 export const discoverLifePageCopy = {
   en: {
     title: "Discover Life!",
-    fromTemplate: "From {date} {time} until 22:00",
+    fromTemplate: "{date} from {time} until 22:00",
     at: "At",
     location: "CSMN Home",
     contact: "bert@csmn.nl",
@@ -90,7 +102,7 @@ export const discoverLifePageCopy = {
   },
   nl: {
     title: "Discover Life!",
-    fromTemplate: "Van {date} {time} tot 22:00",
+    fromTemplate: "{date} van {time} tot 22:00",
     at: "Locatie",
     location: "CSMN Home",
     contact: "bert@csmn.nl",
@@ -114,4 +126,13 @@ export function getDiscoverLifePageCopy(lang) {
 
 export function formatDiscoverLifeDate(template, event) {
   return template.replace("{date}", event.label).replace("{time}", event.time);
+}
+
+function toDateKey(date) {
+  const value = date instanceof Date ? date : new Date(date);
+  return [
+    value.getFullYear(),
+    String(value.getMonth() + 1).padStart(2, "0"),
+    String(value.getDate()).padStart(2, "0"),
+  ].join("-");
 }

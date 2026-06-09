@@ -1,5 +1,10 @@
 ---
-import { formatDiscoverLifeDate, getDiscoverLifeDates, getDiscoverLifeSignupCopy } from "../data/discoverLife";
+import {
+  formatDiscoverLifeDate,
+  getDefaultDiscoverLifeEvent,
+  getDiscoverLifeDates,
+  getDiscoverLifeSignupCopy,
+} from "../data/discoverLife";
 
 const { lang = "en" } = Astro.props;
 
@@ -7,7 +12,7 @@ const t = getDiscoverLifeSignupCopy(lang);
 const modalId = `event-signup-${lang}`;
 const formName = "discover-life-signup";
 const eventDates = getDiscoverLifeDates(lang);
-const defaultEvent = eventDates[0];
+const defaultEvent = getDefaultDiscoverLifeEvent(lang);
 const defaultRegistrationText = formatDiscoverLifeDate(t.registrationTemplate, defaultEvent);
 ---
 
@@ -120,7 +125,14 @@ const defaultRegistrationText = formatDiscoverLifeDate(t.registrationTemplate, d
     const selectedEvent = () => {
       const params = new URLSearchParams(window.location.search);
       const date = params.get("date");
-      return eventDates.find((item) => item.date === date) || eventDates[0];
+      const now = new Date();
+      const today = [
+        now.getFullYear(),
+        String(now.getMonth() + 1).padStart(2, "0"),
+        String(now.getDate()).padStart(2, "0"),
+      ].join("-");
+      const upcomingEvent = eventDates.find((item) => item.date >= today) || eventDates[0];
+      return eventDates.find((item) => item.date === date) || upcomingEvent;
     };
 
     const applyEvent = () => {

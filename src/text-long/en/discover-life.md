@@ -11,7 +11,6 @@ We spend time together during a (Chinese) dinner, have a lot of fun, sing, and s
 
 ### Event repeats
 
-- Discover Life: 05 June 2026, 18:00
 - Discover Life: 12 June 2026, 18:00
 - Discover Life: 19 June 2026, 18:00
 - Discover Life: 26 June 2026, 18:00
