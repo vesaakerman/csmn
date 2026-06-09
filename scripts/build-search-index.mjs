@@ -98,50 +98,6 @@ function normalizeVideoCollection(value) {
   return aliases[clean] || clean;
 }
 
-function logSanityBuildDiagnostic({ projectId, dataset, hasSanityConfig, token, useCdn }) {
-  console.info(
-    [
-      "Sanity build diagnostic:",
-      `projectId=${projectId || "(missing)"}`,
-      `dataset=${dataset}`,
-      `configured=${hasSanityConfig ? "yes" : "no"}`,
-      `token=${token ? `present (${token.length} chars)` : "missing"}`,
-      `useCdn=${useCdn ? "true" : "false"}`,
-    ].join(" "),
-  );
-}
-
-async function logSanityContentDiagnostic(client) {
-  const result = await client.fetch(`{
-    "allDocuments": count(*[]),
-    "videoDocuments": count(*[_type == "video"]),
-    "videoDocumentsWithSlug": count(*[_type == "video" && defined(slug.current)]),
-    "publishedVideos": count(*[_type == "video" && !(_id in path("drafts.**"))]),
-    "draftVideos": count(*[_type == "video" && _id in path("drafts.**")]),
-    "firstVideo": *[_type == "video"][0]{
-      _id,
-      "slug": slug.current
-    }
-  }`);
-
-  console.info(
-    [
-      "Sanity build diagnostic counts:",
-      `all=${result.allDocuments}`,
-      `video=${result.videoDocuments}`,
-      `withSlug=${result.videoDocumentsWithSlug}`,
-      `published=${result.publishedVideos}`,
-      `drafts=${result.draftVideos}`,
-    ].join(" "),
-  );
-
-  if (result.firstVideo?._id) {
-    console.info(
-      `Sanity build diagnostic first video: id=${result.firstVideo._id} slug=${result.firstVideo.slug || "(missing)"}`,
-    );
-  }
-}
-
 function buildPageEntries() {
   const entries = [];
 
@@ -196,8 +152,6 @@ async function getCatalogItems() {
   const hasSanityConfig =
     projectId && projectId !== "placeholder" && projectId !== "yourprojectid";
 
-  logSanityBuildDiagnostic({ projectId, dataset, hasSanityConfig, token, useCdn });
-
   if (!hasSanityConfig) return sampleCatalog;
 
   try {
@@ -209,16 +163,10 @@ async function getCatalogItems() {
       token,
     });
 
-    await logSanityContentDiagnostic(client);
-
-    const items = await client.fetch(catalogQuery);
-    const videoCount = items.filter((item) => item._type === "video").length;
-    console.info(`Sanity build diagnostic: fetched ${videoCount} video document(s).`);
-
-    return items;
+    return await client.fetch(catalogQuery);
   } catch (error) {
     console.warn(
-      `Sanity build diagnostic: fetch failed (${error.statusCode || error.status || "no status"}). ${error.message}`,
+      `Could not fetch Sanity content for search index (${error.statusCode || error.status || "no status"}). ${error.message}`,
     );
     return [];
   }

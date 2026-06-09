@@ -1,11 +1,10 @@
 import { sampleCatalog } from "../data/sampleCatalog";
 import { catalogQuery } from "../sanity/queries";
-import { hasSanityConfig, sanityClient, sanityDataset, sanityProjectId } from "./sanity";
+import { hasSanityConfig, sanityClient } from "./sanity";
 
 export const catalogKinds = ["video"];
 
 let rawCatalogItemsPromise;
-let hasLoggedSanityDiagnostic = false;
 
 export function localized(value, lang) {
   if (!value) return "";
@@ -91,69 +90,15 @@ export async function getRawCatalogItems() {
 }
 
 async function loadRawCatalogItems() {
-  const token = import.meta.env.SANITY_API_TOKEN;
-  const useCdn = import.meta.env.PUBLIC_SANITY_USE_CDN === "true";
-
-  if (!hasLoggedSanityDiagnostic) {
-    console.info(
-      [
-        "Sanity Astro diagnostic:",
-        `projectId=${sanityProjectId || "(missing)"}`,
-        `dataset=${sanityDataset}`,
-        `configured=${hasSanityConfig ? "yes" : "no"}`,
-        `token=${token ? `present (${token.length} chars)` : "missing"}`,
-        `useCdn=${useCdn ? "true" : "false"}`,
-      ].join(" "),
-    );
-    hasLoggedSanityDiagnostic = true;
-  }
-
   if (!hasSanityConfig) return sampleCatalog;
 
   try {
-    await logSanityContentDiagnostic();
-
-    const items = await sanityClient.fetch(catalogQuery);
-    const videoCount = items.filter((item) => item._type === "video").length;
-    console.info(`Sanity Astro diagnostic: fetched ${videoCount} video document(s).`);
-
-    return items;
+    return await sanityClient.fetch(catalogQuery);
   } catch (error) {
     console.warn(
-      `Sanity Astro diagnostic: fetch failed (${error.statusCode || error.status || "no status"}). ${error.message}`,
+      `Failed to load Sanity catalog (${error.statusCode || error.status || "no status"}). ${error.message}`,
     );
     return [];
-  }
-}
-
-async function logSanityContentDiagnostic() {
-  const result = await sanityClient.fetch(`{
-    "allDocuments": count(*[]),
-    "videoDocuments": count(*[_type == "video"]),
-    "videoDocumentsWithSlug": count(*[_type == "video" && defined(slug.current)]),
-    "publishedVideos": count(*[_type == "video" && !(_id in path("drafts.**"))]),
-    "draftVideos": count(*[_type == "video" && _id in path("drafts.**")]),
-    "firstVideo": *[_type == "video"][0]{
-      _id,
-      "slug": slug.current
-    }
-  }`);
-
-  console.info(
-    [
-      "Sanity Astro diagnostic counts:",
-      `all=${result.allDocuments}`,
-      `video=${result.videoDocuments}`,
-      `withSlug=${result.videoDocumentsWithSlug}`,
-      `published=${result.publishedVideos}`,
-      `drafts=${result.draftVideos}`,
-    ].join(" "),
-  );
-
-  if (result.firstVideo?._id) {
-    console.info(
-      `Sanity Astro diagnostic first video: id=${result.firstVideo._id} slug=${result.firstVideo.slug || "(missing)"}`,
-    );
   }
 }
 
