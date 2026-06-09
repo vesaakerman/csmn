@@ -79,25 +79,6 @@ export const video = defineType({
       type: "datetime",
     }),
     submittedByField(),
-    defineField({ name: "featured", title: "Legacy featured", type: "boolean", hidden: true }),
-    defineField({ name: "language", title: "Legacy language", type: "string", hidden: true }),
-    defineField({ name: "provider", title: "Legacy provider", type: "string", hidden: true }),
-    defineField({ name: "category", title: "Legacy category", type: "string", hidden: true }),
-    defineField({ name: "speaker", title: "Legacy speaker", type: "string", hidden: true }),
-    defineField({
-      name: "languages",
-      title: "Legacy languages",
-      type: "array",
-      of: [{ type: "string" }],
-      hidden: true,
-    }),
-    defineField({
-      name: "themes",
-      title: "Legacy themes",
-      type: "array",
-      of: [{ type: "string" }],
-      hidden: true,
-    }),
   ],
   preview: {
     select: {

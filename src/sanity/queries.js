@@ -11,7 +11,6 @@ export const catalogQuery = `*[
   description,
   videoUrl,
   collection,
-  category,
   tags,
   searchTerms,
   publishedAt,
