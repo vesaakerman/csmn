@@ -13,7 +13,7 @@ body {
   color: $ink;
   background: linear-gradient(90deg, $blue-l 0, $white 12%, $white 88%, $blue-l 100%);
   font-family: "Lato", "Inter", "Segoe UI", Arial, sans-serif;
-  font-size: 1.05rem;
+  font-size: 1rem;
   line-height: 1.55;
   letter-spacing: 0;
 }
@@ -180,6 +180,7 @@ h3 {
   padding: 0 0.35rem;
   border-radius: 8px;
   color: $gray-m;
+  text-decoration: none;
 }
 
 .language-switcher a.active {
@@ -1025,11 +1026,12 @@ body.modal-open {
 
 .video-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(18rem, 100%), 1fr));
   gap: 1.2rem;
 }
 
 .media-card {
+  min-width: 0;
   overflow: hidden;
   background: $white;
   border-radius: 8px;
@@ -1088,16 +1090,15 @@ body.modal-open {
 .media-card h2 a {
   color: $navy-d;
   text-decoration: none;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .media-card p {
   margin: 0;
   color: $gray-m;
-}
-
-.item-kicker {
-  color: $gold-m !important;
-  font-weight: 800;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .pill-row {
@@ -1108,6 +1109,7 @@ body.modal-open {
 
 .meta-pill {
   display: inline-flex;
+  max-width: 100%;
   min-height: 1.8rem;
   align-items: center;
   justify-content: center;
@@ -1115,6 +1117,8 @@ body.modal-open {
   border-radius: 8px;
   font-size: 0.85rem;
   font-weight: 800;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .meta-pill-blue {
@@ -1223,10 +1227,24 @@ body.modal-open {
   gap: 2rem;
 }
 
+.detail-grid > * {
+  min-width: 0;
+}
+
+.detail-copy {
+  padding: 1.2rem;
+  background: $gray-l;
+  border-radius: 8px;
+}
+
 .detail-lead {
+  margin: 0;
   color: $gray-m;
-  font-size: 1.25rem;
+  font-size: 1rem;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
   white-space: pre-line;
+  word-break: break-word;
 }
 
 .detail-meta {
@@ -1249,6 +1267,8 @@ body.modal-open {
 
 .detail-meta span {
   color: $gray-m;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .tag-list {

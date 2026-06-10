@@ -112,7 +112,6 @@ export default function CatalogBrowser({ items, labels }) {
                 <span className="play-dot"></span>
               </a>
               <div className="media-card-body">
-                <p className="item-kicker">{item.collectionLabel || labels.videoType}</p>
                 <h2>
                   <a href={item.href}>{item.title}</a>
                 </h2>
