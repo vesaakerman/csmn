@@ -20,18 +20,10 @@ const t = getUi(lang);
     <a class="back-link" href={`/${lang}/videos`}>{t.media.backToVideos}</a>
     <h1>{item.title}</h1>
     <VideoEmbed url={item.videoUrl} title={item.title} />
-    <div class="detail-grid">
-      {item.displayDescription && (
-        <div class="detail-copy">
-          <p class="detail-lead">{item.displayDescription}</p>
-        </div>
-      )}
-      {(item.tags.length || item.submittedBy) && (
-        <aside class="detail-meta">
-          {!!item.tags.length && <p><strong>{t.media.tags}</strong><span>{item.tags.join(", ")}</span></p>}
-          {item.submittedBy && <p><strong>{t.media.submittedBy}</strong><span>{item.submittedBy}</span></p>}
-        </aside>
-      )}
-    </div>
+    {item.displayDescription && (
+      <div class="detail-copy">
+        <p class="detail-lead">{item.displayDescription}</p>
+      </div>
+    )}
   </article>
 </BaseLayout>

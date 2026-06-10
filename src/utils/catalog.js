@@ -7,6 +7,14 @@ export const catalogKinds = ["video"];
 
 let rawCatalogItemsPromise;
 
+function shouldUseLocalSampleCatalog() {
+  return import.meta.env.DEV;
+}
+
+function hasVideoItems(items) {
+  return Array.isArray(items) && items.some((item) => item?._type === "video");
+}
+
 export function localized(value, lang) {
   if (!value) return "";
   if (typeof value === "string") return value;
@@ -94,15 +102,17 @@ export async function getRawCatalogItems() {
 }
 
 async function loadRawCatalogItems() {
-  if (!hasSanityConfig) return sampleCatalog;
+  if (!hasSanityConfig) return shouldUseLocalSampleCatalog() ? sampleCatalog : [];
 
   try {
-    return await sanityClient.fetch(catalogQuery);
+    const items = await sanityClient.fetch(catalogQuery);
+    if (shouldUseLocalSampleCatalog() && !hasVideoItems(items)) return sampleCatalog;
+    return items;
   } catch (error) {
     console.warn(
       `Failed to load Sanity catalog (${error.statusCode || error.status || "no status"}). ${error.message}`,
     );
-    return [];
+    return shouldUseLocalSampleCatalog() ? sampleCatalog : [];
   }
 }
 
