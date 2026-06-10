@@ -52,14 +52,6 @@ export default function CatalogBrowser({ items, labels }) {
     });
   }, [collection, fuse, items, query, tag]);
 
-  const hasSelection = Boolean(query || collection || tag);
-
-  function resetFilters() {
-    setQuery("");
-    setCollection("");
-    setTag("");
-  }
-
   return (
     <div className="catalog-browser">
       <div className="catalog-controls">
@@ -89,12 +81,6 @@ export default function CatalogBrowser({ items, labels }) {
           options={options.tags.map((option) => ({ value: option, label: option }))}
           disabled={!options.hasTagSplit}
         />
-      </div>
-
-      <div className="catalog-filter-row">
-        <button className="catalog-reset" type="button" onClick={resetFilters} disabled={!hasSelection}>
-          {labels.resetFilters}
-        </button>
       </div>
 
       <p className="catalog-result-count">

@@ -990,17 +990,8 @@ body.modal-open {
   margin-bottom: 0.8rem;
 }
 
-.catalog-filter-row {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
-  align-items: stretch;
-  gap: 0.8rem;
-  margin-bottom: 0.85rem;
-}
-
 .catalog-controls input,
 .catalog-controls select,
-.catalog-filter-row select,
 .search-controls-large input {
   width: 100%;
   min-height: 3.5rem;
@@ -1012,28 +1003,11 @@ body.modal-open {
   font-size: 1rem;
 }
 
-.catalog-controls select:disabled,
-.catalog-filter-row select:disabled {
+.catalog-controls select:disabled {
   color: $gray-m;
   background: $gray-l;
   cursor: not-allowed;
   opacity: 0.72;
-}
-
-.catalog-reset {
-  min-height: 3.5rem;
-  padding: 0 1.2rem;
-  border: 1px solid rgba($navy-m, 0.2);
-  border-radius: 8px;
-  background: $blue-l;
-  color: $navy-d;
-  font-weight: 800;
-  white-space: nowrap;
-}
-
-.catalog-reset:disabled {
-  cursor: default;
-  opacity: 0.52;
 }
 
 .catalog-result-count {
