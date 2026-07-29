@@ -40,3 +40,21 @@ export const chineseRecipesQuery = `*[
   "fileName": file.asset->originalFilename,
   "fileSize": file.asset->size
 }`;
+
+export const topicalStudiesQuery = `*[
+  _type == "topicalStudy" &&
+  defined(title) &&
+  defined(date) &&
+  defined(file.asset) &&
+  !(_id in path("drafts.**"))
+] | order(date desc, title asc) {
+  _id,
+  _type,
+  title,
+  slug,
+  date,
+  "fileUrl": file.asset->url,
+  "fileName": file.asset->originalFilename,
+  "fileSize": file.asset->size,
+  "mimeType": file.asset->mimeType
+}`;

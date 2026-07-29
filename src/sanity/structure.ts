@@ -34,6 +34,18 @@ export const structure: StructureResolver = (S, context) => {
             .defaultOrdering([{ field: "title", direction: "asc" }]),
         ),
       S.divider(),
+      S.listItem()
+        .title("Topical studies")
+        .schemaType("topicalStudy")
+        .child(
+          S.documentTypeList("topicalStudy")
+            .title("Topical studies")
+            .defaultOrdering([
+              { field: "date", direction: "desc" },
+              { field: "title", direction: "asc" },
+            ]),
+        ),
+      S.divider(),
       S.documentTypeListItem("video").title("Videos"),
     ]);
 };

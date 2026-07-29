@@ -2,12 +2,12 @@
 import { getTopicalStudyFiles } from "../data/topicalStudyFiles";
 
 const { lang = "en" } = Astro.props;
-const files = getTopicalStudyFiles(lang);
+const files = await getTopicalStudyFiles();
 
 const labels = {
-  en: { popular: "Popular", download: "Download" },
-  zh: { popular: "热门", download: "下载" },
-  nl: { popular: "Populair", download: "Download" },
+  en: { download: "Download", empty: "No topical studies have been added yet." },
+  zh: { download: "下载", empty: "目前还没有添加主题学习材料。" },
+  nl: { download: "Download", empty: "Er zijn nog geen topical studies toegevoegd." },
 };
 
 const t = labels[lang] || labels.en;
@@ -16,7 +16,7 @@ const t = labels[lang] || labels.en;
 <div class="resource-table-wrap">
   <table class="resource-table resource-download-table">
     <tbody>
-      {
+      {files.length ? (
         files.map((item) => (
           <tr>
             <td>
@@ -24,9 +24,8 @@ const t = labels[lang] || labels.en;
                 <span class="resource-file-name">{item.title}</span>
               </a>
               <span class="resource-badges">
-                <span>{t.popular}</span>
                 {item.version && <span>{item.version}</span>}
-                <span>{item.size}</span>
+                {item.size && <span>{item.size}</span>}
               </span>
             </td>
             <td>{item.date}</td>
@@ -40,7 +39,11 @@ const t = labels[lang] || labels.en;
             </td>
           </tr>
         ))
-      }
+      ) : (
+        <tr>
+          <td colspan="3">{t.empty}</td>
+        </tr>
+      )}
     </tbody>
   </table>
 </div>
