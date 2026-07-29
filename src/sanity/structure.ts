@@ -1,21 +1,9 @@
 import type { StructureResolver } from "sanity/structure";
 
-export const structure: StructureResolver = (S, context) => {
-  const userId = context.currentUser?.id || "";
-
+export const structure: StructureResolver = (S) => {
   return S.list()
     .title("CSMN content")
     .items([
-      S.listItem()
-        .title("My videos")
-        .schemaType("video")
-        .child(
-          S.documentTypeList("video")
-            .title("My videos")
-            .filter('_type == "video" && submittedBy.userId == $userId')
-            .params({ userId }),
-        ),
-      S.divider(),
       S.listItem()
         .title("Discover Life evenings")
         .schemaType("discoverLifeDate")
