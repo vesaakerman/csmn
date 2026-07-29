@@ -17,3 +17,11 @@ export const catalogQuery = `*[
   submittedBy,
   "thumbnailUrl": thumbnail.asset->url
 }`;
+
+export const discoverLifeDatesQuery = `*[
+  _type == "discoverLifeDate" &&
+  defined(date) &&
+  !(_id in path("drafts.**"))
+] | order(date asc) {
+  date
+}`;

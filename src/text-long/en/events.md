@@ -16,9 +16,3 @@ A moment away with a thought-provoking movie.
 Warm up with a cozy, social Hot Pot experience, perfect for the season.
 
 Living in or around Nijmegen? Check our group in [Nijmegen](/en/about/nijmegen).
-
-### Upcoming Discover Life evenings
-
-- [Discover Life](/en/discover-life/?date=2026-06-12): 12 June 2026, 18:00
-- [Discover Life](/en/discover-life/?date=2026-06-19): 19 June 2026, 18:00
-- [Discover Life](/en/discover-life/?date=2026-06-26): 26 June 2026, 18:00

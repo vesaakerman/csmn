@@ -9,8 +9,4 @@ Ons wekelijkse event!
 
 We eten samen tijdens een Chinese maaltijd, hebben veel plezier, zingen en studeren. Bekijk meer op onze website of meld je aan met de knop hierboven.
 
-### Herhaling
-
-- Discover Life: 12 juni 2026, 18:00
-- Discover Life: 19 juni 2026, 18:00
-- Discover Life: 26 juni 2026, 18:00
+Komende avonden verschijnen op de eventpagina en op deze pagina zodra er data beschikbaar zijn.

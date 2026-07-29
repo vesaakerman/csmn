@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import DiscoverLifeDatesList from "../../components/DiscoverLifeDatesList.astro";
 import DiscoverLifeEvent from "../../components/DiscoverLifeEvent.astro";
 import MarkdownPanel from "../../components/MarkdownPanel.astro";
 import PageHero from "../../components/PageHero.astro";
@@ -35,6 +36,7 @@ const heroImage = pageHeroImages[page] || "/images/hands-together.webp";
       <PageHero image={heroImage} />
       <div class="container page-body">
         <MarkdownPanel Content={Content} />
+        {page === "events" && <DiscoverLifeDatesList lang={lang} />}
       </div>
     </>
   )}

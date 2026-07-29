@@ -16,6 +16,15 @@ export const structure: StructureResolver = (S, context) => {
             .params({ userId }),
         ),
       S.divider(),
+      S.listItem()
+        .title("Discover Life evenings")
+        .schemaType("discoverLifeDate")
+        .child(
+          S.documentTypeList("discoverLifeDate")
+            .title("Discover Life evenings")
+            .defaultOrdering([{ field: "date", direction: "asc" }]),
+        ),
+      S.divider(),
       S.documentTypeListItem("video").title("Videos"),
     ]);
 };

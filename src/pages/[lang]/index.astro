@@ -14,7 +14,7 @@ export async function getStaticPaths() {
 const lang = Astro.params.lang;
 const t = getUi(lang);
 const supportingImage = "/images/hands-together.webp";
-const discoverLifeEvents = getUpcomingDiscoverLifeDates(lang);
+const discoverLifeEvents = await getUpcomingDiscoverLifeDates(lang);
 ---
 
 <BaseLayout lang={lang} pageTitle={t.pages.home} page="home">

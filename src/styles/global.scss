@@ -289,6 +289,12 @@ h3 {
   background: $green-m;
 }
 
+.btn-main:disabled,
+.btn-small:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
 .home-section,
 .catalog-section {
   padding: 4rem 0;

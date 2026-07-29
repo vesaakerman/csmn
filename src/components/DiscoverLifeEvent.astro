@@ -9,8 +9,8 @@ import {
 
 const { lang = "en" } = Astro.props;
 const copy = getDiscoverLifePageCopy(lang);
-const eventDates = getDiscoverLifeDates(lang);
-const defaultEvent = getDefaultDiscoverLifeEvent(lang);
+const eventDates = await getDiscoverLifeDates(lang);
+const defaultEvent = await getDefaultDiscoverLifeEvent(lang);
 const defaultFromText = formatDiscoverLifeDate(copy.fromTemplate, defaultEvent);
 ---
 
@@ -19,6 +19,7 @@ const defaultFromText = formatDiscoverLifeDate(copy.fromTemplate, defaultEvent);
   data-discover-event-page
   data-event-dates={JSON.stringify(eventDates)}
   data-from-template={copy.fromTemplate}
+  data-no-dates={copy.noDates}
 >
   <h1>{copy.title}</h1>
 
@@ -29,7 +30,7 @@ const defaultFromText = formatDiscoverLifeDate(copy.fromTemplate, defaultEvent);
       <span class="event-meta-icon" aria-hidden="true">
         <svg viewBox="0 0 24 24"><path d="M7 2v3M17 2v3M4 9h16M5 5h14a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Z"/></svg>
       </span>
-      <span data-event-from>{defaultFromText}</span>
+      <span data-event-from>{defaultFromText || copy.noDates}</span>
     </p>
     <p>
       <span class="event-meta-icon" aria-hidden="true">
@@ -70,11 +71,13 @@ const defaultFromText = formatDiscoverLifeDate(copy.fromTemplate, defaultEvent);
       String(now.getMonth() + 1).padStart(2, "0"),
       String(now.getDate()).padStart(2, "0"),
     ].join("-");
-    const upcomingEvent = eventDates.find((item) => item.date >= today) || eventDates[0];
+    const upcomingEvent = eventDates.find((item) => item.date >= today);
     const event = eventDates.find((item) => item.date === date) || upcomingEvent;
 
     if (event && fromNode) {
       fromNode.textContent = fromTemplate.replace("{date}", event.label).replace("{time}", event.time);
+    } else if (fromNode) {
+      fromNode.textContent = root.getAttribute("data-no-dates") || "";
     }
   });
 </script>

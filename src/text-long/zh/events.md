@@ -16,9 +16,3 @@
 在温暖、轻松的火锅氛围中相聚，很适合这个季节。
 
 住在 Nijmegen 或附近吗？也可以看看我们的 [Nijmegen 小组](/zh/about/nijmegen)。
-
-### 即将举行的 Discover Life
-
-- [Discover Life](/zh/discover-life/?date=2026-06-12)：2026 年 6 月 12 日 18:00
-- [Discover Life](/zh/discover-life/?date=2026-06-19)：2026 年 6 月 19 日 18:00
-- [Discover Life](/zh/discover-life/?date=2026-06-26)：2026 年 6 月 26 日 18:00

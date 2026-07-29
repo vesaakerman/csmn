@@ -11,9 +11,10 @@ const { lang = "en" } = Astro.props;
 const t = getDiscoverLifeSignupCopy(lang);
 const modalId = `event-signup-${lang}`;
 const formName = "discover-life-signup";
-const eventDates = getDiscoverLifeDates(lang);
-const defaultEvent = getDefaultDiscoverLifeEvent(lang);
+const eventDates = await getDiscoverLifeDates(lang);
+const defaultEvent = await getDefaultDiscoverLifeEvent(lang);
 const defaultRegistrationText = formatDiscoverLifeDate(t.registrationTemplate, defaultEvent);
+const hasEventDates = eventDates.length > 0;
 ---
 
 <section
@@ -23,8 +24,9 @@ const defaultRegistrationText = formatDiscoverLifeDate(t.registrationTemplate, d
   data-error={t.error}
   data-event-dates={JSON.stringify(eventDates)}
   data-registration-template={t.registrationTemplate}
+  data-no-dates={t.noDates}
 >
-  <button class="btn-main btn-gold" type="button" data-open-signup aria-haspopup="dialog" aria-controls={modalId}>
+  <button class="btn-main btn-gold" type="button" data-open-signup aria-haspopup="dialog" aria-controls={modalId} disabled={!hasEventDates}>
     <span aria-hidden="true">✓</span>
     <span>{t.button}</span>
   </button>
@@ -34,7 +36,7 @@ const defaultRegistrationText = formatDiscoverLifeDate(t.registrationTemplate, d
     <div class="signup-panel" role="document">
       <button class="signup-close" type="button" data-close-signup aria-label={t.close}>×</button>
       <h2 id={`${modalId}-title`}>{t.title}</h2>
-      <p class="signup-event-summary" data-event-summary>{defaultRegistrationText}</p>
+      <p class="signup-event-summary" data-event-summary>{defaultRegistrationText || t.noDates}</p>
 
       <form
         name={formName}
@@ -46,7 +48,7 @@ const defaultRegistrationText = formatDiscoverLifeDate(t.registrationTemplate, d
       >
         <input type="hidden" name="form-name" value={formName} />
         <input type="hidden" name="event" value="Discover Life" />
-        <input type="hidden" name="eventDate" value={defaultEvent.date} data-event-date-input />
+        <input type="hidden" name="eventDate" value={defaultEvent?.date || ""} data-event-date-input />
         <input type="hidden" name="phone" data-phone-submit />
         <p class="visually-hidden">
           <label>Do not fill this in: <input name="bot-field" /></label>
@@ -118,6 +120,7 @@ const defaultRegistrationText = formatDiscoverLifeDate(t.registrationTemplate, d
     const phoneSubmit = root.querySelector("[data-phone-submit]");
     const eventDates = JSON.parse(root.getAttribute("data-event-dates") || "[]");
     const registrationTemplate = root.getAttribute("data-registration-template") || "Register for Discover Life! on {date} starting at {time}.";
+    const noDatesText = root.getAttribute("data-no-dates") || "No Discover Life dates have been announced yet.";
     let previousFocus = null;
 
     const selectedEvent = () => {
@@ -129,13 +132,19 @@ const defaultRegistrationText = formatDiscoverLifeDate(t.registrationTemplate, d
         String(now.getMonth() + 1).padStart(2, "0"),
         String(now.getDate()).padStart(2, "0"),
       ].join("-");
-      const upcomingEvent = eventDates.find((item) => item.date >= today) || eventDates[0];
+      const upcomingEvent = eventDates.find((item) => item.date >= today);
       return eventDates.find((item) => item.date === date) || upcomingEvent;
     };
 
     const applyEvent = () => {
       const event = selectedEvent();
-      if (!event) return;
+      if (!event) {
+        if (openButton) openButton.disabled = true;
+        summary.textContent = noDatesText;
+        dateInput.value = "";
+        return;
+      }
+      if (openButton) openButton.disabled = false;
       summary.textContent = registrationTemplate.replace("{date}", event.label).replace("{time}", event.time);
       dateInput.value = event.date;
     };

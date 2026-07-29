@@ -9,8 +9,4 @@ Our weekly event!
 
 We spend time together during a (Chinese) dinner, have a lot of fun, sing, and study. Check out more on our website or register using the Join button.
 
-### Event repeats
-
-- Discover Life: 12 June 2026, 18:00
-- Discover Life: 19 June 2026, 18:00
-- Discover Life: 26 June 2026, 18:00
+Upcoming evenings are listed on the events page and on this page when dates are available.

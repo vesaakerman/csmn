@@ -1,0 +1,28 @@
+---
+import { getDiscoverLifePageCopy, getUpcomingDiscoverLifeDates } from "../data/discoverLife";
+
+const { lang = "en" } = Astro.props;
+const copy = getDiscoverLifePageCopy(lang);
+const events = await getUpcomingDiscoverLifeDates(lang);
+const supportingImage = "/images/hands-together.webp";
+---
+
+<section class="content-panel discover-life-dates-panel">
+  <h2>{copy.upcomingTitle}</h2>
+
+  {events.length ? (
+    <div class="event-list compact-list">
+      {events.map((event) => (
+        <a href={`/${lang}/discover-life/?date=${event.date}`}>
+          <img src={supportingImage} alt="" />
+          <span>
+            <strong>Discover Life</strong>
+            <small>{event.label} {event.time}</small>
+          </span>
+        </a>
+      ))}
+    </div>
+  ) : (
+    <p class="empty-state">{copy.noDates}</p>
+  )}
+</section>
