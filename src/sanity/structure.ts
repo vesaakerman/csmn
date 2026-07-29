@@ -25,6 +25,15 @@ export const structure: StructureResolver = (S, context) => {
             .defaultOrdering([{ field: "date", direction: "asc" }]),
         ),
       S.divider(),
+      S.listItem()
+        .title("Chinese recipes")
+        .schemaType("chineseRecipe")
+        .child(
+          S.documentTypeList("chineseRecipe")
+            .title("Chinese recipes")
+            .defaultOrdering([{ field: "title", direction: "asc" }]),
+        ),
+      S.divider(),
       S.documentTypeListItem("video").title("Videos"),
     ]);
 };

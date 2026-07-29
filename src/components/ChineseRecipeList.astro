@@ -1,19 +1,30 @@
 ---
 import { getChineseRecipes } from "../data/chineseRecipes";
 
-const recipes = getChineseRecipes();
+const { lang = "en" } = Astro.props;
+const recipes = await getChineseRecipes();
+const emptyText =
+  {
+    en: "No recipes have been added yet.",
+    zh: "目前还没有添加菜谱。",
+    nl: "Er zijn nog geen recepten toegevoegd.",
+  }[lang] || "No recipes have been added yet.";
 ---
 
 <section class="recipe-browser">
-  <ul class="recipe-list">
-    {
-      recipes.map((recipe) => (
-        <li>
-          <a href={recipe.href} target="_blank" rel="noopener">
-            {recipe.title}
-          </a>
-        </li>
-      ))
-    }
-  </ul>
+  {recipes.length ? (
+    <ul class="recipe-list">
+      {
+        recipes.map((recipe) => (
+          <li>
+            <a href={recipe.href} target="_blank" rel="noopener">
+              {recipe.title}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  ) : (
+    <p class="empty-state">{emptyText}</p>
+  )}
 </section>

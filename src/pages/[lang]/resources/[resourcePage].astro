@@ -45,7 +45,7 @@ const pageTitle = t.pages[resourcePage] || t.pages[pageKey] || t.pages.resources
   <PageHero image="/images/team.webp" />
   <div class="container page-body">
     <MarkdownPanel Content={Content} />
-    {pageKey === "chinese-recipes" && <ChineseRecipeList />}
+    {pageKey === "chinese-recipes" && <ChineseRecipeList lang={lang} />}
     {pageKey === "topical-studies" && <TopicalStudyDownloads lang={lang} />}
   </div>
 </BaseLayout>

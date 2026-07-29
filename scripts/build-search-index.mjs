@@ -2,9 +2,8 @@ import fs from "node:fs";
 import path from "node:path";
 import { createClient } from "@sanity/client";
 import { sampleCatalog } from "../src/data/sampleCatalog.js";
-import { getChineseRecipes } from "../src/data/chineseRecipes.js";
 import { getTopicalStudyFiles } from "../src/data/topicalStudyFiles.js";
-import { catalogQuery } from "../src/sanity/queries.js";
+import { catalogQuery, chineseRecipesQuery } from "../src/sanity/queries.js";
 import { getVideoDescriptionSearchPreview } from "../src/utils/videoDescription.js";
 
 const languages = ["en", "zh", "nl"];
@@ -47,11 +46,9 @@ function pageTitleFromMarkdown(raw, fallback) {
   return heading ? heading.trim() : fallback;
 }
 
-function extraSearchContentForPage(slug, lang) {
+function extraSearchContentForPage(slug, lang, searchContent) {
   if (slug === "resources/chinese-recipes") {
-    return getChineseRecipes()
-      .map((item) => [item.title, item.file].join(" "))
-      .join(" ");
+    return searchContent.recipes;
   }
 
   if (slug !== "resources/topical-studies") return "";
@@ -99,7 +96,7 @@ function normalizeVideoCollection(value) {
   return aliases[clean] || clean;
 }
 
-function buildPageEntries() {
+function buildPageEntries(searchContent) {
   const entries = [];
 
   function collectMarkdownFiles(dir) {
@@ -126,7 +123,7 @@ function buildPageEntries() {
     for (const file of collectMarkdownFiles(dir)) {
       const slug = path.relative(dir, file).replace(/\.md$/, "").split(path.sep).join("/");
       const raw = fs.readFileSync(file, "utf-8");
-      const content = [stripMarkdown(raw), extraSearchContentForPage(slug, lang)]
+      const content = [stripMarkdown(raw), extraSearchContentForPage(slug, lang, searchContent)]
         .filter(Boolean)
         .join(" ");
 
@@ -146,24 +143,11 @@ function buildPageEntries() {
 }
 
 async function getCatalogItems() {
-  const projectId = process.env.PUBLIC_SANITY_PROJECT_ID;
-  const dataset = process.env.PUBLIC_SANITY_DATASET || "production";
-  const token = process.env.SANITY_API_TOKEN;
-  const useCdn = process.env.PUBLIC_SANITY_USE_CDN === "true";
-  const hasSanityConfig =
-    projectId && projectId !== "placeholder" && projectId !== "yourprojectid";
+  const client = getSanityClient();
 
-  if (!hasSanityConfig) return sampleCatalog;
+  if (!client) return sampleCatalog;
 
   try {
-    const client = createClient({
-      projectId,
-      dataset,
-      apiVersion: "2026-05-01",
-      useCdn,
-      token,
-    });
-
     return await client.fetch(catalogQuery);
   } catch (error) {
     console.warn(
@@ -171,6 +155,43 @@ async function getCatalogItems() {
     );
     return [];
   }
+}
+
+async function getRecipeSearchContent() {
+  const client = getSanityClient();
+
+  if (!client) return "";
+
+  try {
+    const recipes = await client.fetch(chineseRecipesQuery);
+    return recipes
+      .map((item) => [item.title, item.fileName].filter(Boolean).join(" "))
+      .join(" ");
+  } catch (error) {
+    console.warn(
+      `Could not fetch Sanity recipes for search index (${error.statusCode || error.status || "no status"}). ${error.message}`,
+    );
+    return "";
+  }
+}
+
+function getSanityClient() {
+  const projectId = process.env.PUBLIC_SANITY_PROJECT_ID;
+  const dataset = process.env.PUBLIC_SANITY_DATASET || "production";
+  const token = process.env.SANITY_API_TOKEN;
+  const useCdn = process.env.PUBLIC_SANITY_USE_CDN === "true";
+  const hasSanityConfig =
+    projectId && projectId !== "placeholder" && projectId !== "yourprojectid";
+
+  if (!hasSanityConfig) return null;
+
+  return createClient({
+    projectId,
+    dataset,
+    apiVersion: "2026-05-01",
+    useCdn,
+    token,
+  });
 }
 
 function buildCatalogEntries(rawItems) {
@@ -215,8 +236,12 @@ function buildCatalogEntries(rawItems) {
 
 loadEnvFile();
 
+const searchContent = {
+  recipes: await getRecipeSearchContent(),
+};
+
 const entries = [
-  ...buildPageEntries(),
+  ...buildPageEntries(searchContent),
   ...buildCatalogEntries(await getCatalogItems()),
 ];
 

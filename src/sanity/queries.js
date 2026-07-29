@@ -25,3 +25,18 @@ export const discoverLifeDatesQuery = `*[
 ] | order(date asc) {
   date
 }`;
+
+export const chineseRecipesQuery = `*[
+  _type == "chineseRecipe" &&
+  defined(title) &&
+  defined(file.asset) &&
+  !(_id in path("drafts.**"))
+] | order(title asc) {
+  _id,
+  _type,
+  title,
+  slug,
+  "fileUrl": file.asset->url,
+  "fileName": file.asset->originalFilename,
+  "fileSize": file.asset->size
+}`;
