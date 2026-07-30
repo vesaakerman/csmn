@@ -23,7 +23,6 @@ export const topicalStudy = defineType({
     defineField({
       name: "title",
       title: "Title",
-      description: "Use the English title. The file content is English.",
       type: "string",
       validation: (Rule) => Rule.required(),
     }),
